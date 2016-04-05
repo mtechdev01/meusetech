@@ -6,16 +6,18 @@
   <div class="">auteur :
     <%= @article.user.username %>
     <p>
-      catégorie : <%= @article.category.description %>
+      catégorie : <%= @article.category.name %>
     </p>
   </div>
 </p>
-<p><a href="/blog/index">Retourner à l’index</a></p>
+<p>
+  <%= link_to "Retourner à l'index" , blogIndex_url %>
+</p>
 
 <h2>Commentaires</h2>
 
 <% if user_signed_in? %>
-  <%= form_for :comment, :url => {:controller => "blog_articles", :action => "comment", :method => 'post'} do |f| %>
+  <%= form_for :comment, :url => {:controller => "articles", :action => "comment", :method => 'post'} do |f| %>
     <input id="comment[blog_article_id]" name="comment[blog_article_id]" type="hidden" value="<%= @article.id %>" />
     <input id="comment[user_id]" name="comment[user_id]" type="hidden" value="<%= current_user.id %>" />
     <%= f.text_area :content %>

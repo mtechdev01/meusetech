@@ -49,3 +49,4 @@ gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise-i18n'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
+gem 'font-awesome-sass'

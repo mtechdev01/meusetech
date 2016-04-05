@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   scope '/projets' do
     get '/', to: 'projects/projects#index', as: 'projectsIndex'
     get '/voir/:id', to: 'projects/projects#show', as: 'projectsShow'
+    get '/creer', to: 'projects/projects#create', as: 'projectsCreateGet'
+    post '/creer', to: 'projects/projects#create', as: 'projectsCreatePost'
     post '/comment', to: 'projects/projects#comment', as: 'projectsComment'
   end
   scope '/blog' do
@@ -20,6 +22,13 @@ Rails.application.routes.draw do
     get '/article/:id', to: 'blogs/articles#show', as: 'blogShow'
     post '/comment', to: 'blogs/articles#comment', as: 'blogComment'
   end
+
+  scope '/sondages' do
+    get '/', to: 'polls/polls#index', as: 'pollIndex'
+    get '/voir/:id', to: 'polls/polls#show', as: 'pollShow'
+  end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
