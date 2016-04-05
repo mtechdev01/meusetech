@@ -1,0 +1,38 @@
+<%= link_to "Voir tout les projets" , projectsIndex_url %>
+<div class="project_show_card">
+  <div class="project_show_card--title">
+    <h1><%= @project.name %></h1>
+  </div>
+  <div class="project_show_card--description">
+    <p>
+      <%= @project.description%>
+    </p>
+  </div>
+  <div class="project_show_card--infos">
+    <div class="project_show_card--infos_created">
+      Projet créé le: <%= time_ago_in_words @project.created_at %> par <%= @project.user.username%>
+    </div>
+  </div>
+</div>
+<h3>Commentaires</h3>
+<% if user_signed_in? %>
+  <%= form_for :comment, :url => {:controller => "projects", :action => "comment", :method => 'post'} do |f| %>
+    <input id="comment[project_id]" name="comment[project_id]" type="hidden" value="<%= @project.id %>" />
+    <input id="comment[user_id]" name="comment[user_id]" type="hidden" value="<%= current_user.id %>" />
+    <%= f.text_area :content %>
+    <%= f.submit :valider %>
+  <% end %>
+<% end %>
+
+<div class="project_comments">
+  <% @comments.each do | comment | %>
+  <div class="project_comments_card">
+    <div class="project_comments_card--user">
+      <%= comment.user.username %>
+    </div>
+    <div class="project_comments_card--message">
+      <%= comment.content %>
+    </div>
+  </div>
+  <% end %>
+</div>

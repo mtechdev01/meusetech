@@ -1,0 +1,20 @@
+<% @projects.each do | project | %>
+  <div class="project_list_card">
+    <div class="project_list_card--title">
+      <h2><%= project.name %></h2>
+    </div>
+    <div class="project_list_card--description">
+      <p>
+        <%= project.description%>
+      </p>
+    </div>
+    <div class="project_list_card--infos">
+      <div class="project_list_card--infos_created">
+        Projet créé le: <%= time_ago_in_words project.created_at %> par <%= project.user.username %>
+      </div>
+      <div class="project_list_card--infos_link">
+        <%= link_to "En savoir plus", projectsShow_url(project.id)  %>
+      </div>
+    </div>
+  </div>
+<% end %>

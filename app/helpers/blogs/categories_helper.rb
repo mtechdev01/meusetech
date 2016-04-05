@@ -1,0 +1,2 @@
+module Blogs::CategoriesHelper
+end

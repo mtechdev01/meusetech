@@ -1,0 +1,2 @@
+module Newsletters::NewslettersHelper
+end
