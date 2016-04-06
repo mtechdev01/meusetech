@@ -1,0 +1,7 @@
+<h1>Polls::Polls#index</h1>
+<p>Find me in app/views/polls/polls/index.html.erb</p>
+
+<% @polls.each do |poll| %>
+  <h1><%= link_to poll.title , pollShow_url( poll.id ) %></h1>
+    <p><%= poll.description %></p>
+<% end %>

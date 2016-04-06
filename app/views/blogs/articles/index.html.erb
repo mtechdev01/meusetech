@@ -6,11 +6,17 @@
     <%= link_to article.title , blogShow_url( article.id ) %>
   </h1>
   <p>
-    <%= article.content %>
+    <div class="article_thumb">
+      <img src="<%= article.thumb %>" alt="" />
+    </div>
+    <div class="article_content">
+          <%= article.content %>
+    </div>
     <div class="">auteur :
       <%= article.user.username %>
       <p>
         catégorie : <%= article.category.name %>
+        <img src="<%= article.category.icon %>" alt="" />
       </p>
     </div>
   </p>
