@@ -7,9 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= stylesheet_link_tag  "#{params[:controller]}/#{params[:action]}"  %>
+
   <%= render "partials/menu" %>
-  <%= render "partials/alert" %>
   
+  <%= render "partials/alert" %>
+
   <%= yield %>
 
 </body>
