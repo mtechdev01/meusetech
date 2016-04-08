@@ -1,0 +1,9 @@
+<h1>Polls::Polls#index</h1>
+
+<p>Find me in app/views/polls/polls/index.html.erb</p>
+
+<select>
+  <% @options.each_with_index do |value, key| %>
+    <option value="<%= key %>"> <%= value %></option>
+    <%end%>
+</select>

@@ -10,8 +10,12 @@
     <div class="">auteur :
       <%= article.user.username %>
       <p>
-        catégorie : <%= article.category.name %>
+        catégorie : <%= article.category.name %> <img src="<%= article.category.icon %>" />
       </p>
+      <div class="article_thumb">
+          <img class="img-responsive" src="<%=article.thumb%>" />
+      </div>
+
     </div>
   </p>
 <% end %>
