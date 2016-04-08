@@ -2,8 +2,7 @@
 
 <p>Find me in app/views/polls/polls/index.html.erb</p>
 
-<select>
-  <% @options.each_with_index do |value, key| %>
-    <option value="<%= key %>"> <%= value %></option>
-    <%end%>
-</select>
+<% @polls.each do |poll| %>
+  <h1><%= link_to poll.title , pollShow_url( poll.id ) %></h1>
+    <p><%= poll.description %></p>
+<% end %>

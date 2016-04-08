@@ -1,21 +1,37 @@
-<h1>BlogArticles#index</h1>
-<p>Find me in app/views/blog_articles/index.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
 
-<% @articles.each do |article| %>
-  <h1>
-    <%= link_to article.title , blogShow_url( article.id ) %>
-  </h1>
-  <p>
-    <%= article.content %>
-    <div class="">auteur :
-      <%= article.user.username %>
+    <div class="col-md-8">
+      <% @articles.each do |article| %>
+      <h1>
+        <%= link_to article.title , blogShow_url( article.id ) %>
+      </h1>
       <p>
+<<<<<<< HEAD
         catégorie : <%= article.category.name %> <img src="<%= article.category.icon %>" />
       </p>
       <div class="article_thumb">
           <img class="img-responsive" src="<%=article.thumb%>" />
       </div>
 
+=======
+        <div class="article_thumb">
+          <img class="img-responsive" src="<%= article.thumb %>" alt="" />
+        </div>
+        <div class="article_content">
+          <%= article.content %>
+        </div>
+        <div class="">auteur :
+          <%= article.user.username %>
+          <p>
+            catégorie : <%= article.category.name %>
+            <img src="<%= article.category.icon %>" alt="" />
+          </p>
+        </div>
+      </p>
+      <% end %>
+>>>>>>> 6ba01d4e36b58247aed984def1267b63bc65932f
     </div>
-  </p>
-<% end %>
+
+  </div>
+</div>
