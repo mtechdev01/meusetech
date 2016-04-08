@@ -7,6 +7,14 @@
         <%= link_to article.title , blogShow_url( article.id ) %>
       </h1>
       <p>
+<<<<<<< HEAD
+        catégorie : <%= article.category.name %> <img src="<%= article.category.icon %>" />
+      </p>
+      <div class="article_thumb">
+          <img class="img-responsive" src="<%=article.thumb%>" />
+      </div>
+
+=======
         <div class="article_thumb">
           <img class="img-responsive" src="<%= article.thumb %>" alt="" />
         </div>
@@ -22,6 +30,7 @@
         </div>
       </p>
       <% end %>
+>>>>>>> 6ba01d4e36b58247aed984def1267b63bc65932f
     </div>
 
   </div>

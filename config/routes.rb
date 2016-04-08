@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :polls do
+  get 'polls/index'
+  end
+
   root to: "pages#home"
   devise_for :users, path: "utilisateurs", path_names: {
     sign_in: 'connection',
