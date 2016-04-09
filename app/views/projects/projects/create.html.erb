@@ -1,6 +1,6 @@
 <div class="container">
   <div class="project_form">
-    <%= form_for :project, :url => {:controller => "projects", :action => "create", :method => 'post'} do |f| %>
+    <%= form_for :project, :url => projectsCreatePost_url do |f| %>
       <div class="form-group">
         <%= label_tag 'project[projects_category_id]', 'Categorie' %>
         <%= select_tag "project[projects_category_id]", options_from_collection_for_select(@categories, "id", "name"), class: "form-control" %>

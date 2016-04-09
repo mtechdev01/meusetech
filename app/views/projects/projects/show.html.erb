@@ -16,7 +16,7 @@
 </div>
 <h3>Commentaires</h3>
 <% if user_signed_in? %>
-  <%= form_for :comment, :url => {:controller => "projects", :action => "comment", :method => 'post'} do |f| %>
+  <%= form_for :comment, :url => projects_Comment_url do |f| %>
     <input id="comment[project_id]" name="comment[project_id]" type="hidden" value="<%= @project.id %>" />
     <input id="comment[user_id]" name="comment[user_id]" type="hidden" value="<%= current_user.id %>" />
     <%= f.text_area :content %>
