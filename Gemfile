@@ -50,3 +50,5 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise-i18n'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'font-awesome-sass'
+gem 'cells', "~> 4.0.0"
+gem 'cells-erb'
