@@ -9,8 +9,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string  :address
       t.string  :city
       t.integer :cp
-      t.boolean :id_admin, default: "0"
-      t.boolean :id_banned, default: "0"
+      t.boolean :is_admin, default: "0"
+      t.boolean :is_banned, default: "0"
       t.boolean :can_comment, default: "0"
       t.string  :avatar
 

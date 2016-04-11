@@ -19,8 +19,9 @@
         <li><%= link_to "Sondages", pollIndex_url %></li>
         <% if user_signed_in? %>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bonjour <%= current_user.username %> <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= image_tag(current_user.avatar, size: "25x25", alt: "Avatar")%><span class="caret"></span></a>
             <ul class="dropdown-menu">
+              <li>Bonjour <%= current_user.username %></li>
               <li><%= link_to "Deconnection", destroy_user_session_path, :method => :delete %></li>
             </ul>
           </li>

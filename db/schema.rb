@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405080324) do
+ActiveRecord::Schema.define(version: 20160411101248) do
 
   create_table "blog_articles", force: :cascade do |t|
     t.datetime "created_at",       null: false
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160405080324) do
   create_table "blog_categories", force: :cascade do |t|
     t.text   "name"
     t.string "icon"
+    t.string "color"
   end
 
   create_table "blog_comments", force: :cascade do |t|
@@ -101,6 +102,7 @@ ActiveRecord::Schema.define(version: 20160405080324) do
     t.string  "name"
     t.string  "options"
     t.string  "rules"
+    t.string  "label"
   end
 
   add_index "polls_fields", ["poll_id"], name: "index_polls_fields_on_poll_id"
@@ -137,6 +139,7 @@ ActiveRecord::Schema.define(version: 20160405080324) do
     t.string "name"
     t.text   "description"
     t.string "icon"
+    t.string "color"
   end
 
   create_table "projects_comments", force: :cascade do |t|
@@ -169,8 +172,8 @@ ActiveRecord::Schema.define(version: 20160405080324) do
     t.string   "address"
     t.string   "city"
     t.integer  "cp"
-    t.boolean  "id_admin",               default: false
-    t.boolean  "id_banned",              default: false
+    t.boolean  "is_admin",               default: false
+    t.boolean  "is_banned",              default: false
     t.boolean  "can_comment",            default: false
     t.string   "avatar"
     t.string   "email",                  default: "",    null: false
