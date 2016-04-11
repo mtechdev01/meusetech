@@ -5,6 +5,7 @@ class Polls::PollsController < ApplicationController
   end
 
   def show
+    @options = []
     @poll = Poll.find(params[:id])
     @questions = PollsField.all
     @questions.each do | question |
@@ -12,7 +13,9 @@ class Polls::PollsController < ApplicationController
         @options = question.options.split(',').map(&:to_s)
       end
     end
-    #@options = @questions.options
+  end
+
+  def reponse
   end
 
 end

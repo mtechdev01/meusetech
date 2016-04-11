@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   scope '/sondages' do
     get '/', to: 'polls/polls#index', as: 'pollIndex'
     get '/voir/:id', to: 'polls/polls#show', as: 'pollShow'
+    post '/reponse', to: 'polls/polls#reponse', as: 'pollReponse'
   end
 
 
