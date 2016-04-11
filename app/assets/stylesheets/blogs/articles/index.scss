@@ -1,1 +1,51 @@
 @import '../articles';
+
+.gras {
+  font-weight: bold;
+}
+.last_article {
+  .img-bordered{
+    border-bottom-width: 12px;
+    border-bottom-style: solid;
+  }
+  .title {
+    .logo_size {
+    width: 60px;
+    height: 60px;
+    float: right;
+    display: inline-block;
+    }
+  }
+  .article_content{
+    margin-top: 30px;
+  }
+}
+
+.recent_articles {
+  margin-top: 50px;
+  border : 2px #303030 solid;
+  .img-bordered-right{
+    border-right-width: 8px;
+    border-right-style: solid;
+  }
+    .article_thumb {
+      display:inline-block;
+      .photo_size {
+        width: 200px;
+        height: 150px;
+      }
+    }
+    .title_recent_articles {
+      display:inline-block;
+      vertical-align: middle;
+      .logo_size {
+        width:50px;
+        height:50px;
+        margin-left: 320px;
+      }
+      .author{
+        font-size: 12px;
+      }
+    }
+
+  }
