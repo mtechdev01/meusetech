@@ -1,51 +1,71 @@
 @import '../articles';
 
-.gras {
-  font-weight: bold;
+$padding: 15px;
+$box-shadow: 1px 1px 12px #555;
+$bg-color: #fcfcfc;
+
+.infos {
+  ul {
+    padding: 0;
+    height: 25px;
+    li {
+      line-height: 25px;
+      padding-right: $padding - 10px;
+      display: inline-block;
+      float: left;
+      list-style-type: none;
+    }
+  }
 }
+
 .last_article {
-  .img-bordered{
-    border-bottom-width: 12px;
-    border-bottom-style: solid;
+  background-color: $bg-color;
+  box-shadow: $box-shadow;
+  margin-bottom: 25px;
+  .thumb {
+    .img-bordered{ border-bottom-width: 12px; border-bottom-style: solid; }
   }
-  .title {
-    .logo_size {
-    width: 60px;
-    height: 60px;
-    float: right;
-    display: inline-block;
+  .article-body {
+    padding: 10px;
+    .title {
+      h2 {
+        margin: 0;
+        line-height: 45px;
+        .logo_size { width: 45px; height: 45px; }
+      }
     }
+
   }
-  .article_content{
-    margin-top: 30px;
-  }
+  .content { margin-top: $padding; margin-bottom: 40px; }
 }
 
-.recent_articles {
-  margin-top: 50px;
-  border : 2px #303030 solid;
-  .img-bordered-right{
-    border-right-width: 8px;
-    border-right-style: solid;
-  }
-    .article_thumb {
-      display:inline-block;
-      .photo_size {
-        width: 200px;
-        height: 150px;
-      }
+#recents {
+  .articles {
+    box-shadow: $box-shadow;
+    background-color: $bg-color;
+    margin-bottom: 30px;
+    position: relative;
+    .thumb {
+      position: absolute;
+      max-width: 33.3333%;
+      top: 0;
+      bottom: 0;
+      .img-bordered{ max-width: 100%; border-right-width: 8px; border-right-style: solid; }
     }
-    .title_recent_articles {
-      display:inline-block;
-      vertical-align: middle;
-      .logo_size {
-        width:50px;
-        height:50px;
-        margin-left: 320px;
+    .article-body {
+      margin-left: 33.3333%;
+      width: 66.6666%;
+      height: 160px;vertical-align: middle;
+      padding-top: $padding + 30px;
+      padding-left: $padding;
+      .title {
+        h2 {
+          margin: 0;
+          line-height: 30px;
+          .logo_size { width: 30px; height: 30px; margin-right: $padding; }
+        }
       }
-      .author{
-        font-size: 12px;
-      }
+      .infos { padding-top: $padding; }
     }
-
   }
+}
