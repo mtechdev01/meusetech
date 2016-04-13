@@ -52,3 +52,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'font-awesome-sass'
 gem 'cells', "~> 4.0.0"
 gem 'cells-erb'
+gem 'carrierwave'

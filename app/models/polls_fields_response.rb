@@ -5,4 +5,8 @@ class PollsFieldsResponse < ActiveRecord::Base
                         foreign_key: "poll_id"
   belongs_to :user, class_name: "User",
                         foreign_key: "user_id"
+
+  def self.responsed user
+    where(user_id: user.id ).group(:poll_id).order( created_at: :desc)
+  end
 end

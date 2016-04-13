@@ -1,0 +1,48 @@
+<section class="container" id="account-block">
+  <div class="row">
+    <div class="col-md-6 col-xs-12">
+      <div class="account-block_avatar">
+        <%= image_tag(current_user.avatar, size: "250x250", alt: "Avatar", class:'img-responsive center-block img-circle user-avatar')%>
+      </div>
+    </div>
+    <div class="col-md-6 col-xs-12">
+      <div class="account-block_infos">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="col-xs-6 account-block_infos-label">
+              <div>Membre depuis le: </div>
+              <div>Email: </div>
+              <div>Nom: </div>
+              <div>Prénom: </div>
+              <div>Adresse: </div>
+              <div>Ville: </div>
+              <div>Code postal: </div>
+            </div>
+            <div class="col-xs-6 account-block_infos-user">
+              <div><%= time_tag(@user.created_at) %></div>
+              <div><%= @user.email %></div>
+              <div><%= @user.lastname %></div>
+              <div><%= @user.firstname%></div>
+              <div><%= @user.address %></div>
+              <div><%= @user.city %></div>
+              <div><%= @user.cp %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="account-block_links">
+        <%= link_to "<i class='fa fa-pencil'></i> Editer mes informations".html_safe, userEdit_url, class: "btn btn-block btn-primary" %>
+        <%= link_to "<i class='fa fa-trash-o'></i> Supprimer mon compte".html_safe, userEdit_url, class: "btn btn-block btn-danger" %>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container" id="user-related-datas">
+  <div class="row">
+    <div class="col-md-12">
+      <%= cell("users/sidebar").(:lastComments, @user) %>
+      <%= cell("users/sidebar").(:lastProjects, @user) %>
+      <%= cell("users/sidebar").(:lastPollsResponses, @user) %>
+    </div>
+  </div>
+</section>

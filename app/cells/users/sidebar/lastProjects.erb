@@ -1,0 +1,51 @@
+<div class="block">
+  <div class="block-title">
+    <h4>
+      Mes derniers Projets
+      <span class="block-title_link pull-right">
+        <%= link_to "<i class='fa fa-plus'></i> Proposer un nouveau projet".html_safe, projectsCreateGet_url %>
+        <%= link_to "<i class='fa fa-search'></i> Tout mes projets proposés".html_safe, userProjects_url %>
+      </span>
+    </h4>
+  </div>
+
+  <div class="block-content">
+    <table class="table table-hovered">
+      <thead>
+        <tr>
+          <th>
+            Nom
+          </th>
+          <th>
+            Catégorie
+          </th>
+          <th>
+            Date de création
+          </th>
+          <th>
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @lastProjects.each do | project |  %>
+          <tr>
+            <td>
+              <%= link_to project.name, projectsShow_url(project.id) %>
+            </td>
+            <td>
+              <%= project.category.name %>
+            </td>
+            <td>
+              <%= time_tag(project.created_at) %>
+            </td>
+            <td>
+              <a href="#" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+              <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -6,11 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body style="background-color: #F2F5F7;">
   <%= stylesheet_link_tag  "#{params[:controller]}/#{params[:action]}"  %>
 
   <%= render "partials/menu" %>
-  
+
   <%= render "partials/alert" %>
 
   <%= yield %>

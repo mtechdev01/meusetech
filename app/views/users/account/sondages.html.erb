@@ -1,0 +1,48 @@
+<section id="user-block_comments" class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <%= link_to "<i class='fa fa-arrow-left'></i> Revenir à votre compte".html_safe, userAccount_url, class: "text-primary" %>
+      <div id="user-block_title">
+        <h1>Mes commentaires</h1>
+      </div>
+      <div class="block" id="user-block_content">
+        <div class="block-title">
+          <h2></h2>
+        </div>
+        <div class="block-content">
+          <table class="table table-hovered">
+            <thead>
+              <tr>
+                <th>
+                  Nom
+                </th>
+                <th>
+                  Date de création
+                </th>
+                <th>
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @responses.each do | response |  %>
+                <tr>
+                  <td>
+                    <%= link_to response.poll.name, pollShow_url(response.poll.id) %>
+                  </td>
+                  <td>
+                    <%= time_tag(response.poll.created_at) %>
+                  </td>
+                  <td>
+                    <a href="#" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+                    <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

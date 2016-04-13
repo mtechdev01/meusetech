@@ -147,7 +147,7 @@ user = User.new(
       username: "Admin",
       firstname: "AdminFirst",
       lastname: "AdminLast",
-      avatar: "/assets/avatars/admin.png",
+      avatar: "admin.png",
       address: "2, rue du developpement",
       city: "rubyCity",
       cp: 99150,

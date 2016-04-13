@@ -1,0 +1,20 @@
+// Place all the styles related to the users/account controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#account-block {
+  margin-bottom: 30px;
+
+  .account-block_infos {
+    margin-top:20px;
+    margin-bottom:20px;
+  }
+  .account-block_infos-label {
+    font-weight: bold;
+    text-align: right;
+    padding-right:0;
+  }
+  .account-block_infos-user {
+     font-style: italic;
+     padding-left:5px;
+  }
+}
