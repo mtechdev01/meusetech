@@ -5,7 +5,7 @@ Rails.application.config.assets.version = '1.0'
 
 js_prefix    = 'app/assets/javascripts/'
 style_prefix = 'app/assets/stylesheets/'
-img_prefix = 'app/assets/imgages/'
+img_prefix = 'app/assets/images/'
 
 javascripts = Dir["#{js_prefix}**/*.js"].map      { |x| x.gsub(js_prefix,    '') }
 css         = Dir["#{style_prefix}**/*.css"].map  { |x| x.gsub(style_prefix, '') }
