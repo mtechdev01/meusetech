@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
 
-  namespace :polls do
-  get 'polls/index'
-  end
-
   root to: "pages#home"
+
   devise_for :users, path: "utilisateurs", path_names: {
     sign_in: 'connection',
     sign_out: 'deconnection',
@@ -14,6 +11,7 @@ Rails.application.routes.draw do
     registration: 'enregistrement',
     sign_up: 'nouveau'
   }
+
   scope '/projets' do
     get '/', to: 'projects/projects#index', as: 'projectsIndex'
     get '/voir/:id', to: 'projects/projects#show', as: 'projectsShow'
@@ -21,6 +19,7 @@ Rails.application.routes.draw do
     post '/creer', to: 'projects/projects#create', as: 'projectsCreatePost'
     post '/comment', to: 'projects/projects#comment', as: 'projectsComment'
   end
+
   scope '/blog' do
     get '/', to: 'blogs/articles#index', as: 'blogIndex'
     get '/article/:id', to: 'blogs/articles#show', as: 'blogShow'
@@ -31,6 +30,15 @@ Rails.application.routes.draw do
     get '/', to: 'polls/polls#index', as: 'pollIndex'
     get '/voir/:id', to: 'polls/polls#show', as: 'pollShow'
     post '/reponse', to: 'polls/polls#reponse', as: 'pollReponse'
+  end
+
+  scope 'utilisateurs' do
+    get '/mon-compte', to: 'users/account#account', as: 'userAccount'
+    get '/mon-compte/editer', to: 'users/account#edit', as: 'userEdit'
+    post '/mon-compte/update', to: 'users/account#update', as: 'userUpdate'
+    get '/mon-compte/projets', to: 'users/account#projects', as: 'userProjects'
+    get '/mon-compte/commentaires', to: 'users/account#comments', as: 'userComments'
+    get '/mon-compte/sondages', to: 'users/account#sondages', as: 'userSondage'
   end
 
 

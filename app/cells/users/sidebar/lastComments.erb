@@ -1,0 +1,49 @@
+<div class="block">
+  <div class="block-title">
+    <h4>
+      Mes derniers commentaires
+      <span class="block-title_link pull-right">
+        <%= link_to "<i class='fa fa-search'></i> Tout mes commentaires".html_safe, userComments_url %>
+      </span>
+    </h4>
+  </div>
+  <div class="block-content">
+    <table class="table table-hovered">
+      <thead>
+        <tr>
+          <th>
+            Article
+          </th>
+          <th>
+            Date
+          </th>
+          <th>
+            Contenu
+          </th>
+          <th>
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @lastComments.each do | comment |  %>
+          <tr>
+            <td>
+              <%= link_to comment.blog_article.title, blogShow_url(comment.blog_article.id) %>
+            </td>
+            <td>
+              <%= time_tag(comment.created_at) %>
+            </td>
+            <td>
+              <%= comment.content %>
+            </td>
+            <td>
+              <a href="#" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+              <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

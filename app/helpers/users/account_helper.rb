@@ -1,0 +1,2 @@
+module Users::AccountHelper
+end

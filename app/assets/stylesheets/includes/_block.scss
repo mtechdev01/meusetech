@@ -1,0 +1,20 @@
+//**** BLOCK ****//
+.block {
+  box-shadow: 1px 1px 6px #ccc;
+
+  margin-bottom: 25px;
+  background-color: #FFFFFF;
+  .block-title {
+    border-bottom: 1px #ccc solid;
+    padding:15px;
+    .block-title_link {
+      font-size:0.8em;
+      a {
+        padding-right:5px;
+      }
+    }
+  }
+  .block-content {
+    padding:15px;
+  }
+}

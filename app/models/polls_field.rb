@@ -16,5 +16,5 @@ class PollsField < ActiveRecord::Base
       return self.rules.remove(",")
     end
   end
-  
+
 end
