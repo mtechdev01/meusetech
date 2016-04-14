@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411141346) do
+ActiveRecord::Schema.define(version: 20160414140054) do
 
   create_table "blog_articles", force: :cascade do |t|
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "user_id"
     t.integer  "blog_category_id"
     t.string   "title"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160411141346) do
     t.integer  "nb_fb_shared"
     t.integer  "nb_likes"
     t.string   "thumb"
-    t.integer  "blog_comments_count"
+    t.integer  "comments_count"
   end
 
   add_index "blog_articles", ["blog_category_id"], name: "index_blog_articles_on_blog_category_id"
@@ -35,17 +35,19 @@ ActiveRecord::Schema.define(version: 20160411141346) do
     t.string "color"
   end
 
-  create_table "blog_comments", force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "blog_article_id"
+    t.integer  "project_id"
     t.integer  "user_id"
     t.text     "content"
     t.integer  "nb_likes"
   end
 
-  add_index "blog_comments", ["blog_article_id"], name: "index_blog_comments_on_blog_article_id"
-  add_index "blog_comments", ["user_id"], name: "index_blog_comments_on_user_id"
+  add_index "comments", ["blog_article_id"], name: "index_comments_on_blog_article_id"
+  add_index "comments", ["project_id"], name: "index_comments_on_project_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "newsletters", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -122,16 +124,16 @@ ActiveRecord::Schema.define(version: 20160411141346) do
   add_index "polls_fields_responses", ["user_id"], name: "index_polls_fields_responses_on_user_id"
 
   create_table "projects", force: :cascade do |t|
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "user_id"
     t.integer  "projects_category_id"
-    t.string   "name",                   default: "",        null: false
-    t.text     "content",                default: "",        null: false
+    t.string   "name",                 default: "",        null: false
+    t.text     "content",              default: "",        null: false
     t.integer  "nb_fb_shared"
-    t.string   "state",                  default: "Proposé"
+    t.string   "state",                default: "Proposé"
     t.integer  "nb_likes"
-    t.integer  "project_comments_count"
+    t.integer  "comments_count"
   end
 
   add_index "projects", ["projects_category_id"], name: "index_projects_on_projects_category_id"
@@ -143,18 +145,6 @@ ActiveRecord::Schema.define(version: 20160411141346) do
     t.string "icon"
     t.string "color"
   end
-
-  create_table "projects_comments", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id"
-    t.integer  "project_id"
-    t.text     "content"
-    t.integer  "nb_likes"
-  end
-
-  add_index "projects_comments", ["project_id"], name: "index_projects_comments_on_project_id"
-  add_index "projects_comments", ["user_id"], name: "index_projects_comments_on_user_id"
 
   create_table "projects_followers", force: :cascade do |t|
     t.datetime "created_at",  null: false

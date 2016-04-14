@@ -1,9 +1,9 @@
 class Users::SidebarCell < Cell::ViewModel
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::UrlHelper
-
+  include ActionView::Helpers::DebugHelper
   def lastComments(user)
-    @lastComments = BlogComment.lastComments(user).limit(5)
+    @lastComments = Comment.lastComments(user).limit(5)
     render
   end
 
