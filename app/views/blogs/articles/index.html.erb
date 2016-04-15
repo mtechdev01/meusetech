@@ -5,7 +5,7 @@
         <%= key === 1 ? "<section id='recents'>".html_safe : "" %>
           <article class="<%= @articles.first.id === article.id ? "last_article" : "articles" %>">
             <div class="thumb">
-              <img class="img-responsive img-bordered <% @articles.first.id === article.id ? "bordered-bottom" : "bordered-right" %> " src="<%= article.thumb %>" alt="article thumnail" style="border-color:<%= article.category.color %>" />
+              <img class="img-responsive img-bordered <% @articles.first.id === article.id ? "bordered-bottom" : "bordered-right" %> " src="<%= article.thumb %>" alt="article thumbnail" style="border-color:<%= article.category.color %>" />
             </div>
             <div class="article-body">
               <div class="title">

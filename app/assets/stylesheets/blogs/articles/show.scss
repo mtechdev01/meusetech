@@ -1,1 +1,17 @@
 @import '../articles';
+
+$padding: 15px;
+$box-shadow: 1px 1px 12px #555;
+$bg-color: #fcfcfc;
+
+.article_show {
+  background-color: $bg-color;
+  box-shadow: $box-shadow;
+  margin-bottom: 25px;
+    .img-bordered {
+    background-color: $bg-color;
+    box-shadow: $box-shadow;
+    }
+}
+
+  .logo_size { width: 45px; height: 45px; }
