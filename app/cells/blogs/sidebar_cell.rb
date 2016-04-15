@@ -14,7 +14,7 @@ class Blogs::SidebarCell < Cell::ViewModel
   end
 
   def mostCommented
-    @articles = BlogArticle.order(blog_comments_count: :desc)
+    @articles = BlogArticle.order(comments_count: :desc)
     render
   end
 

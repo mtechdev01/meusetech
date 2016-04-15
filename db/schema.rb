@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20160414140054) do
     t.integer  "nb_fb_shared"
     t.integer  "nb_likes"
     t.string   "thumb"
-
     t.integer  "comments_count"
   end
 
