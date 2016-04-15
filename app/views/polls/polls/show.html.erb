@@ -3,17 +3,19 @@
   <p>Find me in app/views/polls/polls/show.html.erb</p>
   <h1><%= @poll.title %></h1>
   <%= form_for :fields, :url => pollReponse_url do |f| %>
+  <input type="hidden" name="fields[poll_id]" value="<%= @poll.id %>" >
     <% @poll.fields.each do |question| %>
       <div class="form-group">
         <label for="fields[<%= question.id %>]"><%= question.label %></label>
         <% if question.optionsFormated != nil %>
-          <select name="fields[<%= question.id %>]" class="form-control" <%= question.is_required ? "required" : "" %>>
+          <select name="fields[questions][<%= question.id %>]" class="form-control" <%= question.is_required ? "required" : "" %>>
             <% question.optionsFormated.each_with_index do | value, key | %>
               <option value="<%= key %>"> <%= value %></option>
             <% end %>
           </select>
         <% else %>
-          <input type="<%= question.input_type %>" name="fields[<%= question.id %>]"  class="form-control" <%= question.is_required ? "required" : "" %> <%= question.rulesFormated %> />
+          <input type="<%= question.input_type %>" name="fields[questions][<%= question.id %>]"
+            class="form-control" <%= question.is_required ? "required" : "" %> <%= question.rulesFormated %> />
         <% end %>
       </div>
     <% end %>
