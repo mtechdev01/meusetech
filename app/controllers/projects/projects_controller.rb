@@ -42,7 +42,7 @@ class Projects::ProjectsController < ApplicationController
 
   def comment
     if request.post?
-      @comment = ProjectsComment.new comment_params
+      @comment = Comment.new comment_params
       if @comment.save
         flash[:notice] = "Commentaire enregistré"
         flash[:class]= "success"

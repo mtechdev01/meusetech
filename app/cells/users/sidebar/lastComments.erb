@@ -29,7 +29,11 @@
         <% @lastComments.each do | comment |  %>
           <tr>
             <td>
-              <%= link_to comment.blog_article.title, blogShow_url(comment.blog_article.id) %>
+              <% if comment.blog_article %>
+                <%= link_to comment.blog_article.title, blogShow_url(comment.blog_article.id) %>
+              <% else %>
+                <%= link_to comment.project.name, projectsShow_url(comment.project.id) %>
+              <% end %>
             </td>
             <td>
               <%= time_tag(comment.created_at) %>

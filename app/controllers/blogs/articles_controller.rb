@@ -12,7 +12,7 @@ class Blogs::ArticlesController < ApplicationController
 
   def comment
     if request.post?
-      @comment = BlogComment.new comment_params
+      @comment = Comment.new comment_params
       if @comment.save
         flash[:notice] = "Commentaire enregistré"
         flash[:class]= "success"
@@ -30,5 +30,5 @@ class Blogs::ArticlesController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content, :blog_article_id, :user_id)
   end
-  
+
 end
