@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-8">
+      <div class=""
+        <h1>
+          <%= link_to @category.name %>
+        </h1>
+      </div>
+      <% @category.articles.each_with_index do | article, key |%>
+        <%= key === 1 ? "<section id='recents'>".html_safe : "" %>
+          <article class="<%= @category.articles.first.id === article.id ? "last_article" : "articles" %>">
+            <div class="thumb">
+              <img class="img-responsive img-bordered <% @category.articles.first.id === article.id ? "bordered-bottom" : "bordered-right" %> " src="<%= article.thumb %>" alt="article thumnail" style="border-color:<%= article.category.color %>" />
+            </div>
+            <div class="article-body">
+              <div class="title">
+                <h2><%= link_to article.title , blogShow_url( article.id ) %> <span class="pull-right"><img class="logo_size" src="<%= article.category.icon %>" alt="category icon"/></span></h2>
+              </div>
+              <div class="infos">
+                <ul>
+                  <li><i class="fa fa-user" aria-hidden="true"></i> <%= article.user.username %>, </li>
+                  <li><i class="fa fa-clock-o" aria-hidden="true"></i> <%= time_tag(article.created_at) %>, </li>
+                  <li><i class="fa fa-bookmark-o" aria-hidden="true"></i> <%= article.category.name %></li>
+                </ul>
+              </div>
+              <% if @category.articles.first.id === article.id %>
+              <div class="content">
+                <p><%= truncate(article.content, length: 200, separator: ' ') %></p>
+                <%= link_to "Lire la suite  <i class='fa fa-arrow-right' aria-hidden='true'></i>".html_safe , blogShow_url( article.id), class: "btn btn-primary pull-right" %>
+              </div>
+              <% end %>
+            </div>
+          </article>
+          <div class="clearfix"></div>
+        <%= @category.articles.last.id === article.id ? "</section>".html_safe : "" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-4">
+      <%= cell("blogs/sidebar").(:articleCategory) %>
+      <%= cell("blogs/sidebar").(:mostCommented) %>
+    </div>
+
+  </div>
+</div>

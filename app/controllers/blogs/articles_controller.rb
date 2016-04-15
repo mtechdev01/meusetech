@@ -2,12 +2,15 @@ class Blogs::ArticlesController < ApplicationController
 
   def index
     @articles = BlogArticle.all
-    @users = User.all
   end
 
   def show
     @article = BlogArticle.find(params[:id])
     @comments = @article.comments
+  end
+
+  def category
+    @category = BlogCategory.find(params[:id])
   end
 
   def comment
@@ -30,5 +33,5 @@ class Blogs::ArticlesController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content, :blog_article_id, :user_id)
   end
-  
+
 end

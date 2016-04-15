@@ -1,0 +1,9 @@
+<h2>
+  Les plus actifs
+</h2>
+
+<ul>
+  <% @articles.each do | article | %>
+  <li> <%= link_to article.title , blogShow_url(article.id) %> </li>
+  <% end %>
+</ul>
