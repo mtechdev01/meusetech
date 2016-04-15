@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     get '/', to: 'blogs/articles#index', as: 'blogIndex'
     get '/article/:id', to: 'blogs/articles#show', as: 'blogShow'
     post '/comment', to: 'blogs/articles#comment', as: 'blogComment'
+    get '/category/:id' , to: 'blogs/articles#category', as: 'blogCategory'
   end
 
   scope '/sondages' do

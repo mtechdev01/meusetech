@@ -1,0 +1,9 @@
+<h2>
+  Catégories
+</h2>
+
+<ul>
+  <% @categories.each do | category | %>
+  <li> <%= link_to category.name , blogCategory_url(category.id) %> </li>
+  <% end %>
+</ul>
