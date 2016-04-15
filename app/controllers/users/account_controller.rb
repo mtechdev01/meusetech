@@ -10,7 +10,7 @@ class Users::AccountController < ApplicationController
   end
 
   def comments
-    @comments = BlogComment.lastComments(current_user)
+    @comments = Comment.lastComments(current_user)
   end
 
   def sondages

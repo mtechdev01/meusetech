@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     sign_up: 'nouveau'
   }
 
+  namespace :admin do
+    get '/', to: "pages#home"
+  end
+
   scope '/projets' do
     get '/', to: 'projects/projects#index', as: 'projectsIndex'
     get '/voir/:id', to: 'projects/projects#show', as: 'projectsShow'
@@ -24,6 +28,7 @@ Rails.application.routes.draw do
     get '/', to: 'blogs/articles#index', as: 'blogIndex'
     get '/article/:id', to: 'blogs/articles#show', as: 'blogShow'
     post '/comment', to: 'blogs/articles#comment', as: 'blogComment'
+    get '/category/:id' , to: 'blogs/articles#category', as: 'blogCategory'
   end
 
   scope '/sondages' do
