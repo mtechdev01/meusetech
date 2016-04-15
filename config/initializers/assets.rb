@@ -13,7 +13,6 @@ scss        = Dir["#{style_prefix}**/*.scss"].map { |x| x.gsub(style_prefix, '')
 images     = Dir["#{img_prefix}**/*.*"].map { |x| x.gsub(img_prefix, '') }
 
 Rails.application.config.assets.precompile = (javascripts + css + scss + images)
-Rails.application.config.assets.precompile += %w( blogs/articles/category.css )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
