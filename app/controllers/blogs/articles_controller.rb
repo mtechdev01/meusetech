@@ -2,6 +2,7 @@ class Blogs::ArticlesController < ApplicationController
 
   def index
     @articles = BlogArticle.all
+    @users = User.all
   end
 
   def show
@@ -15,7 +16,7 @@ class Blogs::ArticlesController < ApplicationController
 
   def comment
     if request.post?
-      @comment = BlogComment.new comment_params
+      @comment = Comment.new comment_params
       if @comment.save
         flash[:notice] = "Commentaire enregistré"
         flash[:class]= "success"
