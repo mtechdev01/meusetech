@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-9">
       <% @articles.each_with_index do | article, key |%>
         <%= key === 1 ? "<section id='recents'>".html_safe : "" %>
           <article class="<%= @articles.first.id === article.id ? "last_article" : "articles" %>">
@@ -31,7 +31,7 @@
         <%= @articles.last.id === article.id ? "</section>".html_safe : "" %>
       <% end %>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <%= cell("blogs/sidebar").(:userBlock) %>
     </div>
   </div>

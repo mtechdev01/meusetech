@@ -1,20 +1,61 @@
-<% @projects.each do | project | %>
-  <div class="project_list_card">
-    <div class="project_list_card--title">
-      <h2><%= project.name %></h2>
-    </div>
-    <div class="project_list_card--description">
-      <p>
-        <%= project.content %>
-      </p>
-    </div>
-    <div class="project_list_card--infos">
-      <div class="project_list_card--infos_created">
-        Projet créé le: <%= time_ago_in_words project.created_at %> par <%= project.user.username %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+
+      <div class="projects_depot_text">
+        <h1>Bienvenue sur la plateforme participative et collaborative de MeuseTech.</h1>
+          <div class="projects_depot_infos">
+            <p>L’esprit MeuseTech, c’est quoi ?
+            Il s’agit de rassembler sous ce chapeau l’ensemble des initiatives intelligentes et novatrices du territoire
+            pour dynamiser la vie économique et sociale, ouvrir de nouvelles perspectives. Celles-ci pouvant prendre plusieurs formes :
+            </p>
+              <ul>
+                <li>projet innovant : projet exemplaire,inédit sur le territoire, expérimental</li>
+                <li>recours aux nouvelles technologies, offre numérique qualitative</li>
+                <li>initiative interdisciplinaire, mise en réseau des acteurs, économie du partage, innovation sociale</li>
+                <li>prise en compte de l’environnement, actions de développement durable, réduction des dépenses énergétiques</li>
+              </ul>
+            <p>Vous avez des idées, un projet ? Vous souhaitez recueillir des avis sur son intérêt, développer le concept,
+              trouver des associés, rechercher des aides… ?</p>
+
+            <div class="projects_depot">
+              Tout le monde peut déposer un projet ! Devenez acteur de votre territoire en quelques clics :
+              <%= link_to "JE DEPOSE UN PROJET  <i class='fa fa-arrow-right' aria-hidden='true'></i>".html_safe , projectsCreatePost_url, class: "btn btn-danger pull-right" %>
+            </div>
+          </div>
+
+          <div class="number_total_projects">
+            <h2>Actuellement <%= @projects.size %> projets sont déposés sur MeuseTech<h2>
+          </div>
+
+          <div class="comment_projects">
+            Participez aux projets déposés en donnant votre avis, en vous associant, en apportant un coup de main,
+            une information nécessaire à sa réalisation… Commentez, aimez, partagez !
+          </div>
       </div>
-      <div class="project_list_card--infos_link">
-        <%= link_to "En savoir plus", projectsShow_url(project.id)  %>
-      </div>
+      <% @projects.each do | project | %>
+        <div class="project_list_card">
+          <div class="project_list_card--title">
+            <h2><%= project.name %></h2>
+          </div>
+          <div class="project_list_card--description">
+            <p>
+              <%= project.content %>
+            </p>
+          </div>
+          <div class="project_list_card--infos">
+            <div class="project_list_card--infos_created">
+              Projet créé le: <%= time_ago_in_words project.created_at %> par <%= project.user.username %>
+            </div>
+            <div class="project_list_card--infos_link">
+              <%= link_to "En savoir plus", projectsShow_url(project.id)  %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+      <%= cell("blogs/sidebar").(:userBlock) %>
     </div>
   </div>
-<% end %>
+</div>

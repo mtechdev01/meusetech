@@ -1,0 +1,11 @@
+@import '../projects';
+
+$padding: 15px;
+$box-shadow: 1px 1px 12px #555;
+$bg-color: #fcfcfc;
+
+.projects_depot_text {
+    box-shadow: $box-shadow;
+    background-color: $bg-color;
+    padding: $padding;
+}
