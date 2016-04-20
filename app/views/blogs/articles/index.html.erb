@@ -41,15 +41,9 @@
           <%= @articles.last.id === article.id ? "</section>".html_safe : "" %>
         <% end %>
     </div>
-<<<<<<< HEAD
     <div class="col-md-3">
-      <%= cell("blogs/sidebar").(:userBlock) %>
-=======
-
-    <div class="col-md-4">
       <%= cell("blogs/sidebar").(:articleCategory) %>
       <%= cell("blogs/sidebar").(:mostCommented) %>
->>>>>>> 366056cd3be573535a51adbf623aff6eb1c4cc28
     </div>
 
   </div>
