@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    get '/', to: "pages#home"
+    get '/', to: "pages#home", as: 'adminDashboard'
   end
 
   scope '/projets' do

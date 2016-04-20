@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414140054) do
+ActiveRecord::Schema.define(version: 20160420112847) do
 
   create_table "blog_articles", force: :cascade do |t|
     t.datetime "created_at",       null: false
@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(version: 20160414140054) do
     t.string   "state",                default: "Proposé"
     t.integer  "nb_likes"
     t.integer  "comments_count"
+    t.integer  "thumb"
   end
 
   add_index "projects", ["projects_category_id"], name: "index_projects_on_projects_category_id"
