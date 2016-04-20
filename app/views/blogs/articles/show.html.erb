@@ -2,7 +2,7 @@
   <%= @article.title %>
 </h1>
 <p>
-  <%= @article.content %>
+  <%= @article.content.html_safe %>
   <div class="">auteur :
     <%= @article.user.username %>
     <p>
