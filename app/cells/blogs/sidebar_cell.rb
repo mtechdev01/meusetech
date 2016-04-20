@@ -3,8 +3,18 @@ class Blogs::SidebarCell < Cell::ViewModel
     render
   end
 
-  def userBlock
-    @users = User.all
+  def articleCategory(id = false)
+
+    if !id
+      @categories = BlogCategory.all
+    else
+      @categories = BlogCategory.where.not(id: id)
+    end
+    render
+  end
+
+  def mostCommented
+    @articles = BlogArticle.order(comments_count: :desc)
     render
   end
 

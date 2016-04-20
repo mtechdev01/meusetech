@@ -1,4 +1,6 @@
 class PollsFieldsResponse < ActiveRecord::Base
+  include ActiveModel::ForbiddenAttributesProtection
+
   belongs_to :polls_field, class_name: "PollsField",
                         foreign_key: "polls_field_id"
   belongs_to :poll, class_name: "Poll",
