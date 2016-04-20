@@ -135,7 +135,7 @@ ProjectsCategory.create([
   {
     name: "Economie",
     description: "Activités pour enfants",
-    icon: https:"https://image.freepik.com/icones-gratuites/tirelire_318-37219.png",
+    icon:"https://image.freepik.com/icones-gratuites/tirelire_318-37219.png",
     color: "#0AA0EB"
   }
 ])
