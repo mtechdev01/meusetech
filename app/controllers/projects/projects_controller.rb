@@ -13,7 +13,7 @@ class Projects::ProjectsController < ApplicationController
   def create
     if user_signed_in?
       @project = Project.new
-      @categories = ProjectsCategory.all
+      @categories = Category.all
       if request.post?
         @project = Project.new project_params
         if @project.valid?

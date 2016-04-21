@@ -10,42 +10,49 @@
 BlogArticle.create([
   {
     user_id: 1,
-    blog_category_id: 1,
+    category_id: 1,
     title: "Article numero 1",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     nb_fb_shared: 0,
     nb_likes: 0,
+    published: true,
+    published_at: "2016-06-11 11:40:07.431666",
     thumb: "http://www.azurelite.net/photo/gal/pic/gal-2412236.jpg"
   },
   {
     user_id: 1,
-    blog_category_id: 2,
+    category_id: 2,
     title: "Article numero 2",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     nb_fb_shared: 0,
     nb_likes: 0,
+    published: true,
+    published_at: "2016-06-11 11:40:07.431666",
     thumb: "http://www.azurelite.net/photo/gal/pic/gal-2412236.jpg"
   },
   {
     user_id: 1,
-    blog_category_id: 3,
+    category_id: 3,
     title: "Article numero 3",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     nb_fb_shared: 0,
     nb_likes: 0,
+    published: true,
+    published_at: "2016-06-11 11:40:07.431666",
     thumb: "http://www.azurelite.net/photo/gal/pic/gal-2412236.jpg"
   },
   {
     user_id: 1,
-    blog_category_id: 9,
+    category_id: 9,
     title: "Article numero 4",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     nb_fb_shared: 0,
     nb_likes: 0,
+    published: false,
     thumb: "http://www.azurelite.net/photo/gal/pic/gal-2412236.jpg"
   }
 ])
-BlogCategory.create([
+Category.create([
   {
     name: "Agriculture",
     icon: "https://image.freepik.com/icones-gratuites/tracteur_318-102062.png",
@@ -101,7 +108,7 @@ BlogCategory.create([
 Project.create([
   {
     user_id: 1,
-    projects_category_id: 1,
+    category_id: 1,
     name: "Projet numero 1",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     nb_fb_shared: 0,
@@ -109,7 +116,7 @@ Project.create([
   },
   {
     user_id: 1,
-    projects_category_id: 2,
+    category_id: 2,
     name: "Projet numero 2",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     nb_fb_shared: 0,
@@ -117,7 +124,7 @@ Project.create([
   },
   {
     user_id: 1,
-    projects_category_id: 2,
+    category_id: 2,
     name: "Projet numero 3",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     nb_fb_shared: 0,
@@ -125,20 +132,6 @@ Project.create([
   }
 ])
 
-ProjectsCategory.create([
-  {
-    name: "Agriculture",
-    description: "J'aime les tracteurs",
-    icon: "https://image.freepik.com/icones-gratuites/tracteur_318-102062.png",
-    color: "#FACC2E"
-  },
-  {
-    name: "Economie",
-    description: "Activités pour enfants",
-    icon:"https://image.freepik.com/icones-gratuites/tirelire_318-37219.png",
-    color: "#0AA0EB"
-  }
-])
 
 Poll.create([
   {

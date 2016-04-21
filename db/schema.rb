@@ -11,26 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421071014) do
+ActiveRecord::Schema.define(version: 20160421103417) do
 
   create_table "blog_articles", force: :cascade do |t|
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "user_id"
-    t.integer  "blog_category_id"
     t.string   "title"
     t.text     "content"
     t.integer  "nb_fb_shared"
     t.integer  "nb_likes"
     t.string   "thumb"
     t.integer  "comments_count"
+    t.boolean  "published",      default: false
+    t.datetime "published_at"
+    t.integer  "category_id"
   end
 
-  add_index "blog_articles", ["blog_category_id"], name: "index_blog_articles_on_blog_category_id"
+  add_index "blog_articles", ["category_id"], name: "index_blog_articles_on_category_id"
   add_index "blog_articles", ["user_id"], name: "index_blog_articles_on_user_id"
 
-  create_table "blog_categories", force: :cascade do |t|
-    t.text   "name"
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.text   "description"
     t.string "icon"
     t.string "color"
   end
@@ -125,28 +128,21 @@ ActiveRecord::Schema.define(version: 20160421071014) do
   add_index "polls_fields_responses", ["user_id"], name: "index_polls_fields_responses_on_user_id"
 
   create_table "projects", force: :cascade do |t|
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.integer  "user_id"
-    t.integer  "projects_category_id"
-    t.string   "name",                 default: "",        null: false
-    t.text     "content",              default: "",        null: false
+    t.string   "name",           default: "",        null: false
+    t.text     "content",        default: "",        null: false
     t.integer  "nb_fb_shared"
-    t.string   "state",                default: "Proposé"
+    t.string   "state",          default: "Proposé"
     t.integer  "nb_likes"
     t.integer  "comments_count"
     t.integer  "thumb"
+    t.integer  "category_id"
   end
 
-  add_index "projects", ["projects_category_id"], name: "index_projects_on_projects_category_id"
+  add_index "projects", ["category_id"], name: "index_projects_on_category_id"
   add_index "projects", ["user_id"], name: "index_projects_on_user_id"
-
-  create_table "projects_categories", force: :cascade do |t|
-    t.string "name"
-    t.text   "description"
-    t.string "icon"
-    t.string "color"
-  end
 
   create_table "projects_followers", force: :cascade do |t|
     t.datetime "created_at",  null: false

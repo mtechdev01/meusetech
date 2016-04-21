@@ -11,7 +11,7 @@ class Blogs::ArticlesController < ApplicationController
   end
 
   def category
-    @category = BlogCategory.find(params[:id])
+    @category = Category.find(params[:id])
   end
 
 end

@@ -6,9 +6,9 @@ class Blogs::SidebarCell < Cell::ViewModel
   def articleCategory(id = false)
 
     if !id
-      @categories = BlogCategory.all
+      @categories = Category.all
     else
-      @categories = BlogCategory.where.not(id: id)
+      @categories = Category.where.not(id: id)
     end
     render
   end

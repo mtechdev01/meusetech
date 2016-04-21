@@ -3,8 +3,7 @@ class Project < ActiveRecord::Base
   has_many :comments
   has_many :followers, class_name: "ProjectsFollower",
                           foreign_key: "project_id"
-  belongs_to :category, class_name: "ProjectsCategory",
-                          foreign_key: "projects_category_id"
+  belongs_to :category
   belongs_to :user
 
 
