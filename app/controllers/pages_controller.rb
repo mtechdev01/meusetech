@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def home
-    #code
+    @projects = Project.mostActive
   end
 
 end

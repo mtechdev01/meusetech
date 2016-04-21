@@ -14,4 +14,8 @@ class Project < ActiveRecord::Base
     where( user_id: user.id ).order( created_at: :desc)
   end
 
+  def self.mostActive
+    order("nb_likes + comments_count*6 DESC")
+    .limit(3)
+  end
 end
