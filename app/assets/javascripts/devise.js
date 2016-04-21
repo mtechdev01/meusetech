@@ -14,11 +14,4 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
-//= require admin/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js
-//= require admin/AdminLTE/plugins/fastclick/fastclick.min.js
-//= require admin/AdminLTE/plugins/datatables/jquery.dataTables.js
-//= require admin/AdminLTE/plugins/datatables/dataTables.bootstrap.js
 //= require admin/AdminLTE/plugins/iCheck/icheck.min.js
-
-//= require admin/AdminLTE/app.js
-//= require tinymce-jquery
