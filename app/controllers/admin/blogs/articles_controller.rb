@@ -1,8 +1,13 @@
-class Admin::Blogs::ArticlesController < ApplicationController
+class Admin::Blogs::ArticlesController < Admin::AdminController
+
+  def index
+    @articles = BlogArticle.all
+  end
+
   def create
     if user_signed_in?
       @article = BlogArticle.new
-      @categories = BlogCategory.all
+      @categories = Category.all
       if request.post?
         @article = BlogArticle.new article_params
         if @article.valid?

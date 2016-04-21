@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   post '/comment', to: 'comments#comment', as: 'comment'
   get '/valid/comment/:id', to: 'comments#setValid', as: 'validComment'
-  
+
   namespace :admin do
     get '/', to: "pages#home", as: 'adminDashboard'
       scope '/blogs' do

@@ -8,11 +8,12 @@ style_prefix = 'app/assets/stylesheets/'
 img_prefix = 'app/assets/images/'
 
 javascripts = Dir["#{js_prefix}**/*.js"].map      { |x| x.gsub(js_prefix,    '') }
+coffee      = Dir["#{js_prefix}**/*.coffee"].map      { |x| x.gsub(js_prefix,    '') }
 css         = Dir["#{style_prefix}**/*.css"].map  { |x| x.gsub(style_prefix, '') }
 scss        = Dir["#{style_prefix}**/*.scss"].map { |x| x.gsub(style_prefix, '') }
-images     = Dir["#{img_prefix}**/*.*"].map { |x| x.gsub(img_prefix, '') }
+images      = Dir["#{img_prefix}**/*.*"].map { |x| x.gsub(img_prefix, '') }
 
-Rails.application.config.assets.precompile = (javascripts + css + scss + images)
+Rails.application.config.assets.precompile = (javascripts + css + scss + images + coffee)
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

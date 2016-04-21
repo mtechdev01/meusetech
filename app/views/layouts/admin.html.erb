@@ -193,5 +193,7 @@
       <div class="control-sidebar-bg"></div>
     </div><!-- ./wrapper -->
     <%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "#{params[:controller]}/#{params[:action]}" %>
+
   </body>
 </html>
