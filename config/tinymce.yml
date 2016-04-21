@@ -1,0 +1,12 @@
+toolbar:
+  - styleselect | bold italic | undo redo | fontsizeselect
+  - link | table | searchreplace | preview | forecolor backcolor | emoticons
+plugins:
+#  - image
+  - link
+  - table
+  - searchreplace
+  - preview
+  - textcolor
+  - wordcount
+  - emoticons

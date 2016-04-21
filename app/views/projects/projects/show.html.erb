@@ -16,7 +16,7 @@
 </div>
 <h3>Commentaires</h3>
 <% if user_signed_in? %>
-  <%= form_for :comment, :url => projectsComment_url do |f| %>
+  <%= form_for :comment, :url => comment_url do |f| %>
     <input id="comment[project_id]" name="comment[project_id]" type="hidden" value="<%= @project.id %>" />
     <input id="comment[user_id]" name="comment[user_id]" type="hidden" value="<%= current_user.id %>" />
     <%= f.text_area :content %>
@@ -33,6 +33,9 @@
     <div class="project_comments_card--message">
       <%= comment.content %>
     </div>
+    <% if current_user.is_admin && !comment.is_valid %>
+    <%= link_to "valider", validComment_url( comment ) %>
+    <% end %>
   </div>
   <% end %>
 </div>

@@ -12,22 +12,29 @@ Rails.application.routes.draw do
     sign_up: 'nouveau'
   }
 
+  post '/comment', to: 'comments#comment', as: 'comment'
+  get '/valid/comment/:id', to: 'comments#setValid', as: 'validComment'
+  
   namespace :admin do
-    get '/', to: "pages#home"
+    get '/', to: "pages#home", as: 'adminDashboard'
+      scope '/blogs' do
+        get '/', to: 'blogs/articles#index', as: 'blogsAdminIndex'
+        get '/voir/:id', to: 'blogs/articles#show', as: 'blogAdminShow'
+        get '/creer', to: 'blogs/articles#create', as: 'articleCreateGet'
+        post '/creer', to: 'blogs/articles#create', as: 'articleCreatePost'
+        post '/comment', to: 'blogs/articles#comment', as: 'blogAdminComment'
+      end
   end
-
   scope '/projets' do
     get '/', to: 'projects/projects#index', as: 'projectsIndex'
     get '/voir/:id', to: 'projects/projects#show', as: 'projectsShow'
     get '/creer', to: 'projects/projects#create', as: 'projectsCreateGet'
     post '/creer', to: 'projects/projects#create', as: 'projectsCreatePost'
-    post '/comment', to: 'projects/projects#comment', as: 'projectsComment'
   end
 
   scope '/blog' do
     get '/', to: 'blogs/articles#index', as: 'blogIndex'
     get '/article/:id', to: 'blogs/articles#show', as: 'blogShow'
-    post '/comment', to: 'blogs/articles#comment', as: 'blogComment'
     get '/category/:id' , to: 'blogs/articles#category', as: 'blogCategory'
   end
 

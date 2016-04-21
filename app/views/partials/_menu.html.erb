@@ -24,6 +24,9 @@
               <li>Bonjour <%= current_user.username %></li>
               <li><%= link_to "<i class='fa fa-user'></i> Mon compte".html_safe, userAccount_url %></li>
               <li><%= link_to "<i class='fa fa-power-off' aria-hidden='true'></i> Deconnection".html_safe, destroy_user_session_path, :method => :delete %></li>
+              <% if current_user.is_admin %>
+              <li><%= link_to "<i class='fa fa-tachometer' aria-hidden='true'></i> Administration".html_safe, admin_adminDashboard_url %></li>
+              <% end %>
             </ul>
           </li>
         <% else %>
@@ -32,7 +35,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connexion <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><%= link_to "<i class='fa fa-user'></i> Se connecter".html_safe, new_session_path(:user) %></li>
-              <li><%= link_to "<i class='fa fa-sign-in'></i> Se connecter".html_safe, new_registration_path(:user) %></li>
+              <li><%= link_to "<i class='fa fa-sign-in'></i> S'enregistrer'".html_safe, new_registration_path(:user) %></li>
             </ul>
           </li>
         <% end %>

@@ -1,3 +1,4 @@
+
 class Users::SidebarCell < Cell::ViewModel
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::UrlHelper

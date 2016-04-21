@@ -14,6 +14,7 @@ class Blogs::ArticlesController < ApplicationController
     @category = BlogCategory.find(params[:id])
   end
 
+<<<<<<< HEAD
   def comment
     if request.post?
       @comment = Comment.new comment_params
@@ -34,4 +35,6 @@ class Blogs::ArticlesController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content, :blog_article_id, :user_id)
   end
+=======
+>>>>>>> e3b7761dfe1d48ecdd3c80e46e2dd18d2a65f9ef
 end
