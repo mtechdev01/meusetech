@@ -53,3 +53,5 @@ gem 'font-awesome-sass'
 gem 'cells', "~> 4.0.0"
 gem 'cells-erb'
 gem 'carrierwave'
+gem 'tinymce-rails'
+gem 'mini_magick'

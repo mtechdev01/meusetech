@@ -1,35 +1,20 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-9">
-
-      <div class="article_show">
-        <div class="title">
-          <h1>
-            <%= @article.title %><span class="pull-left"><img class="logo_size" src="<%= @article.category.icon %>" alt= ""/></span>
-          </h1>
-        </div>
-        <div class= "thumb">
-          <img class= "img-responsive img-bordered" src="<%= @article.thumb %>" alt=""/>
-        </div>
-
-        <p>
-          <%= @article.content %>
-          <div class="">auteur :
-            <%= @article.user.username %>
-            <p>
-              catégorie : <%= @article.category.name %>
-            </p>
-          </div>
-        </p>
-
-        <p>
-          <%= link_to "Retourner à l'index" , blogIndex_url %>
-        </p>
-      </div>
-
+<h1>
+  <%= @article.title %>
+</h1>
+<p>
+  <%= @article.content.html_safe %>
+  <div class="">auteur :
+    <%= @article.user.username %>
+    <p>
+      catégorie : <%= @article.category.name %>
+    </p>
+  </div>
+</p>
+<p>
+  <%= link_to "Retourner à l'index" , blogIndex_url %>
+</p>
       <div class="article_comment_blok">
         <h2>Commentaires</h2>
-
         <% if user_signed_in? %>
           <%= form_for :comment, :url => blogComment_url do |f| %>
             <input id="comment[blog_article_id]" name="comment[blog_article_id]" type="hidden" value="<%= @article.id %>" />
