@@ -17,6 +17,13 @@ Rails.application.routes.draw do
   
   namespace :admin do
     get '/', to: "pages#home", as: 'adminDashboard'
+      scope '/blogs' do
+        get '/', to: 'blogs/articles#index', as: 'blogsAdminIndex'
+        get '/voir/:id', to: 'blogs/articles#show', as: 'blogAdminShow'
+        get '/creer', to: 'blogs/articles#create', as: 'articleCreateGet'
+        post '/creer', to: 'blogs/articles#create', as: 'articleCreatePost'
+        post '/comment', to: 'blogs/articles#comment', as: 'blogAdminComment'
+      end
   end
   scope '/projets' do
     get '/', to: 'projects/projects#index', as: 'projectsIndex'

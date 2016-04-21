@@ -1,4 +1,5 @@
 class Project < ActiveRecord::Base
+  mount_uploader :thumb, ThumbUploader
   has_many :comments
   has_many :followers, class_name: "ProjectsFollower",
                           foreign_key: "project_id"

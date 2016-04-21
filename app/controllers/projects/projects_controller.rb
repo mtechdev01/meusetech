@@ -19,7 +19,7 @@ class Projects::ProjectsController < ApplicationController
         if @project.valid?
           @project.user = current_user
           if @project.save
-            flash[:notice] ="Une erreur est survenue lors de l'ajout de votre projet"
+            flash[:notice] ="Votre projet a été ajouté."
             flash[:class] ="success"
             redirect_to :back
           else
