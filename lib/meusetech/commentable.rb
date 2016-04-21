@@ -8,7 +8,7 @@ module Meusetech
         @comment.is_valid = true
       end
       if @comment.save
-        return true
+        return @comment
       end
       return false
     end

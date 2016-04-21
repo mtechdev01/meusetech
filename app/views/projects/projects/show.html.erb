@@ -17,6 +17,9 @@
 <h3>Commentaires</h3>
 <% if user_signed_in? %>
   <%= form_for :comment, :url => comment_url do |f| %>
+    <input id="notif[model]" name="notif[model]" type="hidden" value="BlogArticle" />
+    <input id="notif[receiver]" name="notif[receiver]" type="hidden" value="<%= @project.user_id %>" />
+    <input id="notif[key]" name="notif[key]" type="hidden" value="<%= @project.id %>" />
     <input id="comment[project_id]" name="comment[project_id]" type="hidden" value="<%= @project.id %>" />
     <input id="comment[user_id]" name="comment[user_id]" type="hidden" value="<%= current_user.id %>" />
     <%= f.text_area :content %>
