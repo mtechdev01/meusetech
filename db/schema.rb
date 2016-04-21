@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160420112847) do
+ActiveRecord::Schema.define(version: 20160421071014) do
 
   create_table "blog_articles", force: :cascade do |t|
     t.datetime "created_at",       null: false
@@ -36,13 +36,14 @@ ActiveRecord::Schema.define(version: 20160420112847) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "blog_article_id"
     t.integer  "project_id"
     t.integer  "user_id"
     t.text     "content"
     t.integer  "nb_likes"
+    t.boolean  "is_valid",        default: false
   end
 
   add_index "comments", ["blog_article_id"], name: "index_comments_on_blog_article_id"

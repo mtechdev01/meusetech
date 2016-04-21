@@ -31,10 +31,10 @@
         <h2>Commentaires</h2>
 
         <% if user_signed_in? %>
-          <%= form_for :comment, :url => blogComment_url do |f| %>
+          <%= form_for :comment, :url => comment_url do |f| %>
             <input id="comment[blog_article_id]" name="comment[blog_article_id]" type="hidden" value="<%= @article.id %>" />
             <input id="comment[user_id]" name="comment[user_id]" type="hidden" value="<%= current_user.id %>" />
-            <%= f.text_area :content %>
+            <%= f.text_area :content, class: "form-control" %>
             <%= f.submit :valider %>
           <% end %>
         <% end %>
@@ -53,7 +53,6 @@
       </div>
     </div>
     <div class="col-md-3">
-      <%= cell("blogs/sidebar").(:userBlock) %>
     </div>
   </div>
 </div>
