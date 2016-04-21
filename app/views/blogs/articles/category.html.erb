@@ -1,11 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-9">
-      <% @articles.each_with_index do | article, key |%>
+
+    <div class="col-md-8">
+      <div class=""
+        <h1>
+          <%= @category.name %>
+        </h1>
+      </div>
+      <% @category.articles.each_with_index do | article, key |%>
         <%= key === 1 ? "<section id='recents'>".html_safe : "" %>
-          <article class="<%= @articles.first.id === article.id ? "last_article" : "articles" %>">
+          <article class="<%= @category.articles.first.id === article.id ? "last_article" : "articles" %>">
             <div class="thumb">
-              <img class="img-responsive img-bordered <% @articles.first.id === article.id ? "bordered-bottom" : "bordered-right" %> " src="<%= article.thumb %>" alt="article thumbnail" style="border-color:<%= article.category.color %>" />
+              <img class="img-responsive img-bordered <% @category.articles.first.id === article.id ? "bordered-bottom" : "bordered-right" %> " src="<%= article.thumb %>" alt="article thumnail" style="border-color:<%= article.category.color %>" />
             </div>
             <div class="article-body">
               <div class="title">
@@ -18,20 +24,23 @@
                   <li><i class="fa fa-bookmark-o" aria-hidden="true"></i> <%= article.category.name %></li>
                 </ul>
               </div>
-              <% if @articles.first.id === article.id %>
+              <% if @category.articles.first.id === article.id %>
               <div class="content">
-                <p><%= truncate(article.content.html_safe, length: 200, separator: ' ') %></p>
+                <p><%= truncate(article.content, length: 200, separator: ' ') %></p>
                 <%= link_to "Lire la suite  <i class='fa fa-arrow-right' aria-hidden='true'></i>".html_safe , blogShow_url( article.id), class: "btn btn-primary pull-right" %>
               </div>
               <% end %>
-            </article>
-            <div class="clearfix"></div>
-          <%= @articles.last.id === article.id ? "</section>".html_safe : "" %>
-        <% end %>
+            </div>
+          </article>
+          <div class="clearfix"></div>
+        <%= @category.articles.last.id === article.id ? "</section>".html_safe : "" %>
+      <% end %>
     </div>
-    <div class="col-md-3">
-      <%= cell("blogs/sidebar").(:articleCategory) %>
+
+    <div class="col-md-4">
+      <%= cell("blogs/sidebar").(:articleCategory, @category.id ) %>
       <%= cell("blogs/sidebar").(:mostCommented) %>
     </div>
+
   </div>
 </div>

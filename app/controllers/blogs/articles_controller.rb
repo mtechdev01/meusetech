@@ -10,6 +10,10 @@ class Blogs::ArticlesController < ApplicationController
     @comments = @article.comments
   end
 
+  def category
+    @category = BlogCategory.find(params[:id])
+  end
+
   def comment
     if request.post?
       @comment = Comment.new comment_params

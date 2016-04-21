@@ -1,3 +1,4 @@
+
 class BlogArticle < ActiveRecord::Base
   mount_uploader :thumb, ThumbUploader
   belongs_to :user, class_name: "User",

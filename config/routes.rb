@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    get '/', to: "pages#home"
+    get '/', to: "pages#home", as: 'adminDashboard'
       scope '/blogs' do
         get '/', to: 'blogs/articles#index', as: 'blogsAdminIndex'
         get '/voir/:id', to: 'blogs/articles#show', as: 'blogAdminShow'
@@ -21,9 +21,6 @@ Rails.application.routes.draw do
         post '/creer', to: 'blogs/articles#create', as: 'articleCreatePost'
         post '/comment', to: 'blogs/articles#comment', as: 'blogAdminComment'
       end
-    #namespace :blogs do
-    #  get '/creer', to: 'blogs/articles#create', as: 'articlesCreateGet'
-    #  post '/creer', to: 'blogs/articles#create', as: 'articlesCreatePost'
   end
 
   scope '/projets' do
@@ -38,6 +35,7 @@ Rails.application.routes.draw do
     get '/', to: 'blogs/articles#index', as: 'blogIndex'
     get '/article/:id', to: 'blogs/articles#show', as: 'blogShow'
     post '/comment', to: 'blogs/articles#comment', as: 'blogComment'
+    get '/category/:id' , to: 'blogs/articles#category', as: 'blogCategory'
   end
 
   scope '/sondages' do
