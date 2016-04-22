@@ -21,6 +21,10 @@ class Users::AccountController < ApplicationController
     @user = current_user
   end
 
+  def notifications
+    @notifications = Notification.where(receiver: current_user)
+  end
+
   def update
     @user = User.find(current_user.id)
     if @user.update_attributes(user_params)

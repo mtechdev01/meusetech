@@ -23,7 +23,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <%= image_tag(current_user.avatar, size: "25x25", alt: "Avatar")%>
               <% if @notifsUnreaded.size > 0 %>
-                <span class="label label-danger"><%= @notifsUnreaded.size %></span>
+                <span class="label label-danger notifCount"><%= @notifsUnreaded.size %></span>
               <% end %>
               <span class="caret"></span>
             </a>
@@ -32,16 +32,14 @@
               <li class="dropdown-submenu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   Mes notifications
-                  <% if @notifsUnreaded.size > 0 %>
-                    <span class="label label-danger"><%= @notifsUnreaded.size %></span>
-                  <% end %>
                 </a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu notifs-menu">
                   <% @notifsAll.each do | notif | %>
-                    <a href="#">
+                    <a href="#" class="notifs-unreaded" data-url="<%= notifMarkAsReaded_url notif.id %>.json">
                       <%= notif.msg %> de <%= notif.sender.username %> </br> dans <%= notif.getRelationData %> </br> il y a: <%= time_ago_in_words notif.created_at %>
+                      <%= (!notif.readed) ? "<span class='label label-danger'>new</span>".html_safe : "" %>
                     </a>
-                    <%= (!notif.readed) ? "<span class='label label-danger'>new</span>".html_safe : "" %>
+
                   <% end %>
                 </ul>
               </li>
