@@ -11,8 +11,8 @@ $(document).ready ->
           notifCount = $('.notifCount').html()
           result = notifCount - 1
           $('.notifCount').html(result)
-          $this.find("span").remove()
+          $this.find("span").fadeOut()
           if result == 0
-            $('.notifCount').remove()
+            $('.notifCount').fadeOut()
     return
   return
