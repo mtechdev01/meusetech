@@ -21,7 +21,8 @@ class ApplicationController < ActionController::Base
 
   def getnotifs
       if user_signed_in?
-        @notifications = Notification.where(receiver: current_user.id)
+        @notifsAll       = Notification.where( receiver: current_user ).order(readed: :asc).limit(10)
+        @notifsUnreaded  = Notification.unreaded( current_user )
       end
   end
 

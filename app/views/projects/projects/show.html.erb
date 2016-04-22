@@ -36,8 +36,10 @@
     <div class="project_comments_card--message">
       <%= comment.content %>
     </div>
-    <% if current_user.is_admin && !comment.is_valid %>
-    <%= link_to "valider", validComment_url( comment ) %>
+    <% if current_user %>
+      <% if current_user.is_admin && !comment.is_valid %>
+      <%= link_to "valider", validComment_url( comment ) %>
+      <% end %>
     <% end %>
   </div>
   <% end %>

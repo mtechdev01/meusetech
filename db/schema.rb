@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421160000) do
+ActiveRecord::Schema.define(version: 20160422091605) do
 
   create_table "blog_articles", force: :cascade do |t|
     t.datetime "created_at",                     null: false
@@ -76,13 +76,14 @@ ActiveRecord::Schema.define(version: 20160421160000) do
   add_index "newsletters_users", ["user_id"], name: "index_newsletters_users_on_user_id"
 
   create_table "notifications", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "model"
     t.integer  "key"
     t.integer  "sender"
     t.integer  "receiver"
     t.string   "msg"
+    t.boolean  "readed",     default: false
   end
 
   create_table "polls", force: :cascade do |t|

@@ -21,17 +21,27 @@
         <% if user_signed_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <%= image_tag(current_user.avatar, size: "25x25", alt: "Avatar")%><% if @notifications.size > 0 %>
-              <span class="label label-danger"><%= @notifications.size %></span><% end %>
+              <%= image_tag(current_user.avatar, size: "25x25", alt: "Avatar")%>
+              <% if @notifsUnreaded.size > 0 %>
+                <span class="label label-danger"><%= @notifsUnreaded.size %></span>
+              <% end %>
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu multi-level">
 
               <li class="dropdown-submenu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mes notifications <span class="label label-danger"><%= @notifications.size %></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Mes notifications
+                  <% if @notifsUnreaded.size > 0 %>
+                    <span class="label label-danger"><%= @notifsUnreaded.size %></span>
+                  <% end %>
+                </a>
                 <ul class="dropdown-menu">
-                  <% @notifications.each do | notif | %>
-                    <a href="#"><%= notif.msg %> de <%= notif.sender.username %> </br> dans <%= notif.getRelationData %> </br> il y a: <%= time_ago_in_words notif.created_at %></a>
+                  <% @notifsAll.each do | notif | %>
+                    <a href="#">
+                      <%= notif.msg %> de <%= notif.sender.username %> </br> dans <%= notif.getRelationData %> </br> il y a: <%= time_ago_in_words notif.created_at %>
+                    </a>
+                    <%= (!notif.readed) ? "<span class='label label-danger'>new</span>".html_safe : "" %>
                   <% end %>
                 </ul>
               </li>
