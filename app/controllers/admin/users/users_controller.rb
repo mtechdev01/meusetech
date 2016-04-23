@@ -1,9 +1,10 @@
 class Admin::Users::UsersController < Admin::AdminController
   def index
     @users = User.all
-    @usersProjects = Project.where(user_id:current_user)
-    @userProjectsCount  = @usersProjects.count
-    @usersComments = Comment.where(user_id:current_user)
-    @userCommentsCount = @usersComments.count
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @users.to_csv, filename: "users-#{Date.today}.csv" }
+    end
   end
 end
