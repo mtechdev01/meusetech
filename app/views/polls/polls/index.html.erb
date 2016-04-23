@@ -1,8 +1,57 @@
-<h1>Polls::Polls#index</h1>
+<div class="container-fluid" id="poll-description-container">
+  <div class="row">
+    <div class="container">
+      <div class="col-sm-12">
+        <section id="poll-description">
+          <h1>Je participe à un sondage</h1>
+          <p>
+            Pour aider les entreprises, le développement des services à la personne, la valorisation et la préservation de l’environnement du Perche... je participe à de courts sondages.
+            </br>
+            <% if !current_user%>
+              </br>Merci de prendre quelques minutes pour vous connecter et répondre aux questions du moment.
+              </br>
+              </br>
+              <%= link_to "<i class='fa fa-user'></i> Se connecter".html_safe, new_session_path(:user), class:'btn btn-danger' %>
+            <% else %>
+              </br>Vous pourrez retrouver vos sondages répondus dans votre compte
+              </br>
+              </br>
+              <%= link_to "Mes sondages".html_safe, userSondage_url, class: "btn btn-danger" %>
+            <% end %>
+          </p>
 
-<p>Find me in app/views/polls/polls/index.html.erb</p>
-
-<% @polls.each do |poll| %>
-  <h1><%= link_to poll.title , pollShow_url( poll.id ) %></h1>
-    <p><%= poll.description %></p>
-<% end %>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" id="poll-list">
+  <div class="row">
+    <div class="col-sm-12">
+      <section class="polls-list">
+        <% @polls.each do |poll| %>
+          <div class="block">
+            <div class="block-title">
+              <h2><%= link_to poll.title , pollShow_url( poll.id ) %> <%= (poll.end_at > Date.today) ? "<span class='label label-warning pull-right'>En cours</span>".html_safe : "<span class='label label-danger pull-right'>Terminé</span>".html_safe %></h2>
+            </div>
+            <div class="block-content">
+              <p>
+                <%= poll.description %>
+              </p>
+            </div>
+            <div class="block-footer">
+              <div class="polls-list_link" style="line-height:35px">
+                <i class="fa fa-users"></i> <%= poll.nbUsersResponded.size %> utilisateur<%= (poll.nbUsersResponded.size > 0 ) ? "s": "" %> <%= (poll.nbUsersResponded.size > 1 ) ? "ont": "a" %> répondu<%= (poll.nbUsersResponded.size > 1 ) ? "s": "" %></li>
+                <% if !current_user %>
+                  <%= link_to "Participer au sondage" , pollShow_url( poll.id ), class: "pull-right btn btn-default" %>
+                <% else %>
+                  <%= link_to "Participer au sondage" , new_session_path(:user), class:'pull-right btn btn-default' %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </section>
+    </div>
+  </div>
+</div>
