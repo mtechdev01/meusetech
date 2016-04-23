@@ -1,8 +1,7 @@
 class Users::AccountController < ApplicationController
   before_action :authenticate_user!
-
+  layout "user"
   def account
-    @user = current_user
   end
 
   def projects
