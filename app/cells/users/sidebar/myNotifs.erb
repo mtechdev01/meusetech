@@ -45,7 +45,7 @@
               il y à: <%= time_ago_in_words notif.created_at %>
             </td>
             <td>
-              <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+              <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, notifDelete_url(notif.id), method: :post, class: "btn btn-danger" %>
             </td>
           </tr>
         <% end %>

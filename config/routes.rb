@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post '/comment', to: 'comments#comment', as: 'comment'
   get '/valid/comment/:id', to: 'comments#setValid', as: 'validComment'
   post '/notif/read/:id', to: 'notifications#markAsRead', as: 'notifMarkAsReaded'
+  post '/notif/delete/:id', to: 'notifications#delete', as: 'notifDelete'
 
   namespace :admin do
     get '/', to: "pages#home", as: 'adminDashboard'
