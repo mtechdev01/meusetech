@@ -4,6 +4,7 @@
     <h1><%= @project.name %></h1>
   </div>
   <div class="project_show_card--description">
+    <%= image_tag(@project.thumb, alt: "Avatar")%>
     <p>
       <%= @project.content%>
     </p>
