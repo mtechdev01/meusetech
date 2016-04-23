@@ -26,7 +26,11 @@ Rails.application.routes.draw do
         post '/creer', to: 'blogs/articles#create', as: 'articleCreatePost'
         post '/comment', to: 'blogs/articles#comment', as: 'blogAdminComment'
       end
+      scope '/users' do
+        get '/', to: 'users/users#index', as: 'usersAdminIndex'
+      end
   end
+
   scope '/projets' do
     get '/', to: 'projects/projects#index', as: 'projectsIndex'
     get '/voir/:id', to: 'projects/projects#show', as: 'projectsShow'

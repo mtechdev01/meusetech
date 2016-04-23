@@ -1,0 +1,30 @@
+<h1>Admin::Users#index</h1>
+<p>Find me in app/views/admin/users/index.html.erb</p>
+<table id="usersTable" class="display">
+  <thead>
+    <tr>
+      <th>Membre</th>
+      <th>Identité</th>
+      <th>E-mail</th>
+      <th>Ville</th>
+      <th>Date enregistrement</th>
+      <th>Autorisation comment</th>
+      <th>Nombre Projets</th>
+      <th>Nombre commentaires</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= image_tag user.avatar, width: "40px",class:"user-image img-circle", height: "40px" %> <%= user.username %></td>
+        <td><%= user.lastname %> <%= user.firstname %></td>
+        <td><%= user.email %></td>
+        <td><%= user.city %></td>
+        <td><%= user.created_at %></td>
+        <td><%= user.can_comment ? "oui" : "non" %></td>
+        <td><%= @userProjectsCount %></td>
+        <td><%= @userCommentsCount %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
