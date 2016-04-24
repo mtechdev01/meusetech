@@ -16,7 +16,7 @@ class Admin::Blogs::ArticlesController < Admin::AdminController
             flash[:notice] ="Votre article a été ajouté."
             flash[:class] ="success"
             @article= nil
-            redirect_to blogIndex_url
+            redirect_to admin_blogsAdminIndex_url
           else
             flash[:notice] = "Une erreur est survenue lors de l'ajout de votre article"
             flash[:class] = "danger"
@@ -37,6 +37,6 @@ class Admin::Blogs::ArticlesController < Admin::AdminController
   private
 
   def article_params
-    params.require(:articles).permit(:title, :content, :user_id, :blog_category_id, :thumb, :remove_thumb)
+    params.require(:articles).permit(:title, :content, :user_id, :category_id, :thumb, :remove_thumb)
   end
 end
