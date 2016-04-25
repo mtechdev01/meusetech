@@ -2,7 +2,8 @@ class Projects::ProjectsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
 
   def index
-    @projects = Project.all
+    @projects = Project.page(params[:page]).order('created_at DESC')
+
   end
 
   def show
