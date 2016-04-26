@@ -1,0 +1,31 @@
+@import '../projects';
+
+$padding: 15px;
+$box-shadow: 1px 1px 12px #555;
+$bg-color: #fcfcfc;
+
+.project_show_card{
+  box-shadow: $box-shadow;
+  background-color: $bg-color;
+  padding: $padding;
+  margin-top: 20px;
+
+  .triangle{
+    position: absolute;
+    margin-right: 0;
+    margin-left: 422px;
+    width: 0;
+    height: 0;
+    border-left: 200px solid transparent;
+    border-right: 0px solid transparent;
+    border-top: 140px solid #26C4EC;
+    opacity: 0.5;
+  }
+  .label-meuhsteak {
+    position: absolute;
+    margin-left: 550px;
+    font-size: 28px;
+    font-weight: bold;
+
+  }
+}

@@ -105,7 +105,8 @@ Project.create([
     name: "Projet numero 1",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     nb_fb_shared: 0,
-    nb_likes: 0
+    nb_likes: 0,
+    thumb: "https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg"
   },
   {
     user_id: 1,
@@ -113,7 +114,8 @@ Project.create([
     name: "Projet numero 2",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     nb_fb_shared: 0,
-    nb_likes: 0
+    nb_likes: 0,
+    thumb:"https://images-2.discordapp.net/eyJ1cmwiOiJodHRwOi8vY2RuLnNob3BpZnkuY29tL3MvZmlsZXMvMS8wMDMyLzc1MjIvcHJvZHVjdHMvQXdrd2FyZF9Db3dfM18xMDI0eDEwMjQuanBnP3Y9MTQwMDYyMzI0MyJ9.TDLamKDtYs_flEWO5MybhK1rLtE.jpg?width=250&height=250"
   },
   {
     user_id: 1,
@@ -121,7 +123,8 @@ Project.create([
     name: "Projet numero 3",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     nb_fb_shared: 0,
-    nb_likes: 0
+    nb_likes: 0,
+    thumb:"http://cdn.images.express.co.uk/img/dynamic/80/590x/cow-441627.jpg"
   }
 ])
 
@@ -135,7 +138,7 @@ ProjectsCategory.create([
   {
     name: "Economie",
     description: "Activités pour enfants",
-    icon: https:"https://image.freepik.com/icones-gratuites/tirelire_318-37219.png",
+    icon: "https://image.freepik.com/icones-gratuites/tirelire_318-37219.png",
     color: "#0AA0EB"
   }
 ])
