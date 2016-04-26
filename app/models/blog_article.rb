@@ -1,8 +1,13 @@
 
 class BlogArticle < ActiveRecord::Base
-  belongs_to :user, class_name: "User",
-                        foreign_key: "user_id"
-  belongs_to :category, class_name: "BlogCategory",
-                          foreign_key: "blog_category_id"
+  mount_uploader :thumb, ThumbUploader
+  belongs_to :user
+  belongs_to :category
   has_many :comments
+
+  self.per_page = 2
+  
+  validates_presence_of :title, :message => "Le titre de votre article est obligatoire"
+  validates_presence_of :content, :message => "Le contenu de votre article est obligatoire"
+
 end

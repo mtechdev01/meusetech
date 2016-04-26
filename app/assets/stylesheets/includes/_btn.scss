@@ -1,0 +1,30 @@
+.btn {
+  -webkit-font-smoothing: antialiased;
+  border-radius: 0;
+  transition: all 0.5s;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  &:hover {
+    background-color: #2980b9;
+  }
+}
+.btn-warning {
+  background-color: #f1c40f;
+  &:hover {
+    background-color: #f39c12;
+  }
+}
+.btn-danger {
+  background-color: #e74c3c;
+  &:hover {
+    background-color: darken(#e74c3c, 8%);
+  }
+}
+.btn-success {
+  background-color: #1abc9c;
+  &:hover {
+    background-color: darken(#1abc9c, 8%);
+  }
+}

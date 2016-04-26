@@ -10,10 +10,10 @@ class Admin::PagesController < Admin::AdminController
     @commentsCount  = Comment.count(:all)
 
     @articlesCount  = BlogArticle.count(:all)
-    @articlesLast   = BlogArticle.order(created_at: :desc).limit(5)
+    @articlesLast   = BlogArticle.order(created_at: :desc).limit(6)
 
     @projectsCount  = Project.count(:all)
-    @projectsLast   = Project.order(created_at: :desc).limit(5)
+    @projectsLast   = Project.order(created_at: :desc).limit(6)
   end
 
 end

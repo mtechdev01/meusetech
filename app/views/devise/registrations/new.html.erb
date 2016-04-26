@@ -1,21 +1,42 @@
-<h2><%= t('.sign_up', :default => "Sign up") %></h2>
+<div class="login-box">
+  <div class="login-logo">
+    <%= image_tag('logo.png', size: "200x200", alt: "logo meusetech")%>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :username %><br />
-  <%= f.text_field :username %></div>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit t('.sign_up', :default => "Sign up") %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+    <%= link_to 'Meusetech', root_url, style: "color:#525050; font-size:1.7em" %>
+  </div><!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">S'enregistrer</p>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <div class="form-group has-feedback">
+      <%= f.text_field :username, class: "form-control",  placeholder:"Nom d'utilisateur" %>
+      <span class="glyphicon glyphicon-user form-control-feedback"></span>
+    </div>
+      <div class="form-group has-feedback">
+        <%= f.email_field :email, class: "form-control",  placeholder:"Email" %>
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <%= f.password_field  :password, class: "form-control",  placeholder:"Mot de passe" %>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <%= f.password_field  :password_confirmation, class: "form-control",  placeholder:"Confirmer votre mot de passe" %>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="checkbox icheck">
+            <% if devise_mapping.rememberable? -%>
+            <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+            <% end -%>
+          </div>
+        </div><!-- /.col -->
+        <div class="col-xs-4">
+          <%= f.submit 'Créer', class: "btn bg-olive btn-flat" %>
+        </div><!-- /.col -->
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
+  </div><!-- /.login-box-body -->
+</div><!-- /.login-box -->

@@ -53,3 +53,7 @@ gem 'font-awesome-sass'
 gem 'cells', "~> 4.0.0"
 gem 'cells-erb'
 gem 'carrierwave'
+gem 'tinymce-rails'
+gem 'mini_magick'
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'

@@ -1,0 +1,9 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "admin/AdminLTE/AdminLTE";
+@import "devise/blue";
+
+.login-page {
+  background: image-url("bg2.jpg") no-repeat;
+  background-size:cover;
+}

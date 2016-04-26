@@ -18,33 +18,22 @@
                   <li><i class="fa fa-bookmark-o" aria-hidden="true"></i> <%= article.category.name %></li>
                 </ul>
               </div>
-              <div class="article-body">
-                <div class="title">
-                  <h2><%= link_to article.title , blogShow_url( article.id ) %> <span class="pull-right"><img class="logo_size" src="<%= article.category.icon %>" alt="category icon"/></span></h2>
-                </div>
-                <div class="infos">
-                  <ul>
-                    <li><i class="fa fa-user" aria-hidden="true"></i> <%= article.user.username %>, </li>
-                    <li><i class="fa fa-clock-o" aria-hidden="true"></i> <%= time_tag(article.created_at) %>, </li>
-                    <li><i class="fa fa-bookmark-o" aria-hidden="true"></i> <%= article.category.name %></li>
-                  </ul>
-                </div>
-                <% if @articles.first.id === article.id %>
-                <div class="content">
-                  <p><%= truncate(article.content, length: 200, separator: ' ') %></p>
-                  <%= link_to "Lire la suite  <i class='fa fa-arrow-right' aria-hidden='true'></i>".html_safe , blogShow_url( article.id), class: "btn btn-primary pull-right" %>
-                </div>
-                <% end %>
+              <% if @articles.first.id === article.id %>
+              <div class="content">
+                <p><%= truncate(article.content.html_safe, length: 200, separator: ' ') %></p>
+                <%= link_to "Lire la suite  <i class='fa fa-arrow-right' aria-hidden='true'></i>".html_safe , blogShow_url( article.id), class: "btn btn-primary pull-right" %>
               </div>
+              <% end %>
             </article>
             <div class="clearfix"></div>
           <%= @articles.last.id === article.id ? "</section>".html_safe : "" %>
         <% end %>
+        <%= will_paginate @projects, renderer: BootstrapPagination::Rails, :previous_label => "Précédents", :next_label => "Suivants" %>
+        
     </div>
     <div class="col-md-3">
       <%= cell("blogs/sidebar").(:articleCategory) %>
       <%= cell("blogs/sidebar").(:mostCommented) %>
     </div>
-
   </div>
 </div>

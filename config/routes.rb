@@ -12,22 +12,31 @@ Rails.application.routes.draw do
     sign_up: 'nouveau'
   }
 
+  post '/comment', to: 'comments#comment', as: 'comment'
+  get '/valid/comment/:id', to: 'comments#setValid', as: 'validComment'
+  post '/notif/read/:id', to: 'notifications#markAsRead', as: 'notifMarkAsReaded'
+  post '/notif/delete/:id', to: 'notifications#delete', as: 'notifDelete'
+
   namespace :admin do
     get '/', to: "pages#home", as: 'adminDashboard'
+      scope '/blogs' do
+        get '/', to: 'blogs/articles#index', as: 'blogsAdminIndex'
+        get '/voir/:id', to: 'blogs/articles#show', as: 'blogAdminShow'
+        get '/creer', to: 'blogs/articles#create', as: 'articleCreateGet'
+        post '/creer', to: 'blogs/articles#create', as: 'articleCreatePost'
+        post '/comment', to: 'blogs/articles#comment', as: 'blogAdminComment'
+      end
   end
-
   scope '/projets' do
     get '/', to: 'projects/projects#index', as: 'projectsIndex'
     get '/voir/:id', to: 'projects/projects#show', as: 'projectsShow'
     get '/creer', to: 'projects/projects#create', as: 'projectsCreateGet'
     post '/creer', to: 'projects/projects#create', as: 'projectsCreatePost'
-    post '/comment', to: 'projects/projects#comment', as: 'projectsComment'
   end
 
   scope '/blog' do
     get '/', to: 'blogs/articles#index', as: 'blogIndex'
     get '/article/:id', to: 'blogs/articles#show', as: 'blogShow'
-    post '/comment', to: 'blogs/articles#comment', as: 'blogComment'
     get '/category/:id' , to: 'blogs/articles#category', as: 'blogCategory'
   end
 
@@ -44,6 +53,7 @@ Rails.application.routes.draw do
     get '/mon-compte/projets', to: 'users/account#projects', as: 'userProjects'
     get '/mon-compte/commentaires', to: 'users/account#comments', as: 'userComments'
     get '/mon-compte/sondages', to: 'users/account#sondages', as: 'userSondage'
+    get '/mon-compte/notifications', to: 'users/account#notifications', as: 'userNotifs'
   end
 
 

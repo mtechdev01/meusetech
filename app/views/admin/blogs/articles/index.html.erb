@@ -1,0 +1,57 @@
+<section class="content-header">
+  <h1>
+    Blog
+    <small>Mes articles</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
+    <li><a href="#">Blog</a></li>
+    <li class="active">Mes articles</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Liste de mes articles</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          <table id="articlesListe" class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>En ligne?</th>
+                <th>Image</th>
+                <th>Categorie</th>
+                <th>Titre</th>
+                <th>Création</th>
+                <th>Publication</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @articles.each do | article | %>
+              <tr>
+                <td style="line-height:64px;"><%= article.id %></td>
+                <td style="line-height:64px;font-weight: bold"><%= (article.published) ? '<span class="text-success">Oui</span>'.html_safe : '<span class="text-danger">Non</span>'.html_safe  %></td>
+                <td style="line-height:64px;"><%= image_tag(article.thumb, size: "64x64", alt: "image article")%></td>
+                <td style="line-height:64px;"><%= image_tag(article.category.icon, size: "32x32", alt: "image category")%></td>
+                <td style="line-height:64px;"><%= article.title %></td>
+                <td style="line-height:64px;"><%= time_tag(article.created_at) %></td>
+                <td style="line-height:64px;"><%= (article.published_at) ? time_tag(article.published_at) : '' %></td>
+                <td style="line-height:64px;">
+                  <a href="#" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                  <a href="#" class="btn btn-info"><i class="fa fa-pencil"></i></a>
+                  <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+</section><!-- /.content -->

@@ -1,0 +1,52 @@
+<h4>
+  Mes dernieres Notifications
+  <span class="pull-right">
+    <%= link_to "<i class='fa fa-search'></i> Toutes mes notifications".html_safe, userNotifs_url %>
+  </span>
+</h4>
+<div class="block">
+  <div class="block-content">
+    <table class="table table-hovered">
+      <thead>
+        <tr>
+          <th>
+
+          </th>
+          <th>
+            Sujet
+          </th>
+          <th>
+            Expéditeur
+          </th>
+          <th>
+            Date
+          </th>
+          <th>
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @notifications.each do | notif |  %>
+          <tr>
+            <td>
+              <%= (!notif.readed) ? "<span class='label label-danger'>new</span>".html_safe : "" %>
+            </td>
+            <td>
+              <%= notif.msg %> dans <%= notif.getRelationData %>
+            </td>
+            <td>
+              <%= notif.sender.username %>
+            </td>
+            <td>
+              il y à: <%= time_ago_in_words notif.created_at %>
+            </td>
+            <td>
+              <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, notifDelete_url(notif.id), method: :post, class: "btn btn-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
