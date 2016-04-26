@@ -12,5 +12,4 @@ class Blogs::ArticlesController < ApplicationController
   def category
     @category = Category.find(params[:id])
   end
-
 end

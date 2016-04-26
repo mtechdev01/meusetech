@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     sign_up: 'nouveau'
   }
 
+  post '/like/:model/:id', to: 'likes#like', as: 'likePost'
   post '/comment', to: 'comments#comment', as: 'comment'
   get '/valid/comment/:id', to: 'comments#setValid', as: 'validComment'
   post '/notif/read/:id', to: 'notifications#markAsRead', as: 'notifMarkAsReaded'

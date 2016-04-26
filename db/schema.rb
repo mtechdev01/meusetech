@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20160422091605) do
     t.string   "title"
     t.text     "content"
     t.integer  "nb_fb_shared"
-    t.integer  "nb_likes"
+    t.integer  "likes_count"
     t.string   "thumb"
     t.integer  "comments_count"
     t.boolean  "published",      default: false
@@ -45,13 +45,23 @@ ActiveRecord::Schema.define(version: 20160422091605) do
     t.integer  "project_id"
     t.integer  "user_id"
     t.text     "content"
-    t.integer  "nb_likes"
+    t.integer  "likes_count"
     t.boolean  "is_valid",        default: false
   end
 
   add_index "comments", ["blog_article_id"], name: "index_comments_on_blog_article_id"
   add_index "comments", ["project_id"], name: "index_comments_on_project_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "blog_article_id"
+    t.integer "project_id"
+    t.integer "user_id"
+  end
+
+  add_index "likes", ["blog_article_id"], name: "index_likes_on_blog_article_id"
+  add_index "likes", ["project_id"], name: "index_likes_on_project_id"
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
   create_table "newsletters", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -129,7 +139,7 @@ ActiveRecord::Schema.define(version: 20160422091605) do
     t.text     "content",        default: "",        null: false
     t.integer  "nb_fb_shared"
     t.string   "state",          default: "Proposé"
-    t.integer  "nb_likes"
+    t.integer  "likes_count"
     t.integer  "comments_count"
     t.integer  "thumb"
     t.integer  "category_id"
