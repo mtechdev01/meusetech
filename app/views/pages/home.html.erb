@@ -2,6 +2,6 @@
 
 <% @projects.each do |most|%>
 <%= most.name %> ===>
-<% score = (most.comments_count*6 + most.nb_likes).to_i%>
-<%= "Score d'activité: #{score}, avec #{most.comments_count} commentaires et #{most.nb_likes} likes !" %> <br><br>
+<% score = (most.comments_count*6 + most.likes_count).to_i%>
+<%= "Score d'activité: #{score}, avec #{most.comments_count} commentaires et #{most.likes_count} likes !" %> <br><br>
 <%end%>

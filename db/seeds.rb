@@ -14,7 +14,7 @@ BlogArticle.create([
     title: "Article numero 1",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     nb_fb_shared: 0,
-    nb_likes: 0,
+    likes_count: 0,
     published: true,
     published_at: "2016-06-11 11:40:07.431666",
     thumb: "http://www.azurelite.net/photo/gal/pic/gal-2412236.jpg"
@@ -25,7 +25,7 @@ BlogArticle.create([
     title: "Article numero 2",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     nb_fb_shared: 0,
-    nb_likes: 0,
+    likes_count: 0,
     published: true,
     published_at: "2016-06-11 11:40:07.431666",
     thumb: "http://www.azurelite.net/photo/gal/pic/gal-2412236.jpg"
@@ -36,7 +36,7 @@ BlogArticle.create([
     title: "Article numero 3",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     nb_fb_shared: 0,
-    nb_likes: 0,
+    likes_count: 0,
     published: true,
     published_at: "2016-06-11 11:40:07.431666",
     thumb: "http://www.azurelite.net/photo/gal/pic/gal-2412236.jpg"
@@ -47,7 +47,7 @@ BlogArticle.create([
     title: "Article numero 4",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     nb_fb_shared: 0,
-    nb_likes: 0,
+    likes_count: 0,
     published: false,
     thumb: "http://www.azurelite.net/photo/gal/pic/gal-2412236.jpg"
   }
@@ -112,7 +112,7 @@ Project.create([
     name: "Projet numero 1",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     nb_fb_shared: 0,
-    nb_likes: 0
+    likes_count: 0
   },
   {
     user_id: 1,
@@ -120,7 +120,7 @@ Project.create([
     name: "Projet numero 2",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     nb_fb_shared: 0,
-    nb_likes: 0
+    likes_count: 0
   },
   {
     user_id: 1,
@@ -128,7 +128,7 @@ Project.create([
     name: "Projet numero 3",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     nb_fb_shared: 0,
-    nb_likes: 0
+    likes_count: 0
   }
 ])
 

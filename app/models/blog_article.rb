@@ -4,6 +4,7 @@ class BlogArticle < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   has_many :comments
+  has_many :likes
 
   validates_presence_of :title, :message => "Le titre de votre article est obligatoire"
   validates_presence_of :content, :message => "Le contenu de votre article est obligatoire"

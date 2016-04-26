@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   has_many :projectcomments, class_name: "ProjectsComment",foreign_key: "user_id"
   has_many :polls_fields_responses, class_name: "PollsFieldsResponse", foreign_key: "polls_fields_response_id"
-   has_many :polls_fields, through: :polls_fields_responses
+  has_many :polls_fields, through: :polls_fields_responses
+  has_many :likes
 
 end

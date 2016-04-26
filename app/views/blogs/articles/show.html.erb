@@ -14,6 +14,9 @@
   <%= link_to "Retourner à l'index" , blogIndex_url %>
 </p>
       <div class="article_comment_blok">
+        <% if user_signed_in? %>
+          <button class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'article', id: @article.id}) %>"><%="#{@article.likes_count} Like"%></button>
+        <% end %>
         <h2>Commentaires</h2>
         <% if user_signed_in? %>
           <%= form_for :comment, :url => comment_url do |f| %>

@@ -14,6 +14,11 @@
     </div>
   </div>
 </div>
+<br>
+<% if user_signed_in? %>
+  <button class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'project', id: @project.id}) %>"><%="#{@project.likes_count} Like"%></button>
+<% end %>
+
 <h3>Commentaires</h3>
 <% if user_signed_in? %>
   <%= form_for :comment, :url => comment_url do |f| %>
