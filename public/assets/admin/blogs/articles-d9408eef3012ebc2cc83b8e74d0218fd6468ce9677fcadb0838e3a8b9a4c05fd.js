@@ -1,0 +1,1 @@
+(function(){var c;c=$("#articles_thumb"),$("#articles_remove_thumb").on("click",function(){c.replaceWith(c=c.clone(!0))})}).call(this);

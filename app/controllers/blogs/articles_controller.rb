@@ -1,8 +1,7 @@
 class Blogs::ArticlesController < ApplicationController
 
   def index
-    @articles = BlogArticle.all
-    @users = User.all
+    @articles = BlogArticle.page(params[:page]).order('created_at DESC')
   end
 
   def show

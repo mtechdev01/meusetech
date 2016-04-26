@@ -6,6 +6,8 @@ class BlogArticle < ActiveRecord::Base
   has_many :comments
   has_many :likes
 
+  self.per_page = 2
+  
   validates_presence_of :title, :message => "Le titre de votre article est obligatoire"
   validates_presence_of :content, :message => "Le contenu de votre article est obligatoire"
 

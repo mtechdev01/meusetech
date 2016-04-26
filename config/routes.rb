@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   post '/like/:model/:id', to: 'likes#like', as: 'likePost'
   post '/comment', to: 'comments#comment', as: 'comment'
   get '/valid/comment/:id', to: 'comments#setValid', as: 'validComment'
+  post '/notif/read/:id', to: 'notifications#markAsRead', as: 'notifMarkAsReaded'
+  post '/notif/delete/:id', to: 'notifications#delete', as: 'notifDelete'
 
   namespace :admin do
     get '/', to: "pages#home", as: 'adminDashboard'
@@ -52,6 +54,7 @@ Rails.application.routes.draw do
     get '/mon-compte/projets', to: 'users/account#projects', as: 'userProjects'
     get '/mon-compte/commentaires', to: 'users/account#comments', as: 'userComments'
     get '/mon-compte/sondages', to: 'users/account#sondages', as: 'userSondage'
+    get '/mon-compte/notifications', to: 'users/account#notifications', as: 'userNotifs'
   end
 
 

@@ -1,8 +1,7 @@
 class Users::AccountController < ApplicationController
   before_action :authenticate_user!
-
+  layout "user"
   def account
-    @user = current_user
   end
 
   def projects
@@ -19,6 +18,10 @@ class Users::AccountController < ApplicationController
 
   def edit
     @user = current_user
+  end
+
+  def notifications
+    @notifications = Notification.where(receiver: current_user)
   end
 
   def update

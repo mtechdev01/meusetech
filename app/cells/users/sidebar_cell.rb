@@ -3,6 +3,7 @@ class Users::SidebarCell < Cell::ViewModel
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::DebugHelper
+
   def lastComments(user)
     @lastComments = Comment.lastComments(user).limit(5)
     render
@@ -15,6 +16,11 @@ class Users::SidebarCell < Cell::ViewModel
 
   def lastPollsResponses(user)
     @lastPollsResponses = PollsFieldsResponse.responsed(user).limit(5)
+    render
+  end
+
+  def myNotifs(user)
+    @notifications = Notification.where(receiver: user.id).order(readed: :asc)
     render
   end
 

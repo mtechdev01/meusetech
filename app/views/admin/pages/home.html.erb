@@ -86,8 +86,8 @@
                 <th>Image</th>
                 <th>Titre</th>
                 <th  style="text-align:center;">Catégorie</th>
-                <th style="width:40px;">Commentaires</th>
                 <th style="width:40px;">J'aime</th>
+                <th style="width:40px;">Commentaires</th>
                 <th style="width:40px;">Partage Fb</th>
               </tr>
               <% @projectsLast.each do | project | %>
@@ -102,13 +102,13 @@
                   <%= project.category.name %>
                 </td>
                 <td  style="text-align:center;">
-                  <span class="badge bg-blue"><%= project.nb_likes %></span>
+                  <span class="badge bg-blue"><%= ( project.nb_likes ) ? project.nb_likes : "0" %></span>
                 </td>
                 <td style="text-align:center;">
-                  <span class="badge"><%= project.comments_count %></span>
+                  <span class="badge"><%= ( project.comments_count ) ? project.comments_count : "0" %></span>
                 </td>
                 <td style="text-align:center;">
-                  <span class="badge bg-red"><%= project.nb_fb_shared %></span>
+                  <span class="badge bg-red"><%= ( project.nb_fb_shared ) ? project.nb_fb_shared : "0" %></span>
                 </td>
               </tr>
               <% end %>
@@ -130,8 +130,8 @@
                 <th>Image</th>
                 <th>Titre</th>
                 <th  style="text-align:center;">Catégorie</th>
-                <th style="width:40px;">Commentaires</th>
                 <th style="width:40px;">J'aime</th>
+                <th style="width:40px;">Commentaires</th>
                 <th style="width:40px;">Partage Fb</th>
               </tr>
               <% @articlesLast.each do | article | %>
@@ -146,13 +146,13 @@
                   <%= article.category.name %>
                 </td>
                 <td  style="text-align:center;">
-                  <span class="badge bg-blue"><%= article.nb_likes %></span>
+                  <span class="badge bg-blue"><%= ( article.nb_likes ) ? article.nb_likes : "0" %></span>
                 </td>
                 <td style="text-align:center;">
-                  <span class="badge"><%= article.comments_count %></span>
+                  <span class="badge"><%= ( article.comments_count ) ? article.comments_count : "0" %></span>
                 </td>
                 <td style="text-align:center;">
-                  <span class="badge bg-red"><%= article.nb_fb_shared %></span>
+                  <span class="badge bg-red"><%= ( article.nb_fb_shared ) ? article.nb_fb_shared : "0" %></span>
                 </td>
               </tr>
               <% end %>
@@ -186,7 +186,7 @@
                 <% else %>
                   Posté dans le projet: <%= link_to comment.project.name , projectsShow_url( comment.project_id)%> <hr>
                 <% end %>
-                <%= truncate(comment.content, length: 10, separator: ' ') %>
+                <%= truncate(comment.content, length: 25, separator: ' ') %>
               </div><!-- /.direct-chat-text -->
             </div><!-- /.direct-chat-msg -->
           </div><!-- /.direct-chat-msg -->
