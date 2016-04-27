@@ -40,6 +40,7 @@ Rails.application.routes.draw do
         get '/nouveau', to: 'category#create', as: 'categoryAdminCreate'
         post '/nouveau', to: 'category#create', as: 'categoryAdminCreatePost'
         get '/editer/:id', to: 'category#edit', as: 'categoryAdminEdit'
+        post '/editer/:id', to: 'category#update', as: 'categoryAdminEditPost'
         post '/delete/:id', to: 'category#delete', as: 'categoryAdminDelete'
       end
   end

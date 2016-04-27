@@ -12,6 +12,19 @@ class Admin::CategoryController < Admin::AdminController
     @category = Category.find(params[:id])
   end
 
+  def update
+    @category = Category.find(params[:id])
+    if @category.update_attributes(article_params)
+      flash[:notice] = "La mise à jour à été effectuée"
+      flash[:class]= "success"
+      redirect_to admin_categoryAdminIndex_url
+    else
+      flash[:notice] = "Erreur lors de la mise à jour"
+      flash[:class]= "danger"
+      redirect_to :back
+    end
+  end
+
   def create
     if user_signed_in?
       @category = Category.new
@@ -22,7 +35,7 @@ class Admin::CategoryController < Admin::AdminController
             flash[:notice] ="Votre article a été ajouté."
             flash[:class] ="success"
             @category = nil
-            redirect_to admin_blogsAdminIndex_url
+            redirect_to admin_categoryAdminIndex_url
           else
             flash[:notice] = "Une erreur est survenue lors de l'ajout de votre article"
             flash[:class] = "danger"
@@ -42,6 +55,10 @@ class Admin::CategoryController < Admin::AdminController
 
   def delete
     @category = Category.find(params[:id])
+    @category.destroy
+    flash[:notice] = "Suppression de la catégorie enregistré"
+    flash[:class] = "success"
+    redirect_to :back
   end
 
   private
