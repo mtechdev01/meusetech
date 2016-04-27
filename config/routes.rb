@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     sign_up: 'nouveau'
   }
 
+  get '/callback', to: 'pages#callback', as: 'callback'
   post '/like/:model/:id', to: 'likes#like', as: 'likePost'
   post '/comment', to: 'comments#comment', as: 'comment'
   get '/valid/comment/:id', to: 'comments#setValid', as: 'validComment'
@@ -26,6 +27,8 @@ Rails.application.routes.draw do
         get '/creer', to: 'blogs/articles#create', as: 'articleCreateGet'
         post '/creer', to: 'blogs/articles#create', as: 'articleCreatePost'
         post '/comment', to: 'blogs/articles#comment', as: 'blogAdminComment'
+        post '/redirecttoFacebook/:id', to: 'blogs/articles#redirecttofacebook', as: 'blogredirectToFacebook'
+        get '/publishtoFacebook/:id', to: 'blogs/articles#publishtofacebook', as: 'blogPublishtoFacebook'
       end
   end
   scope '/projets' do
