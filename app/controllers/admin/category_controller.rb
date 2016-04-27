@@ -37,7 +37,7 @@ class Admin::CategoryController < Admin::AdminController
             @category = nil
             redirect_to admin_categoryAdminIndex_url
           else
-            flash[:notice] = "Une erreur est survenue lors de l'ajout de votre article"
+            flash[:notice] = "Une erreur est survenue lors de l'ajout de votre catégorie"
             flash[:class] = "danger"
             redirect_to :back
           end
