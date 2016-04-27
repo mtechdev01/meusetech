@@ -41,10 +41,7 @@
                 <td style="line-height:64px;"><%= time_tag(article.created_at) %></td>
                 <td style="line-height:64px;"><%= (article.published_at) ? time_tag(article.published_at) : '' %></td>
                 <td style="line-height:64px;">
-<<<<<<< HEAD
-=======
                   <%= link_to '<i class="fa fa-facebook" aria-hidden="true"></i>'.html_safe, admin_blogredirectToFacebook_url(article.id), class: 'btn btn-primary', method: 'post'%>
->>>>>>> facebook
                   <a href="#" class="btn btn-success"><i class="fa fa-eye"></i></a>
                   <a href="#" class="btn btn-info"><i class="fa fa-pencil"></i></a>
                   <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
