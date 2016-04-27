@@ -4,6 +4,10 @@ class PagesController < ApplicationController
     @projects = Project.mostActive
   end
 
+  def about
+    #code
+  end
+  
   def callback
     @state = params[:state].split(',')
     #@a = "#{@state[1]}(#{@state[0]},#{params[:code]})"
