@@ -3,7 +3,7 @@ class Projects::ProjectsController < ApplicationController
 
   def index
     @projects = Project.page(params[:page]).order('created_at DESC')
-
+    
   end
 
   def show
