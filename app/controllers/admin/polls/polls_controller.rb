@@ -1,2 +1,2 @@
-class Admin::Polls::PollsController < ApplicationController
+class Admin::Polls::PollsController < Admin::AdminController
 end

@@ -34,11 +34,6 @@ class Admin::Blogs::ArticlesController < Admin::AdminController
     end
   end
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> facebook
   def redirecttofacebook
     @oauth = Koala::Facebook::OAuth.new(Rails.configuration.fb_id,Rails.configuration.fb_secret, callback_url)
     redirect_to @oauth.url_for_oauth_code(:permissions => Rails.configuration.fb_perms, :state => params[:id])
@@ -61,11 +56,7 @@ class Admin::Blogs::ArticlesController < Admin::AdminController
       flash[:class]= "success"
       redirect_to :back
   end
-
-<<<<<<< HEAD
->>>>>>> facebook
-=======
->>>>>>> facebook
+  
   private
 
   def article_params
