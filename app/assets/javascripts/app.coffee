@@ -20,6 +20,13 @@ ready = ->
         return
     return
   return
+  $('.treeview').on 'click', (e) ->
+    $('treeview-menu-open').removeClass('menu-open').attr 'display', 'none'
+    ul = undefined
+    ul = $(this).find('ul')
+    ul.addClass('treeview-menu-open').addClass('menu-open').attr 'display', 'block'
+  return
+  
 
 $(document).ready ready
 $(document).on 'page:load', ready

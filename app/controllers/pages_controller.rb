@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-class PagesController < ApplicationController
-  
-  def home
-    @projects = Project.mostActive
-  end
-
-end
-=======
 class PagesController < ApplicationController
 
   def home
@@ -22,4 +13,3 @@ class PagesController < ApplicationController
   end
 
 end
->>>>>>> facebook

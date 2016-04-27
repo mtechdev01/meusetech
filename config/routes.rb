@@ -30,6 +30,18 @@ Rails.application.routes.draw do
         post '/redirecttoFacebook/:id', to: 'blogs/articles#redirecttofacebook', as: 'blogredirectToFacebook'
         get '/publishtoFacebook/:id', to: 'blogs/articles#publishtofacebook', as: 'blogPublishtoFacebook'
       end
+      scope '/sondages' do
+        get '/', to: 'polls/polls#index', as: 'pollsAdminIndex'
+        get '/voir/:id', to: 'polls/polls#show', as: 'pollsAdminShow'
+        get '/nouveau', to: 'polls/polls#create', as: 'pollsAdminCreate'
+      end
+      scope '/categories' do
+        get '/', to: 'category#index', as: 'categoryAdminIndex'
+        get '/nouveau', to: 'category#create', as: 'categoryAdminCreate'
+        post '/nouveau', to: 'category#create', as: 'categoryAdminCreatePost'
+        get '/editer/:id', to: 'category#edit', as: 'categoryAdminEdit'
+        post '/delete/:id', to: 'category#delete', as: 'categoryAdminDelete'
+      end
   end
   scope '/projets' do
     get '/', to: 'projects/projects#index', as: 'projectsIndex'

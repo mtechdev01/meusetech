@@ -1,0 +1,52 @@
+<section class="content-header">
+  <h1>
+    Sondages
+    <small>Liste</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
+    <li class="active">Sondages</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Liste de mes sondages</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          <table id="articlesListe" class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Début</th>
+                <th>Fin</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @polls.each do | poll | %>
+              <tr>
+                <td><%= poll.id %></td>
+                <td><%= poll.title%></td>
+                <td><%= poll.description%></td>
+                <td><%= time_tag(poll.start_at)%></td>
+                <td><%= time_tag(poll.end_at)%></td>
+                <td>
+                  <a href="#" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                  <a href="#" class="btn btn-info"><i class="fa fa-pencil"></i></a>
+                  <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+</section><!-- /.content -->
