@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,:recoverable, :rememberable, :trackable, :validatable
   mount_uploader :avatar, AvatarUploader
   has_many :comments
-  has_many :polls_fields_responses, class_name: "PollsFieldsResponse", foreign_key: "polls_fields_response_id"
+  has_many :pollsResponses, class_name: "PollsFieldsResponse"
   has_many :likes
 
   has_many :notifs_received, ->(user) { where receiver:  user.id }, class_name: "Notification"

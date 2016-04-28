@@ -36,7 +36,7 @@
                 <td><%= time_tag(poll.start_at)%></td>
                 <td><%= time_tag(poll.end_at)%></td>
                 <td>
-                  <a href="#" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                  <%= link_to "<i class='fa fa-eye'></i>".html_safe, admin_pollsAdminShow_url(poll.id), class: "btn btn-success" %>
                   <a href="#" class="btn btn-info"><i class="fa fa-pencil"></i></a>
                   <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
                 </td>

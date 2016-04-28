@@ -20,7 +20,7 @@
         <a href="#">
           <i class="fa fa-coffee" aria-hidden="true"></i>
           <span>Category</span>
-          <span class="label label-primary pull-right">4</span>
+          <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
           <li class="<%= (params[:controller] === 'admin/category' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Liste".html_safe, admin_categoryAdminIndex_url %></li>
@@ -41,7 +41,7 @@
         <a href="#">
           <i class="fa fa-coffee" aria-hidden="true"></i>
           <span>Projets</span>
-          <span class="label label-primary pull-right">4</span>
+          <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
           <li class="<%= (params[:controller] === 'admin/projects/projects' && params[:action] === 'index' ) ? 'active' : ''  %> "><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i>Liste</a></li>
@@ -53,7 +53,7 @@
         <a href="#">
           <i class="fa fa-coffee" aria-hidden="true"></i>
           <span>Sondages</span>
-          <span class="label label-primary pull-right">4</span>
+          <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
           <li class="<%= (params[:controller] === 'admin/polls/polls' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Liste".html_safe, admin_pollsAdminIndex_url %></li>
