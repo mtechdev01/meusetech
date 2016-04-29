@@ -44,10 +44,21 @@ Rails.application.routes.draw do
         post '/editer/:id', to: 'category#update', as: 'categoryAdminEditPost'
         post '/delete/:id', to: 'category#delete', as: 'categoryAdminDelete'
       end
+
+      scope '/projets' do
+        get '/', to: 'projects/projects#index', as: 'projectsAdminIndexGet'
+        post '/', to: 'projects/projects#index', as: 'projectsAdminIndexPost'
+        get '/creer', to: 'projects/projects#create', as: 'projectsAdminCreateGet'
+        post '/creer', to: 'projects/projects#create', as: 'projectsAdminCreatePost'
+        get '/editer/:id', to: 'projects/projects#editproject', as: 'projectEditGet'
+        post '/editer/:id', to: 'projects/projects#updateproject', as: 'projectUpdate'
+        post '/supprimer-projet/:id', to: 'projects/projects#projectdelete', as: 'projectDelete'
+       end
   end
+
   scope '/projets' do
     get '/', to: 'projects/projects#index', as: 'projectsIndex'
-    get '/voir/:id', to: 'projects/projects#show', as: 'projectsShow'
+    get '/voir/:id', to: 'projects/projects#show', as: 'projectShow'
     get '/creer', to: 'projects/projects#create', as: 'projectsCreateGet'
     post '/creer', to: 'projects/projects#create', as: 'projectsCreatePost'
   end

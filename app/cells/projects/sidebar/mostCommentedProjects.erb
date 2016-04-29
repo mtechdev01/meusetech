@@ -1,0 +1,9 @@
+<h2>
+  Les plus actifs
+</h2>
+
+<ul>
+  <% @projects.each do | project | %>
+  <li> <%= link_to project.name , projectShow_url(project.id) %> </li>
+  <% end %>
+</ul>
