@@ -14,9 +14,11 @@ module Meusetech
     private
 
     def toAdmin
-      User.where(is_admin: true).find_each do | admin |
-        if @data[:receiver].to_i != admin.id
-          saveNotif admin
+      if @data[:sender] != @data[:receiver]
+        User.where(is_admin: true).find_each do | admin |
+          if @data[:receiver].to_i != admin.id
+            saveNotif admin
+          end
         end
       end
     end
