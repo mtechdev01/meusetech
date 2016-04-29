@@ -9,10 +9,12 @@ class LikesController < ApplicationController
             record.blog_article = BlogArticle.find( params[:id] )
         end
     end
+    @isliked = false
     if !liked? @like # si ce n'est pas déjà aimé par ce user
       @like.save! # je sauvegarde dans la table likes
+      @isliked = true
     end
-    render json: @like
+    render json: @isliked
 
   end
 

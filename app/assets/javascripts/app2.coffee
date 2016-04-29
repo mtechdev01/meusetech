@@ -6,6 +6,11 @@ $(document).ready ->
       url: $(this).data('url')
       dataType: "json"
       success: (data) ->
-          console.log data
+        $compteur = parseInt( $this.find('span').html() )
+        if JSON.parse(data) == true
+          $compteur++
+        else
+          $compteur--
+        $this.find('span').html( $compteur )
     return
   return

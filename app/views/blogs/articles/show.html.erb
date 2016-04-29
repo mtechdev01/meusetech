@@ -15,7 +15,9 @@
 </p>
       <div class="article_comment_blok">
         <% if user_signed_in? %>
-          <button class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'article', id: @article.id}) %>"><%="#{@article.likes_count} Like"%></button>
+          <a class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'article', id: @article.id}) %>"><span id="compteur"><%=@article.likes_count%></span> Like</a>
+        <% else %>
+        <a href="/utilisateurs/connection" class="btn btn-primary"><%= @article.likes_count %> Like</a>
         <% end %>
         <h2>Commentaires</h2>
         <% if user_signed_in? %>
