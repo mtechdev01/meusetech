@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     sign_up: 'nouveau'
   }
 
+  get '/callback', to: 'pages#callback', as: 'callback'
+  get '/a-propos', to: 'pages#about', as: 'about'
+  post '/like/:model/:id', to: 'likes#like', as: 'likePost'
   post '/comment', to: 'comments#comment', as: 'comment'
   get '/valid/comment/:id', to: 'comments#setValid', as: 'validComment'
   post '/notif/read/:id', to: 'notifications#markAsRead', as: 'notifMarkAsReaded'
@@ -25,6 +28,21 @@ Rails.application.routes.draw do
         get '/creer', to: 'blogs/articles#create', as: 'articleCreateGet'
         post '/creer', to: 'blogs/articles#create', as: 'articleCreatePost'
         post '/comment', to: 'blogs/articles#comment', as: 'blogAdminComment'
+        post '/redirecttoFacebook/:id', to: 'blogs/articles#redirecttofacebook', as: 'blogredirectToFacebook'
+        get '/publishtoFacebook/:id', to: 'blogs/articles#publishtofacebook', as: 'blogPublishtoFacebook'
+      end
+      scope '/sondages' do
+        get '/', to: 'polls/polls#index', as: 'pollsAdminIndex'
+        get '/voir/:id', to: 'polls/polls#show', as: 'pollsAdminShow'
+        get '/nouveau', to: 'polls/polls#create', as: 'pollsAdminCreate'
+      end
+      scope '/categories' do
+        get '/', to: 'category#index', as: 'categoryAdminIndex'
+        get '/nouveau', to: 'category#create', as: 'categoryAdminCreate'
+        post '/nouveau', to: 'category#create', as: 'categoryAdminCreatePost'
+        get '/editer/:id', to: 'category#edit', as: 'categoryAdminEdit'
+        post '/editer/:id', to: 'category#update', as: 'categoryAdminEditPost'
+        post '/delete/:id', to: 'category#delete', as: 'categoryAdminDelete'
       end
       scope '/users' do
         get '/', to: 'users/users#index', as: 'usersAdminIndex'

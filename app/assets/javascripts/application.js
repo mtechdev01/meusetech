@@ -16,3 +16,4 @@
 //= require turbolinks
 //= require tinymce-jquery
 //= require app
+//= require app2

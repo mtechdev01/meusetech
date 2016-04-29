@@ -3,9 +3,10 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,:recoverable, :rememberable, :trackable, :validatable
   mount_uploader :avatar, AvatarUploader
-  has_many :projects, class_name: "Project",foreign_key: "user_id"
-  has_many :comments, class_name: "Comment",foreign_key: "user_id"
-  has_many :polls_fields_responses, class_name: "PollsFieldsResponse", foreign_key: "user_id"
+  has_many :projects
+  has_many :comments
+  has_many :pollsResponses, class_name: "PollsFieldsResponse"
+  has_many :likes
 
   has_many :notifs_received, ->(user) { where receiver:  user.id }, class_name: "Notification"
 

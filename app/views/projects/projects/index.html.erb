@@ -53,6 +53,7 @@
           </div>
         </div>
       <% end %>
+      <%= will_paginate @projects, renderer: BootstrapPagination::Rails, :previous_label => "Précédents", :next_label => "Suivants" %>
     </div>
     <div class="col-md-3">
     </div>

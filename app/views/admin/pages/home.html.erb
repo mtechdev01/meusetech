@@ -66,7 +66,9 @@
         <div class="icon">
           <i class="ion ion-person-add"></i>
         </div>
-        <%= link_to "<i class='fa fa-arrow-circle-right'></i> Gérer les membres".html_safe, admin_usersAdminIndex_url, :class => 'small-box-footer' %>
+        <a href="#" class="small-box-footer">
+          Gérer les membres <i class="fa fa-arrow-circle-right"></i>
+        </a>
       </div>
     </div>
   </div>
@@ -100,7 +102,7 @@
                   <%= project.category.name %>
                 </td>
                 <td  style="text-align:center;">
-                  <span class="badge bg-blue"><%= ( project.nb_likes ) ? project.nb_likes : "0" %></span>
+                  <span class="badge bg-blue"><%= ( project.likes_count ) ? project.likes_count : "0" %></span>
                 </td>
                 <td style="text-align:center;">
                   <span class="badge"><%= ( project.comments_count ) ? project.comments_count : "0" %></span>
@@ -144,7 +146,7 @@
                   <%= article.category.name %>
                 </td>
                 <td  style="text-align:center;">
-                  <span class="badge bg-blue"><%= ( article.nb_likes ) ? article.nb_likes : "0" %></span>
+                  <span class="badge bg-blue"><%= ( article.likes_count ) ? article.likes_count : "0" %></span>
                 </td>
                 <td style="text-align:center;">
                   <span class="badge"><%= ( article.comments_count ) ? article.comments_count : "0" %></span>
