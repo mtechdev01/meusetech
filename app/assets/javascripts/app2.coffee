@@ -1,4 +1,4 @@
-$(document).ready ->
+ready  = ->
   $('#likeBtn').on 'click',  (e) ->
     e.preventDefault()
     $this = $(this)
@@ -14,3 +14,7 @@ $(document).ready ->
         $this.find('span').html( $compteur )
     return
   return
+
+
+$(document).ready ready
+$(document).on 'page:load', ready

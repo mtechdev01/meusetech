@@ -5,7 +5,9 @@
       <div class="article_show">
         <div class="title">
           <h1>
-            <%= @article.title %><span class="pull-left"><img class="logo_size" src="<%= @article.category.icon %>" alt= ""/></span>
+            <%= @article.title %><span class="pull-left">
+              <%= image_tag @article.category.icon, class: "logo_size", alt: "logo categorie" %>
+            </span>
           </h1>
         </div>
         <div class= "thumb">

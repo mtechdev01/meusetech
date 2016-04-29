@@ -52,13 +52,10 @@
       </div>
     </div>
     <br>
-      <% if user_signed_in? %>
-        <a class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'project', id: @project.id}) %>"><span id="compteur"><%= @project.likes_count %></span> Like</a>
-      <% else %>
-        <a href="/utilisateurs/connection" class="btn btn-primary"><%= @project.likes_count %> Like</a>
-      <% end %>
     <% if user_signed_in? %>
-      <button class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'project', id: @project.id}) %>"><%="#{@project.likes_count} Like"%></button>
+      <a class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'project', id: @project.id}) %>"><span id="compteur"><%= @project.likes_count %></span> Like</a>
+    <% else %>
+      <a href="/utilisateurs/connection" class="btn btn-primary"><%= @project.likes_count %> Like</a>
     <% end %>
     <h3>Commentaires</h3>
     <% if user_signed_in? %>
