@@ -1,0 +1,76 @@
+<div class="container-fluid box box-info ">
+  <div class="box-header with-border">
+    <h3>
+      Gérer les projets
+      <span class="block-title_link pull-right">
+        <%= link_to "<i class='fa fa-plus'></i> Ajouter un projet ".html_safe, admin_projectsAdminCreateGet_url %>
+      </span>
+    </h3>
+  </div>
+  <div class="box-body">
+    <table class="table table-hovered no-margin">
+      <thead>
+        <tr>
+          <th>
+            Nom du projet
+          </th>
+          <th>
+            Catégorie
+          </th>
+          <th>
+          </th>
+          <th>
+            Crée le
+          </th>
+          <th>
+            Par
+          </th>
+          <th>
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @projects.each do | project | %>
+          <tr>
+            <div class="project_list_card">
+              <th>
+                <div class="project_list_card--title">
+                  <h3><%= project.name %></h3>
+                </div>
+              </th>
+              <th>
+                <div class="project_list_card--title">
+                  <%= project.category.name %>
+                </div>
+              </th>
+              <th>
+                <div class="project_list_card--title">
+                  <img class="logo_size" style=width:25px src="<%= project.category.icon %>" alt="category icon"/>
+                </div>
+              </th>
+              <th>
+                <div class="project_list_card--infos">
+                  <div class="project_list_card--infos_created">
+                    <%= project.created_at %>
+                  </div>
+                </div>
+              </th>
+              <th>
+                <div class="project_list_card--infos">
+                  <div class="project_list_card--infos_created">
+                    <%= project.user.username %>
+                  </div>
+                </div>
+              </th>
+              <td>
+                <%= link_to "<i class='fa fa-pencil'></i>".html_safe, admin_projectEditGet_url(project.id), class:'btn btn-warning'%>
+                <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_projectDelete_url(project.id), method: "post", class:'btn btn-danger'%>
+              </td>
+            </div>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

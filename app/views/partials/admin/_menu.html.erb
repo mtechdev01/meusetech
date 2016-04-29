@@ -22,25 +22,20 @@
         </a>
         <ul class="treeview-menu">
           <li class="<%= (params[:controller] === 'admin/blogs/articles' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Liste".html_safe, admin_blogsAdminIndex_url %></li>
-          <li><a href="../../index.html"><i class="fa fa-circle-o"></i>Gérer mes catégories</a></li>
           <li><%= link_to "<i class='fa fa-circle-o'></i> Créer un article".html_safe, admin_articleCreateGet_url %></li>
           <li><a href="../../index2.html"><i class="fa fa-circle-o"></i>Commentaires</a></li>
         </ul>
       </li>
       <li class="treeview <%= (params[:controller] ===  'admin/projects/projects') ? 'active' : '' %>">
         <a href="#">
-          <i class="fa fa-coffee" aria-hidden="true"></i>
-          <span>Projets</span>
-          <span class="label label-primary pull-right">4</span>
+          <i class="fa fa-coffee" aria-hidden="true"></i> <span>Projets</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i>Liste</a></li>
-          <li><a href="../../index.html"><i class="fa fa-circle-o"></i>Gérer mes catégories</a></li>
+          <li><%= link_to "<i class='fa fa-circle-o'></i> Liste ".html_safe, admin_projectsAdminIndexGet_url %></li>
           <li><a href="../../index.html"><i class="fa fa-circle-o"></i>Projets labelisés</a></li>
           <li><a href="../../index.html"><i class="fa fa-circle-o"></i>Commentaires</a></li>
         </ul>
       </li>
-
       <li><a href="../../documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
       <li class="header">LABELS</li>
       <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>

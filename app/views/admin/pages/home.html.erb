@@ -21,9 +21,7 @@
         <div class="icon">
           <i class="fa fa-briefcase" aria-hidden="true"></i>
         </div>
-        <a href="#" class="small-box-footer">
-          Gérer les projets <i class="fa fa-arrow-circle-right"></i>
-        </a>
+          <%= link_to "Gérer les projets <i class='fa fa-arrow-circle-right'></i>".html_safe, admin_projectsAdminIndexGet_url, class:'small-box-footer', style:""%>
       </div>
     </div>
     <div class="col-lg-3 col-xs-6">
@@ -99,7 +97,7 @@
                   <%= project.name %>
                 </td>
                 <td style="text-align:center;">
-                  <%= project.category.name %>
+                  <%= project.category_id %>
                 </td>
                 <td  style="text-align:center;">
                   <span class="badge bg-blue"><%= ( project.nb_likes ) ? project.nb_likes : "0" %></span>
@@ -184,7 +182,7 @@
                 <% if comment.blog_article_id %>
                   Posté dans l'article: <%= link_to comment.blog_article.title , blogShow_url( comment.blog_article_id)%> <hr>
                 <% else %>
-                  Posté dans le projet: <%= link_to comment.project.name , projectsShow_url( comment.project_id)%> <hr>
+                  Posté dans le projet: <%= link_to comment.project.name , projectShow_url( comment.project_id)%> <hr>
                 <% end %>
                 <%= truncate(comment.content, length: 25, separator: ' ') %>
               </div><!-- /.direct-chat-text -->

@@ -13,6 +13,12 @@
         <%= label_tag 'content', 'Description de votre projet' %>
         <%= f.text_area :content, class: "form-control" %>
       </div>
+      <div class="form-group">
+        <%= f.label :thumb, 'Image'%>
+        <div >
+          <%= f.file_field :thumb %>
+        </div>
+      </div>
       <%= f.submit :valider, class: "btn btn-primary" %>
     <% end %>
     <div class="form_errors">
