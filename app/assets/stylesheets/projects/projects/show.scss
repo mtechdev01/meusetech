@@ -4,28 +4,117 @@ $padding: 15px;
 $box-shadow: 1px 1px 12px #555;
 $bg-color: #fcfcfc;
 
+.tous_les_projets{
+  background-color: $bg-color;
+}
+.project_global_infos {
+  position: relative;
+  margin-right: 30px;
+  .image_infos {
+    position: absolute;
+  }
+  .logo_icon {
+    position:absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+  }
+  .rectangle_projet{
+    position: absolute;
+    width: 136px;
+    height: 86px;
+    background: #BBD2E1;
+    top: 54px;
+    right: 145px;
+    -webkit-transform:skew(15deg);
+  	-moz-transform:skew(15deg);
+  	-o-transform:skew(15deg);
+  	transform:skew(10deg, -2deg);
+    opacity: 0.8;
+
+    ul{
+      position:relative;
+      list-style-type: none;
+      .category_name {
+        position:absolute;
+        right: 12px;
+        top:0;
+        color:#24445C;
+        font-weight: bold;
+        font-size: 14px;
+        opacity: 1;
+      }
+      .username {
+        position:absolute;
+        right: 20px;
+        top:20px;
+        color: #24445C;
+        font-weight: bold;
+        font-size: 14px;
+        opacity: 1;
+      }
+      .date_project {
+        position:absolute;
+        right: 20px;
+        top:40px;
+        color: #24445C;
+        font-size: 14px;
+        font-weight: bold;
+        opacity: 1;
+      }
+      .localite {
+        position:absolute;
+        right: 40px;
+        top:60px;
+        color:#24445C ;
+        font-size: 14px;
+        font-weight: bold;
+        opacity: 1;
+      }
+
+}
+      .trapezoid {
+        position: absolute;
+        border-bottom: 30px solid #BBD2E1;
+        border-left: 0px solid transparent;
+        border-right: 138px solid transparent;
+        height: 0;
+        width: 100px;
+        bottom: -12px;
+        transform: skew(0deg, -10deg);
+        opacity: 1;
+  }
+}
+}
+
 .project_show_card{
   box-shadow: $box-shadow;
   background-color: $bg-color;
   padding: $padding;
   margin-top: 20px;
+  position: relative;
 
   .triangle{
     position: absolute;
-    margin-right: 0;
-    margin-left: 422px;
-    width: 0;
-    height: 0;
+    top : 0;
+    right : 0;
+    width: 40px;
+    height: 40px;
     border-left: 200px solid transparent;
     border-right: 0px solid transparent;
     border-top: 140px solid #26C4EC;
     opacity: 0.5;
   }
-  .label-meuhsteak {
+  .label-meusetech {
     position: absolute;
-    margin-left: 550px;
-    font-size: 28px;
+    top: 0;
+    right : 101px;
+    width: 23px;
+    height: 60px;
+    font-size: 24px;
     font-weight: bold;
+    transform: rotate(35deg);
 
   }
 }

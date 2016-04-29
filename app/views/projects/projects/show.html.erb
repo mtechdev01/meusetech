@@ -1,20 +1,46 @@
-<div class="col-md-7">
-    <%= link_to "Voir tout les projets" , projectsIndex_url %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class "tous_les_projets">
+        <%= link_to "Voir tout les projets" , projectsIndex_url %>
+      </div>
+
+      <div class="project_global_infos">
+        <div class="image-logo">
+        <img class="image_infos img-responsive img-bordered" src="http://img11.hostingpics.net/pics/779200ordiprojet.jpg" alt="" width="380px"/>
+        <img class="logo_icon" src="<%= @project.category.icon%>" alt=""/>
+
+
+        <div class="rectangle_projet">
+        <ul>
+            <li class="category_name"><%= @project.category.name%></li>
+            <li class="username"> créé par <%= @project.user.username%></li>
+            <li class="date_project"> le 27 avril 2016<%#<%=  @project.created_at %></li>
+            <li class="localite"> à Verdun </li>
+        </ul>
+        <div class="trapezoid">
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+<div class="col-md-8">
     <div class="project_show_card">
-      <div class="triangle">
-      </div>
-      <div class="label-meuhsteak">
-        <p>Meuh</p>
-        <p>steak</p>
-      </div>
       <div class="project_show_card--title">
         <h1><%= @project.name %></h1>
+
       </div>
       <div class="thumb">
 
         <%#<%= image_tag(project.thumb, size: "25x25", alt: "Avatar") %>
         <img class="img-responsive img-bordered" src="https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg" alt="">
       </div>
+      <div class="triangle">
+      </div>
+      <span class="label-meusetech">
+        MeuseTech
+      </span>
       <div class="project_show_card--description">
         <p>
           <%= @project.content%>
@@ -58,5 +84,6 @@
     </div>
     </div>
 
-  </div>
+
+</div>
 </div>

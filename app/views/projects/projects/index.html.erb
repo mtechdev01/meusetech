@@ -36,11 +36,12 @@
       </div>
       <% @projects.each do | project | %>
         <div class="project_list_card">
-          <div class="triangle">
-            <%#<p class:"label">
-              Meuhsteak label
-            </p> %>
-          </div>
+            <div class="triangle">
+              <span class="label-meuhsteak">
+                Meuhsteak
+              </span>
+            </div>
+
           <div class="project_list_card--title">
             <h2><%= project.name %></h2>
           </div>
