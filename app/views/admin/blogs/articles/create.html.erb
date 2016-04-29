@@ -27,7 +27,6 @@
     <% end %>
     <div class="form-errors">
       <% if @article.errors.any? %>
-      <%= debug @article.errors.messages %>
         <ul class="Signup_Errors">
           <% @article.errors.messages.each do | key, value | %>
             <li class="text-danger"> <%= value.last.html_safe %></li>

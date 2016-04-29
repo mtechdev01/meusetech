@@ -35,6 +35,16 @@ Rails.application.routes.draw do
         get '/', to: 'polls/polls#index', as: 'pollsAdminIndex'
         get '/voir/:id', to: 'polls/polls#show', as: 'pollsAdminShow'
         get '/nouveau', to: 'polls/polls#create', as: 'pollsAdminCreate'
+        post '/nouveau', to: 'polls/polls#create', as: 'pollsAdminCreatePost'
+        get '/editer/:id', to: 'polls/polls#edit', as: 'pollsAdminEdit'
+        post '/editer/:id', to: 'polls/polls#update', as: 'pollsAdminEditPost'
+        get '/ajout/question/:id', to: 'polls/polls#addquestion', as: 'pollsAdminAddQuestion'
+        post '/ajout/question/:id', to: 'polls/polls#addquestion', as: 'pollsAdminAddQuestionPost'
+        get '/editer/question/:id', to: 'polls/polls#editquestion', as: 'pollsAdminEditQuestion'
+        post '/editer/question/:id', to: 'polls/polls#updatequestion', as: 'pollsAdminEditQuestionPost'
+        post '/suppression/question/:id', to: 'polls/polls#deletequestion', as: 'pollsAdminDeleteQuestion'
+        post '/suppression/:id', to: 'polls/polls#delete', as: 'pollsAdminDelete'
+
       end
       scope '/categories' do
         get '/', to: 'category#index', as: 'categoryAdminIndex'

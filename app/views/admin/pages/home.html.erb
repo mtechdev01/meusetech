@@ -45,14 +45,14 @@
       <!-- small box -->
       <div class="small-box bg-green">
         <div class="inner">
-          <h3><%= @commentsCount %></h3>
-          <p>Commentaires publiés</p>
+          <h3><%= @pollsCount %></h3>
+          <p>Sondage publiés</p>
         </div>
         <div class="icon">
           <i class="fa fa-comments-o"></i>
         </div>
-        <a href="#" class="small-box-footer">
-          Gérer les commentaires <i class="fa fa-arrow-circle-right"></i>
+        <a href="<%= admin_pollsAdminIndex_url%>" class="small-box-footer">
+          Gérer les sondages <i class="fa fa-arrow-circle-right"></i>
         </a>
       </div>
     </div>
@@ -172,7 +172,7 @@
         </div><!-- /.box-header -->
         <div class="box-body">
           <% @commentsLast10.each do | comment | %>
-          <div class="direct-chat-messages">
+          <div class="direct-chat-messages" style="height:auto;">
             <!-- Message. Default to the left -->
             <div class="direct-chat-msg">
               <div class="direct-chat-info clearfix">

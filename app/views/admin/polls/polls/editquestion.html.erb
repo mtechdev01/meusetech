@@ -1,0 +1,88 @@
+<%= tinymce_assets %>
+<%= tinymce :language => "fr_FR" %>
+<section class="content-header">
+  <h1>
+    Sondages
+    <small>nouveau</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="<%= admin_adminDashboard_url %>"><i class="fa fa-dashboard"></i> Accueil</a></li>
+    <li><a href="<%= admin_pollsAdminIndex_url %>">Sondage</a></li>
+    <li class="active">Ajout questions</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="col-xs-12">
+    <div class="box">
+      <div class="box-title">
+        <h2>Ajouter vos questions</h2>
+      </div>
+      <div class="box-content">
+        <%= form_for :pollFields, url: admin_pollsAdminEditQuestionPost_url, id: "pollFields_form" do | f | %>
+          <div class="form-group">
+            <%= f.text_field :name, class: "form-control", placeholder: "Nom de votre question" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :label, class: "form-control", placeholder: "Question affichée" %>
+          </div>
+          <div class="form-group">
+            <%= label_tag "input_type", "Type de donnée attentdue" %>
+            <%= select 'pollFields', :input_type, ['text', 'select', 'number', 'date'], class: "form-control" , id: "selectField"%>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :rules, class: "form-control", placeholder: "Règles suivant ce format: min='1',max='10' " %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :options, class: "form-control", placeholder: "Choix disponible suivant ce format: choix1, choix2, choix 3 ", id:"optionsField" %>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" name="pollFields[is_required]">
+            <label for="pollFields[is_required]">Champ obligatoire ?</label>
+          </div>
+          <%= f.submit :valider, class: "btn btn-primary", id: "BtnValid" %>
+          <div id="message"></div>
+        <% end %>
+        </br>
+        <%= link_to "J'ai fini", admin_pollsAdminShow_url( @pollFields.poll_id ), class:"btn btn-success"%>
+
+        <script type="text/javascript">
+          $('#optionsField').hide();
+          $('#pollFields_input_type').change(function(e){
+            e.preventDefault();
+            if ($(this).val() == "select") {
+              $('#optionsField').fadeIn();
+            } else {
+              $('#optionsField').fadeOut();
+            }
+          });
+
+          var on_submit_function = function(evt){
+              evt.preventDefault(); //The form wouln't be submitted Yet.
+              if ( $('#pollFields_label').val() == "" ||  $('#pollFields_name').val() == "" ) {
+                $('#message').html('vous devez remplir tout les champs').fadeIn();
+                alert('alert1');
+              }
+              if ( $('#pollFields_input_type').val() == "select" && $('#optionsField').val() == "" ) {
+                $('#message').html('vous devez ajouter les choix pour la question').fadeIn();
+                alert('alert2');
+              } else {
+                $(this).off('submit', on_submit_function); //It will remove this handle and will submit the form again if it's all ok.
+                $(this).submit();
+              }
+
+          }
+          $('form').on('submit', on_submit_function); //Registering on submit.
+        </script>
+        <div class="form-errors">
+          <% if @pollFields.errors.any? %>
+            <ul class="Signup_Errors">
+              <% @pollFields.errors.messages.each do | key, value | %>
+                <li class="text-danger"> <%= value.last.html_safe %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
