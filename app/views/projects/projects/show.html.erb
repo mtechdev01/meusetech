@@ -24,8 +24,7 @@
       </div>
     </div>
   </div>
-
-<div class="col-md-8">
+  <div class="col-md-8">
     <div class="project_show_card">
       <div class="project_show_card--title">
         <h1><%= @project.name %></h1>
@@ -51,8 +50,13 @@
           Projet créé le: <%= time_ago_in_words @project.created_at %> par <%= @project.user.username%>
         </div>
       </div>
-
     </div>
+    <br>
+      <% if user_signed_in? %>
+        <a class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'project', id: @project.id}) %>"><span id="compteur"><%= @project.likes_count %></span> Like</a>
+      <% else %>
+        <a href="/utilisateurs/connection" class="btn btn-primary"><%= @project.likes_count %> Like</a>
+      <% end %>
     <% if user_signed_in? %>
       <button class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'project', id: @project.id}) %>"><%="#{@project.likes_count} Like"%></button>
     <% end %>
@@ -68,7 +72,6 @@
         <%= f.submit :valider %>
       <% end %>
     <% end %>
-
     <div class="project_comments">
       <% @comments.each do | comment | %>
       <div class="project_comments_card">
@@ -87,7 +90,5 @@
       <% end %>
     </div>
     </div>
-
-
-</div>
+  </div>
 </div>
