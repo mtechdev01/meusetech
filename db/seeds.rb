@@ -258,7 +258,8 @@ projet1 = Project.new(
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   nb_fb_shared: 0,
   likes_count: 0,
-  location: "Belleville"
+  location: "Belleville",
+  thumb: "https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg"
 )
 projet1.save!
 
@@ -269,7 +270,8 @@ projet2 = Project.new(
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   nb_fb_shared: 0,
   likes_count: 0,
-  location: "Charny"
+  location: "Charny",
+  thumb: "https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg"
 )
 projet2.save!
 
@@ -280,7 +282,8 @@ projet3 = Project.new(
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   nb_fb_shared: 0,
   likes_count: 0,
-  location: "verdun"
+  location: "verdun",
+  thumb: "https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg",
 )
 projet3.save!
 
@@ -291,7 +294,8 @@ projet4 = Project.new(
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   nb_fb_shared: 0,
   likes_count: 0,
-  location: "bras-sur-meuse"
+  location: "bras-sur-meuse",
+  thumb: "https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg"
 )
 projet4.save!
 
@@ -302,7 +306,8 @@ projet5 = Project.new(
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   nb_fb_shared: 0,
   likes_count: 0,
-  location: "verdun"
+  location: "verdun",
+  thumb: "https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg"
 )
 projet5.save!
 
