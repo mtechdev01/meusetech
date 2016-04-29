@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="project_show_card">
+    <div class="project_show_card--title">
+      <h1><%= @project.name %></h1>
+    </div>
+    <div class="project_show_card--infos">
+      <div class="project_show_card--infos_created">
+        Projet créé le: <%= @project.created_at %> par <%= @project.user.username%>
+      </div>
+    </div>
+  </div>
+  <div class="project_form">
+    <%= form_for :project, :url => admin_projectUpdate_url do |f| %>
+      <div class="form-group">
+        <%= label_tag :category_id, 'Categorie' %>
+        <%= f.select :category_id, options_from_collection_for_select(@categories, "id", "name", @project.category.id), class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag 'name', 'Nom du projet' %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag 'content', 'Description de votre projet' %>
+        <%= f.text_area :content, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :thumb, 'Image'%>
+        <%= image_tag(@project.thumb, size: "200x200", class:'img-responsive')%>
+        <div >
+          <%= f.file_field :thumb %>
+        </div>
+      </div>
+
+      <%= f.submit :valider, class: "btn btn-primary" %>
+    <% end %>
+    <div class="form_errors">
+      <% if @project.errors.any? %>
+      <%= debug @project.errors.messages %>
+        <ul class="Signup_Errors">
+          <% @project.errors.messages.each do | key, value | %>
+            <li class="text-danger"> <%= value.last.html_safe %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

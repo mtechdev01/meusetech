@@ -48,7 +48,7 @@
               Projet créé le: <%= time_ago_in_words project.created_at %> par <%= project.user.username %>
             </div>
             <div class="project_list_card--infos_link">
-              <%= link_to "En savoir plus", projectsShow_url(project.id)  %>
+              <%= link_to "En savoir plus", projectShow_url(project.id)  %>
             </div>
           </div>
         </div>
@@ -56,6 +56,7 @@
       <%= will_paginate @projects, renderer: BootstrapPagination::Rails, :previous_label => "Précédents", :next_label => "Suivants" %>
     </div>
     <div class="col-md-3">
+      <%= cell("projects/sidebar").(:mostCommentedProjects) %>
     </div>
   </div>
 </div>

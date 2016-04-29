@@ -31,10 +31,10 @@
         <% @lastProjects.each do | project |  %>
           <tr>
             <td>
-              <%= link_to project.name, projectsShow_url(project.id) %>
+              <%= link_to project.name, projectShow_url(project.id) %>
             </td>
             <td>
-              <%= project.category.name %>
+              <%= project.category_id %>
             </td>
             <td>
               <%= time_tag(project.created_at) %>
