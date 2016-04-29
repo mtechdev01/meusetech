@@ -1,0 +1,124 @@
+<section class="content-header">
+  <h1>
+    Sondages
+    <small><%= @poll.title %></small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="<%= admin_adminDashboard_url %>"><i class="fa fa-dashboard"></i> Accueil</a></li>
+    <li><a href="<%= admin_pollsAdminIndex_url %>">Sondage</a></li>
+    <li class="active"><%= @poll.title %></li>
+  </ol>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="box">
+        <div class="box-header">
+          <h2>Questions</h2>
+        </div>
+        <div class="box-body">
+
+          <% @poll.fields.each do | field |  %>
+            <div class="">
+               <h4><%= field.label %></h4>
+               <div class="">
+                 Obligatoire: <%= (field.is_required) ? "<span class='text-success'>Oui</span>".html_safe : "<span class='text-danger'>Non</span>".html_safe %>
+               </div>
+               <div class="">
+                 Donnée attendue: <%= field.input_type %>
+                 <% if (field.input_type == 'select')%>
+                  <div class="">
+                    Réponse proposées: <%= (field.options) ? "<span class='text-success'>#{field.options}</span>".html_safe : "<span class='text-danger'>Attention aucune proposition n'a été donnée</span>".html_safe  %>
+                  </div>
+                 <% end %>
+               </div>
+               <div class="">
+                 Conditions: <%= (field.rules) ? "<span class='text-success'>#{field.rules}</span>".html_safe : '<span class="text-danger">Aucune</span>'.html_safe %>
+               </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="box">
+        <div class="box-header">
+          <h2>Réponses</h2>
+        </div>
+        <div class="box-body">
+          <% @usersResponded.each do | user | %>
+            <div class="col-xs-12" style="margin-bottom:20px;">
+              <div class="col-xs-2" style="padding:7px">
+                  <%= image_tag user.avatar, class: "img-responsive img-circle", size: "125x125"%>
+              </div>
+              <div class="col-xs-10">
+                 <div class="">
+                    <h4><%= user.username %></h4>
+                 </div>
+                <% user.pollsResponses.each do | rsp | %>
+                     <div class="">
+                       <%= rsp.field.label %>: <span class="text-success"><%= rsp.response %></span>
+                      </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="box">
+        <div class="box-header">
+          <h2>Statistiques</h2>
+        </div>
+        <div class="box-body">
+          <div class="row">
+            <div class="col-xs-12">
+              <h4>Suivis des utilisateurs</h4>
+              <canvas id="pollUserChart" data-responded="<%= @usersResponded.size %>" data-total = "<%= @userTotal %>" ></canvas>
+            </div>
+            <div class="col-xs-12">
+              <% @a = 0 %>
+              <% @statsResponse.each do | response | %>
+                <div class="col-xs-6">
+                <h4><%= response[:label] %></h4>
+                <canvas id="pollCharts<%= @a %>" ></canvas>
+                 <script>
+                 var Chart<%= @a %>, ChartCanvas<%= @a %>, Data<%= @a %>, Options<%= @a %>;
+                 ChartCanvas<%= @a %> = $("#pollCharts<%= @a %>")[0].getContext("2d");
+                 Chart<%= @a %> = new Chart(ChartCanvas<%= @a %>);
+                 Data<%= @a %> = [
+                   <% response[:rsp].each do | rsp | %>
+                   <% color = rand(111111..999999) %>
+                   {
+                     value: <%= rsp[:responded].to_i  %>,
+                     color: "#<%= color %>",
+                     highlight: "#<%= color %>",
+                     label: "<%= rsp[:response] %>"
+                   },
+                   <% end %>
+                 ]
+                 Options<%= @a %> = {
+                   segmentShowStroke: true,
+                   segmentStrokeColor: "#fff",
+                   segmentStrokeWidth: 2,
+                   percentageInnerCutout: 50,
+                   animationSteps: 100,
+                   animationEasing: "easeOutBounce",
+                   animateRotate: true,
+                   animateScale: false,
+                   responsive: true,
+                   maintainAspectRatio: true,
+                 };
+                 Chart<%= @a %>.Doughnut(Data<%= @a %>, Options<%= @a %>);
+                 </script>
+                 <% @a += 1 %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
