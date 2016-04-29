@@ -1,53 +1,47 @@
-<section id="user-block_notifications" class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <%= link_to "<i class='fa fa-arrow-left'></i> Revenir à votre compte".html_safe, userAccount_url, class: "text-primary" %>
-      <div id="user-block_title">
-        <h1>Mes notifications</h1>
-      </div>
-      <div class="block" id="user-block_content">
-        <div class="block-title">
-          <h2></h2>
-        </div>
-        <div class="block-content">
-          <table class="table table-hovered">
-            <thead>
+<div class="row">
+  <div class="col-sm-12">
+    <div id="user-block_title">
+      <h1>Mes notifications</h1>
+    </div>
+    <div class="block" id="user-block_content">>
+      <div class="block-content">
+        <table class="table table-hovered">
+          <thead>
+            <tr>
+              <th>
+                Sujet
+              </th>
+              <th>
+                Expéditeur
+              </th>
+              <th>
+                Date
+              </th>
+              <th>
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @notifications.each do | notif |  %>
               <tr>
-                <th>
-                  Sujet
-                </th>
-                <th>
-                  Expéditeur
-                </th>
-                <th>
-                  Date
-                </th>
-                <th>
-                  Actions
-                </th>
+                <td>
+                  <%= notif.msg %>
+                </td>
+                <td>
+                  <%= notif.sender.username %>
+                </td>
+                <td>
+                  <%= time_ago_in_words notif.created_at %>
+                </td>
+                <td>
+                  <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              <% @notifications.each do | notif |  %>
-                <tr>
-                  <td>
-                    <%= notif.msg %>
-                  </td>
-                  <td>
-                    <%= notif.sender.username %>
-                  </td>
-                  <td>
-                    <%= time_ago_in_words notif.created_at %>
-                  </td>
-                  <td>
-                    <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
-</section>
+</div>

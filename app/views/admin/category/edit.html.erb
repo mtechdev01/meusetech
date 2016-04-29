@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="article_form">
+    <%= form_for :category do |f| %>
+      <div class="form-group">
+        <%= label_tag 'name', "Nom de la catégorie" %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag 'icon', "Icon" %>
+        <%= f.file_field :icon, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag 'color', "Couleur de la catégorie" %>
+        <%= f.text_field :color, class: "form-control colorpicker" %>
+      </div>
+      <%= f.submit :valider, class: "btn btn-primary" %>
+    <% end %>
+    <div class="form-errors">
+      <% if @category.errors.any? %>
+      <%= debug @category.errors.messages %>
+        <ul class="Signup_Errors">
+          <% @category.errors.messages.each do | key, value | %>
+            <li class="text-danger"> <%= value.last.html_safe %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

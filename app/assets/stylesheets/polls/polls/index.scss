@@ -1,0 +1,23 @@
+#poll-description-container{
+  background: image-url("sondage-image2.jpg") no-repeat;
+  background-size:cover;
+  #poll-description {
+    padding:100px;
+    color:white;
+    text-align:center;
+  }
+}
+#poll-list {
+  margin-top: 50px;
+  .block {
+    .block-title {
+      h2 {
+        margin:0;
+        span{
+          font-size: 0.5em;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+}

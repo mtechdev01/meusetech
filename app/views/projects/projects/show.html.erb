@@ -4,6 +4,7 @@
     <h1><%= @project.name %></h1>
   </div>
   <div class="project_show_card--description">
+    <%= image_tag(@project.thumb, alt: "Avatar")%>
     <p>
       <%= @project.content%>
     </p>
@@ -14,6 +15,11 @@
     </div>
   </div>
 </div>
+<br>
+<% if user_signed_in? %>
+  <button class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'project', id: @project.id}) %>"><%="#{@project.likes_count} Like"%></button>
+<% end %>
+
 <h3>Commentaires</h3>
 <% if user_signed_in? %>
   <%= form_for :comment, :url => comment_url do |f| %>

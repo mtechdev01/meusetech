@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <%= stylesheet_link_tag 'devise', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag  "devise/blue.css"  %>
     <%= csrf_meta_tags %>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -15,8 +16,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="hold-transition login-page" style="background: url(/assets/bg2.jpg) no-repeat; background-size:cover;">
-    <%= stylesheet_link_tag  "devise/blue.css"  %>
+  <body class="hold-transition login-page">
     <%= stylesheet_link_tag  "#{params[:controller]}/#{params[:action]}"  %>
     <%= render "partials/alert" %>
     <%= yield %>

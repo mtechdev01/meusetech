@@ -13,12 +13,12 @@ class ThumbUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "uploads/#{model.class.to_s}/#{mounted_as}/#{model.id}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    "/assets/" + [version_name, "default.jpg"].compact.join('_')
+    [version_name, "default.jpg"].compact.join('_')
   end
 
   # Process files as they are uploaded:

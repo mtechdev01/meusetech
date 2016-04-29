@@ -1,3 +1,31 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "includes/variables";
+@import "includes/global";
+
+.user-sidebar {
+  .user-sidebar_infos {
+    margin-top: 25px;
+    text-align: center;
+
+    .user-sidebar_infos--username {
+      color:#6b6b6b;
+    }
+    .user-sidebar_infos--name {
+
+    }
+    .user-sidebar_infos--email {
+      font-style: italic;
+    }
+  }
+
+  .user-sidebar_links {
+    margin-top: 25px;
+    .btn {
+      margin-bottom: 7px;
+    }
+  }
+
+}
