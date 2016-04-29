@@ -1,0 +1,53 @@
+<section class="content-header">
+  <h1>
+    Les membres inscrits
+  </h1>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Liste des membres</h3>
+        </div>
+        <div class="box-body">
+          <table id="usersTable" class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Membre</th>
+                <th>Identité</th>
+                <th>E-mail</th>
+                <th>Ville</th>
+                <th>Date Enregistrement</th>
+                <th>Droits comment. ?</th>
+                <th>Nombre Projets</th>
+                <th>Nombre Commentaires</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+                <tr>
+                  <td><%= image_tag user.avatar, width: "40px",class:"user-image img-circle", height: "40px" %> <%= user.username %></td>
+                  <td><%= user.lastname %> <%= user.firstname %></td>
+                  <td><%= user.email %></td>
+                  <td><%= user.city %></td>
+                  <td><%= time_tag(user.created_at) %></td>
+                  <td><%= user.can_comment ? "oui" : "non" %></td>
+                  <td><%= user.projects.size %></td>
+                  <td><%= user.comments.size %></td>
+                  <td>
+                    <%= link_to "<i class='fa fa-eye'></i>".html_safe, admin_usersAdminShow_url(user.id), class: "btn btn-success" %>
+                    <%= link_to "<i class='fa fa-pencil'></i>".html_safe, admin_usersAdminEdit_url(user.id), class: "btn btn-info" %>
+                    <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_usersAdminDestroy_url(user.id), :method=> :delete, class: "btn btn-danger"%>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          <div class="csv_export">
+            <a href="/admin/users.csv"><%= image_tag "export_csv.png", height: "50px", alt: "exporter en csv" %></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

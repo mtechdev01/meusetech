@@ -1,7 +1,6 @@
 class Admin::Projects::ProjectsController < Admin::AdminController
   before_action :authenticate_user!, only: [:create]
 
-
   def categories
     @categories = Category.all
   end
@@ -78,10 +77,11 @@ class Admin::Projects::ProjectsController < Admin::AdminController
       redirect_to root_url
     end
   end
-end
 
-private
+  private
 
-def project_params
-  params.require(:project).permit(:name, :content, :category_id, :thumb)
+  def project_params
+    params.require(:project).permit(:name, :content, :category_id, :thumb)
+  end
+
 end
