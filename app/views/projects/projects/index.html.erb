@@ -57,7 +57,7 @@
               Projet créé le: <%= time_ago_in_words project.created_at %> par <%= project.user.username %> à
             </div>
             <div class="project_list_card--infos_link">
-              <%= link_to "En savoir plus", projectsShow_url(project.id)  %>
+              <%= link_to "En savoir plus", projectShow_url(project.id)  %>
             </div>
           </div>
             <div class="project_reseaux_sociaux">

@@ -12,7 +12,7 @@ class Admin::Users::UsersController < Admin::AdminController
     @user = User.find(params[:id])
     @comments = @user.comments.order( created_at: :desc).limit(10)
     @projects = @user.projects
-    @polls = @user.polls
+    @polls = @user.pollsResponses
   end
 
   def edit
