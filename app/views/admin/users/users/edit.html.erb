@@ -1,0 +1,136 @@
+<%= tinymce_assets %>
+<%= tinymce :language => "fr_FR" %><section class="content-header">
+<h1>
+  Profil utilisateur - Editer les informations
+</h1>
+<div class="row">
+  <div class="col-xs-3">
+    <div class="box box-primary">
+      <div class="box-body">
+        <%= image_tag(@user.avatar, :class => "profile-user-img img-responsive img-circle") %>
+        <h3 class="profile-username text-center"><%= @user.username %> <%= @user.is_banned ? "Banni(e)" : "" %></h3>
+        <section id="user-infos_fields" class="form-horizontal " style="margin-top: 50px;">
+          <%= form_for :user, :url => admin_usersAdminUpdate_url do |f| %>
+            <div class="form-group">
+              <%= f.label :username, "Pseudo : ", class: "col-sm-4 control-label" %>
+              <div class="col-sm-8">
+                <%= f.text_field :username, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :lastname, "Nom : ", class: "col-sm-4 control-label" %>
+              <div class="col-sm-8">
+                <%= f.text_field :lastname, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :firstname, "Prénom : ", class: "col-sm-4 control-label" %>
+              <div class="col-sm-8">
+                <%= f.text_field :firstname, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :address, "Adresse : ", class: "col-sm-4 control-label" %>
+              <div class="col-sm-8">
+                <%= f.text_field :address, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :cp, "CP : ", class: "col-sm-4 control-label" %>
+              <div class="col-sm-8">
+                <%= f.text_field :cp, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :city, "Ville : ", class: "col-sm-4 control-label" %>
+              <div class="col-sm-8">
+                <%= f.text_field :city, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :email, "E-mail : ", class: "col-sm-4 control-label" %>
+              <div class="col-sm-8">
+                <%= f.text_field :email, class: "form-control" %>
+              </div>
+            </div>
+            <%= f.submit :valider , class: "btn btn-primary"%>
+            <li class="list-group-item"><b><%= @user.can_comment ? "Est autorisé(e)" : "N'est pas autorisé(e)" %></b> à commenter</li>
+          <% end %>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-9">
+    <div class="box box-primary">
+      <div class="info-box bg-aqua">
+        <span class="info-box-icon"><i class="fa fa-briefcase"></i></span>
+        <div class="info-box-content">
+          <h3>Liste des projets</h3>
+        </div>
+      </div>
+      <div class="box-body">
+        <% if @projects != [] %>
+          <% @projects.each do |project| %>
+            <%= form_for project, :url => admin_projectUpdate_url(project.id), :method => :POST do |f| %>
+              <div class="form-group">
+                <%= f.label :name, "Titre du projet : ", class: "col-sm-2 control-label" %>
+                <div class="col-sm-10">
+                  <%= f.text_field :name, class: "form-control" %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :content, "Contenu : ", class: "col-sm-2 control-label" %>
+                <div class="col-sm-10">
+                  <%= f.text_area :content, :class => "tinymce" %>
+                </div>
+              </div>
+              <%= f.submit :valider , class: "btn btn-primary"%>
+              <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_projectDelete_url(project.id), method: :post, class: "btn btn-danger" %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <div class=""> Aucun projet trouvé</div>
+        <% end %>
+      </div>
+    </div>
+    <div class="box box-primary">
+      <div class="info-box bg-green">
+        <span class="info-box-icon"><i class="fa fa-briefcase"></i></span>
+        <div class="info-box-content">
+          <h3>Liste des commentaires</h3>
+        </div>
+      </div>
+      <div class="box-body">
+        <% if @comments != [] %>
+          <table id="usersTable" class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Message</th>
+                <th>Article</th>
+                <th>Projet</th>
+                <th>action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @comments.each do |comment| %>
+                <%= form_for comment, :url => admin_commentsAdminUpdate_url(comment.id), :method => :POST do |f| %>
+                  <tr>
+                    <td>le <%= time_tag(comment.created_at) %></td>
+                    <td><%= f.text_field :content, class: "form-control" %></td>
+                    <td><%= comment.blog_article_id != nil ? comment.blog_article.title : "" %></td>
+                    <td><%= comment.project_id != nil ? comment.project.name : "" %></td>
+                    <td><%= f.submit :valider , class: "btn btn-primary" %> <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_commentsAdminDestroy_url(comment.id), method: :delete, class: "btn btn-danger" %></td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        <% else %>
+          <div class=""> Pas de commentaire</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

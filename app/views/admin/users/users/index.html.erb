@@ -17,7 +17,7 @@
                 <th>E-mail</th>
                 <th>Ville</th>
                 <th>Date Enregistrement</th>
-                <th>Droits commentaires ?</th>
+                <th>Droits comment. ?</th>
                 <th>Nombre Projets</th>
                 <th>Nombre Commentaires</th>
                 <th>Actions</th>
@@ -30,14 +30,14 @@
                   <td><%= user.lastname %> <%= user.firstname %></td>
                   <td><%= user.email %></td>
                   <td><%= user.city %></td>
-                  <td><%= user.created_at %></td>
+                  <td><%= time_tag(user.created_at) %></td>
                   <td><%= user.can_comment ? "oui" : "non" %></td>
                   <td><%= user.projects.size %></td>
                   <td><%= user.comments.size %></td>
                   <td>
-                    <a href="#" class="btn btn-success"><i class="fa fa-eye"></i></a>
-                    <a href="#" class="btn btn-info"><i class="fa fa-pencil"></i></a>
-                    <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                    <%= link_to "<i class='fa fa-eye'></i>".html_safe, admin_usersAdminShow_url(user.id), class: "btn btn-success" %>
+                    <%= link_to "<i class='fa fa-pencil'></i>".html_safe, admin_usersAdminEdit_url(user.id), class: "btn btn-info" %>
+                    <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_usersAdminDestroy_url(user.id), :method=> :delete, class: "btn btn-danger"%>
                   </td>
                 </tr>
               <% end %>

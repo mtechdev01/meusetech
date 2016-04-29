@@ -6,7 +6,6 @@ class Project < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
 
-
   validates_presence_of :name, :message => "Le nom de votre projet est obligatoire"
   validates_presence_of :content, :message => "Le contenu de votre projet est obligatoire"
 

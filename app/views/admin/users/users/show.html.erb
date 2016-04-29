@@ -1,0 +1,85 @@
+<section class="content-header">
+  <h1>
+    Profil utilisateur
+  </h1>
+  <div class="row">
+    <div class="col-xs-3">
+      <div class="box box-primary">
+        <div class="box-body">
+          <%= image_tag(@user.avatar, :class => "profile-user-img img-responsive img-circle") %>
+          <h3 class="profile-username text-center"><%= @user.username %> <%= @user.is_banned ? "Banni(e)" : "" %></h3>
+          <ul class="list-group list-group-unbordered">
+            <li class="list-group-item"><i class="fa fa-user margin-r-5"></i> <%= @user.firstname %> <%= @user.lastname %></li>
+            <li class="list-group-item"><i class="fa fa-map-marker margin-r-5"></i> <%= @user.address %> <%= @user.cp %> <%= @user.city %></li>
+            <li class="list-group-item"><i class="fa fa-envelope-o margin-r-5"></i> <%= mail_to(@user.email) %></li>
+            <li class="list-group-item"><b>Créé le</b> <%= time_tag(@user.created_at) %></li>
+            <li class="list-group-item"><b><%= @user.can_comment ? "Est autorisé(e)" : "N'est pas autorisé(e)" %></b> à commenter</li>
+            <li class="list-group-item"><b>Dernière connexion</b> <%= time_tag(@user.last_sign_in_at) %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-9">
+      <div class="box box-primary">
+        <div class="info-box bg-aqua">
+          <span class="info-box-icon"><i class="fa fa-briefcase"></i></span>
+          <div class="info-box-content">
+            <h3>Liste des projets</h3>
+          </div>
+        </div>
+        <div class="box-body">
+          <% if @user.projects != [] %>
+            <% @user.projects.each do |project| %>
+              <div class="row">
+                <div class="col-xs-9">
+                  <h4><%= project.name %></h4>
+                  <div class="">Catégorie : <%= project.category.name %></div>
+                  <div class=""><%= truncate(project.content.html_safe, length: 400, separator: ' ') %></div>
+                </div>
+                <div class="col-xs-3">
+                  <%= image_tag(project.thumb, width:"200") %>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <div class=""> Aucun projet trouvé</div>
+          <% end %>
+        </div>
+      </div>
+      <div class="box box-primary">
+        <div class="info-box bg-gray">
+          <span class="info-box-icon"><i class="fa fa-bar-chart"></i></span>
+          <div class="info-box-content">
+            <h3>Participation aux sondages</h3>
+          </div>
+        </div>
+        <div class="box-body">
+          <% if @polls != [] %>
+            <% @polls.each do |poll| %>
+              <div class="">le <%= time_tag(comment.created_at) %> : <%= polls.title %></div>
+            <% end %>
+          <% else %>
+            <div class="">Aucune participation aux sondages</div>
+          <% end %>
+        </div>
+      </div>
+      <div class="box box-primary">
+        <div class="info-box bg-green">
+          <span class="info-box-icon"><i class="fa fa-comments-o"></i></span>
+          <div class="info-box-content">
+            <h3>Les derniers commentaires</h3>
+          </div>
+        </div>
+        <div class="box-body">
+          <% if @comments != [] %>
+            <% @comments.each do |comment| %>
+              <div class="">le <%= time_tag(comment.created_at) %> : <%= comment.content %></div>
+            <% end %>
+          <% else %>
+            <div class="">Aucun commentaire trouvé</div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -28,7 +28,22 @@ Rails.application.routes.draw do
       end
       scope '/users' do
         get '/', to: 'users/users#index', as: 'usersAdminIndex'
+        get '/voir/:id', to: 'users/users#show', as: 'usersAdminShow'
+        delete '/delete/:id', to: 'users/users#destroy', as: 'usersAdminDestroy'
+        get '/editer/:id', to: 'users/users#edit', as: 'usersAdminEdit'
+        post '/update/:id', to: 'users/users#update', as: 'usersAdminUpdate'
       end
+      scope '/projets' do
+       get '/', to: 'projects/projects#index', as: 'projectsAdminIndexGet'
+       post '/', to: 'projects/projects#index', as: 'projectsAdminIndexPost'
+       get '/creer', to: 'projects/projects#create', as: 'projectsAdminCreateGet'
+       post '/creer', to: 'projects/projects#create', as: 'projectsAdminCreatePost'
+       get '/editer/:id', to: 'projects/projects#editproject', as: 'projectEditGet'
+       post '/editer/:id', to: 'projects/projects#updateproject', as: 'projectUpdate'
+       post '/supprimer-projet/:id', to: 'projects/projects#projectdelete', as: 'projectDelete'
+      end
+      delete '/delete/:id', to: 'comments#destroy', as: 'commentsAdminDestroy'
+      post '/update/:id', to: 'comments#update', as: 'commentsAdminUpdate'
   end
 
   scope '/projets' do
