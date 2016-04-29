@@ -1,6 +1,7 @@
 class Project < ActiveRecord::Base
   mount_uploader :thumb, ThumbUploader
   has_many :comments
+  has_many :likes
   has_many :followers, class_name: "ProjectsFollower",
                           foreign_key: "project_id"
   belongs_to :category
@@ -15,4 +16,8 @@ class Project < ActiveRecord::Base
     where( user_id: user.id ).order( created_at: :desc)
   end
 
+  def self.mostActive
+    order("likes_count + comments_count*6 DESC")
+    .limit(3)
+  end
 end

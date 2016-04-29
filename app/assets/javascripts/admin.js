@@ -19,6 +19,7 @@
 //= require admin/AdminLTE/plugins/datatables/jquery.dataTables.js
 //= require admin/AdminLTE/plugins/datatables/dataTables.bootstrap.js
 //= require admin/AdminLTE/plugins/iCheck/icheck.min.js
-
+//= require admin/AdminLTE/plugins//chartjs/Chart.min.js
+//= require jquery.minicolors
 //= require admin/AdminLTE/app
 //= require tinymce-jquery

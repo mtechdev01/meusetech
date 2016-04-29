@@ -1,7 +1,7 @@
 class PollsFieldsResponse < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
 
-  belongs_to :polls_field, class_name: "PollsField",
+  belongs_to :field, class_name: "PollsField",
                         foreign_key: "polls_field_id"
   belongs_to :poll, class_name: "Poll",
                         foreign_key: "poll_id"
@@ -10,5 +10,12 @@ class PollsFieldsResponse < ActiveRecord::Base
 
   def self.responsed user
     where(user_id: user.id ).group(:poll_id).order( created_at: :desc)
+  end
+
+  def self.statsResponse response
+    where( polls_field_id: response.polls_field_id, poll_id: response.poll_id, response: response.response ).count
+  end
+  def self.groupedByResponse
+    group(:response)
   end
 end

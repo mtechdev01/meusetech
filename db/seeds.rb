@@ -181,7 +181,7 @@ article1 = BlogArticle.new(
   title: "Article numero 1",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   nb_fb_shared: 0,
-  nb_likes: 0,
+  likes_count: 0,
   published: true,
   published_at: "2016-06-11 11:40:07.431666",
   thumb: "http://www.azurelite.net/photo/gal/pic/gal-2412236.jpg"
@@ -194,7 +194,7 @@ article2 = BlogArticle.new(
   title: "Article numero 2",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   nb_fb_shared: 0,
-  nb_likes: 0,
+  likes_count: 0,
   published: true,
   published_at: "2016-06-11 11:40:07.431666",
   thumb: "http://www.azurelite.net/photo/gal/pic/gal-2412236.jpg"
@@ -207,7 +207,7 @@ article3 = BlogArticle.new(
   title: "Article numero 3",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   nb_fb_shared: 0,
-  nb_likes: 0,
+  likes_count: 0,
   published: true,
   published_at: "2016-06-11 11:40:07.431666",
   thumb: "http://www.azurelite.net/photo/gal/pic/gal-2412236.jpg"
@@ -220,7 +220,7 @@ article4 = BlogArticle.new(
   title: "Article numero 4",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   nb_fb_shared: 0,
-  nb_likes: 0,
+  likes_count: 0,
   published: false,
   thumb: "http://www.azurelite.net/photo/gal/pic/gal-2412236.jpg"
 )
@@ -232,7 +232,7 @@ article5 = BlogArticle.new(
   title: "Article numero 5",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   nb_fb_shared: 0,
-  nb_likes: 0,
+  likes_count: 0,
   published: false,
   thumb: "http://www.azurelite.net/photo/gal/pic/gal-2412236.jpg"
 )
@@ -244,7 +244,7 @@ article6 = BlogArticle.new(
   title: "Article numero 6",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   nb_fb_shared: 0,
-  nb_likes: 0,
+  likes_count: 0,
   published: false,
   thumb: "http://www.azurelite.net/photo/gal/pic/gal-2412236.jpg"
 )
@@ -257,7 +257,8 @@ projet1 = Project.new(
   name: "Projet numero 1 de jc",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   nb_fb_shared: 0,
-  nb_likes: 0,
+  likes_count: 0,
+  location: "Belleville",
   thumb: "https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg"
 )
 projet1.save!
@@ -268,7 +269,8 @@ projet2 = Project.new(
   name: "Projet numero 2 de cecile",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   nb_fb_shared: 0,
-  nb_likes: 0,
+  likes_count: 0,
+  location: "Charny",
   thumb: "https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg"
 )
 projet2.save!
@@ -279,7 +281,8 @@ projet3 = Project.new(
   name: "Projet numero 3 de john",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   nb_fb_shared: 0,
-  nb_likes: 0,
+  likes_count: 0,
+  location: "verdun",
   thumb: "https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg",
 )
 projet3.save!
@@ -290,7 +293,8 @@ projet4 = Project.new(
   name: "Projet numero 4 de jerome",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   nb_fb_shared: 0,
-  nb_likes: 0,
+  likes_count: 0,
+  location: "bras-sur-meuse",
   thumb: "https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg"
 )
 projet4.save!
@@ -301,7 +305,8 @@ projet5 = Project.new(
   name: "Projet numero 5 de benjamin",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   nb_fb_shared: 0,
-  nb_likes: 0,
+  likes_count: 0,
+  location: "verdun",
   thumb: "https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg"
 )
 projet5.save!
@@ -363,7 +368,7 @@ com1 = Comment.new(
   project: nil,
   user: jc,
   content: "Je suis le premier commentaire c'est cool non?",
-  nb_likes: 0,
+  likes_count: 0,
   is_valid: false
 )
 com1.save!
@@ -373,7 +378,7 @@ com2 = Comment.new(
   project: nil,
   user: cecile,
   content: "Je suis le deuxieme commentaire",
-  nb_likes: 0,
+  likes_count: 0,
   is_valid: false
 )
 com2.save!
@@ -383,7 +388,7 @@ com3 = Comment.new(
   project: nil,
   user: john,
   content: "Je suis le quatrieme commentaire",
-  nb_likes: 0,
+  likes_count: 0,
   is_valid: false
 )
 com3.save!
@@ -393,7 +398,7 @@ com4 = Comment.new(
   project: projet1,
   user: jerome,
   content: "Je suis le quatrieme commentaire",
-  nb_likes: 0,
+  likes_count: 0,
   is_valid: false
 )
 com4.save!
@@ -403,7 +408,7 @@ com5 = Comment.new(
   project: projet1,
   user: benjamin,
   content: "Je suis le cinquieme commentaire",
-  nb_likes: 0,
+  likes_count: 0,
   is_valid: false
 )
 com5.save!
@@ -413,7 +418,7 @@ com6 = Comment.new(
   project: projet1,
   user: jerome,
   content: "Je suis le sixieme commentaire",
-  nb_likes: 0,
+  likes_count: 0,
   is_valid: false
 )
 com6.save!

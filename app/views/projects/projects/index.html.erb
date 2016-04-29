@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9">
-
       <div class="projects_depot--">
         <h1>Bienvenue sur la plateforme participative et collaborative de MeuseTech.</h1>
         <div class="projects_depot--infos">
@@ -29,8 +28,7 @@
             <h2>Actuellement <%= @projects.size %> projets sont déposés sur MeuseTech<h2>
           </div>
 
-          <div class="projects_comment">
-            Participez aux projets déposés en donnant votre avis, en vous associant, en apportant un coup de main,
+          <div class="projects_comment">Participez aux projets déposés en donnant votre avis, en vous associant, en apportant un coup de main,
             une information nécessaire à sa réalisation… Commentez, aimez, partagez !
           </div>
       </div>
@@ -67,7 +65,7 @@
                 <img class="logo_fb" src="http://www.freelargeimages.com/wp-content/uploads/2014/11/Facebook_logo-7.png" alt=""/>
                 <%= project.nb_fb_shared %>
                 <img class="logo_likes" src="https://www.seeklogo.net/wp-content/uploads/2012/04/facebook-like-logo-vector-400x400.png" alt=""/>
-                <%= project.nb_likes %>
+                <%= project.likes_count %>
               </p>
             </div>
         </div>

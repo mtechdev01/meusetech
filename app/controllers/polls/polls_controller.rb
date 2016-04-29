@@ -15,8 +15,8 @@ class Polls::PollsController < ApplicationController
         @response = PollsFieldsResponse.new
         @response.user_id = current_user.id
         @response.poll_id = @fields[:poll_id]
-        @response.polls_field_id = index
-        @response.response = value
+        @response.polls_field_id = value[0]
+        @response.response = value[1].to_s
         @response.save
       end
       if @response.save

@@ -8,7 +8,7 @@
       <div class="project_global_infos">
         <div class="image-logo">
         <img class="image_infos img-responsive img-bordered" src="http://img11.hostingpics.net/pics/779200ordiprojet.jpg" alt="" width="380px"/>
-        <img class="logo_icon" src="<%= @project.category.icon%>" alt=""/>
+
 
 
         <div class="rectangle_projet">
@@ -51,7 +51,11 @@
           Projet créé le: <%= time_ago_in_words @project.created_at %> par <%= @project.user.username%>
         </div>
       </div>
+
     </div>
+    <% if user_signed_in? %>
+      <button class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'project', id: @project.id}) %>"><%="#{@project.likes_count} Like"%></button>
+    <% end %>
     <h3>Commentaires</h3>
     <% if user_signed_in? %>
       <%= form_for :comment, :url => comment_url do |f| %>
