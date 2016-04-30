@@ -34,9 +34,7 @@
         <div class="icon">
           <i class="fa fa-newspaper-o" aria-hidden="true"></i>
         </div>
-        <a href="#" class="small-box-footer">
-          Gérer les articles <i class="fa fa-arrow-circle-right"></i>
-        </a>
+        <%= link_to "Gérer les articles <i class='fa fa-arrow-circle-right'></i>".html_safe, admin_blogsAdminIndex_url, class:'small-box-footer', style:""%>
       </div>
     </div>
     <div class="col-lg-3 col-xs-6">
@@ -64,9 +62,7 @@
         <div class="icon">
           <i class="ion ion-person-add"></i>
         </div>
-        <a href="#" class="small-box-footer">
-          Gérer les membres <i class="fa fa-arrow-circle-right"></i>
-        </a>
+        <%= link_to "Gérer les membres <i class='fa fa-arrow-circle-right'></i>".html_safe, admin_usersAdminIndex_url, class:'small-box-footer', style:""%>
       </div>
     </div>
   </div>
