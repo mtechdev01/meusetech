@@ -36,8 +36,7 @@ class Admin::Users::UsersController < Admin::AdminController
 
   def destroy
     @user = User.find(params[:id]).destroy
-    @comments = User.find(params[:id]).comments.destroy
-    if @user.delete || @comments.delete
+    if @user.delete
       flash[:notice] = "L'utilisateur a été supprimé"
       flash[:class] ="success"
     else
