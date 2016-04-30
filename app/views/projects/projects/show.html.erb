@@ -52,12 +52,13 @@
       </div>
     </div>
     <br>
+    <div class="fb-like" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
     <% if user_signed_in? %>
       <a class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'project', id: @project.id}) %>"><span id="compteur"><%= @project.likes_count %></span> Like</a>
     <% else %>
       <a href="/utilisateurs/connection" class="btn btn-primary"><%= @project.likes_count %> Like</a>
     <% end %>
-    <h3>Commentaires</h3>
+    <h2>Commentaires</h2>
     <% if user_signed_in? %>
       <%= form_for :comment, :url => comment_url do |f| %>
         <input id="notif[model]" name="notif[model]" type="hidden" value="BlogArticle" />
@@ -65,27 +66,22 @@
         <input id="notif[key]" name="notif[key]" type="hidden" value="<%= @project.id %>" />
         <input id="comment[project_id]" name="comment[project_id]" type="hidden" value="<%= @project.id %>" />
         <input id="comment[user_id]" name="comment[user_id]" type="hidden" value="<%= current_user.id %>" />
-        <%= f.text_area :content %>
-        <%= f.submit :valider %>
+        <%= f.text_area :content, class: "form-control" %>
+        <%= f.submit :valider, class:"btn btn-primary", style:"margin-top:15px;" %>
       <% end %>
     <% end %>
-    <div class="project_comments">
+    <div class="comments-block" style="margin-top:25px">
       <% @comments.each do | comment | %>
-      <div class="project_comments_card">
-        <div class="project_comments_card--user">
-          <%= comment.user.username %>
+      <div class="media" style="padding-bottom:15px;">
+        <div class="media-left">
+          <%= image_tag comment.user.avatar, size: "64x64", class: "media-object", alt: "avatar" %>
         </div>
-        <div class="project_comments_card--message">
-          <%= comment.content %>
+        <div class="media-body">
+          <h4 class="media-heading"><%= comment.user.username %></h4>
+            <%= comment.content %>
         </div>
-        <% if current_user %>
-          <% if current_user.is_admin && !comment.is_valid %>
-          <%= link_to "valider", validComment_url( comment ) %>
-          <% end %>
-        <% end %>
       </div>
       <% end %>
-    </div>
     </div>
   </div>
 </div>

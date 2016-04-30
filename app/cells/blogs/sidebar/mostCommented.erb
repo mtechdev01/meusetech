@@ -1,9 +1,16 @@
-<h2>
-  Les plus actifs
-</h2>
 
-<ul>
+<div class="last_articles-list">
+  <h2>Les plus actifs</h2>
   <% @articles.each do | article | %>
-  <li> <%= link_to article.title , blogShow_url(article.id) %> </li>
+  <div class="row">
+    <div class="last_articles--one">
+      <div class="col-xs-2">
+        <%= image_tag article.thumb , class:"img-responsive" %>
+      </div>
+      <div class="col-xs-10">
+        <%= link_to article.title , blogShow_url(article.id) %>
+      </div>
+    </div>
+  </div>
   <% end %>
-</ul>
+</div>
