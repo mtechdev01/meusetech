@@ -37,6 +37,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.4.0)
+    animate-rails (1.0.10)
+      rails
     arel (6.0.3)
     autoprefixer-rails (6.3.5)
       execjs
@@ -201,6 +203,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  animate-rails
   bootstrap-sass (~> 3.3.6)
   byebug
   carrierwave

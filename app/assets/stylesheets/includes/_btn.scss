@@ -11,9 +11,9 @@
   }
 }
 .btn-warning {
-  background-color: #f1c40f;
+  background-color: #ff8300;
   &:hover {
-    background-color: #f39c12;
+    background-color:darken(#ff8300, 8%);
   }
 }
 .btn-danger {

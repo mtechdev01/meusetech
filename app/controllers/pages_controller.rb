@@ -2,12 +2,13 @@ class PagesController < ApplicationController
 
   def home
     @projects = Project.mostActive
+    @comments = Comment.order(created_at: :desc).limit(3)
   end
 
   def about
     #code
   end
-  
+
   def callback
     @state = params[:state].split(',')
     #@a = "#{@state[1]}(#{@state[0]},#{params[:code]})"

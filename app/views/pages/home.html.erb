@@ -1,1 +1,76 @@
-<h1>Je suis la home</h1>
+<section id="home-projects">
+  <div class="container" id="home-projects-container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <h1>Derniers projets</h1>
+          <% @projects.each_with_index do | project , index| %>
+          <div class="col-md-4" class="home-projects_single animate <%= (index == 0) ? 'fadeInLeft' : '' %> <%= (index == 1) ? 'fadeInUp' : '' %> <%= (index == 2) ? 'fadeInRight' : '' %>">
+            <div class="block">
+              <%= image_tag project.thumb, class:"img-responsive" %>
+              <div class="block-content home-projects_single--content">
+                <div class="content">
+                  <h2><%= project.name %></h2>
+                  <h3><%= project.category.name%></h3>
+                  <%= link_to "lire la suite", projectsIndex_url, class:"btn btn-warning" %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="home-links">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <%= link_to "Je propose un projet", projectsIndex_url, class: "btn btn-block btn-warning", style:"padding: 45px;font-size: 3em;"%>
+      </div>
+      <div class="col-xs-6">
+        <%= link_to "Je participe aux sondages", pollIndex_url, class: "btn btn-block btn-danger", style:"padding: 45px;font-size: 3em;"%>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="home-comments" style="padding-top:85px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="row">
+          <% @comments.each do | comment |  %>
+          <div class="col-xs-4">
+            <div class="block">
+              <div class="block-content">
+                <div class="row">
+                  <div class="col-xs-4">
+                    <%= image_tag comment.user.avatar, class: 'img-circle', size: "82x82" %>
+                  </div>
+                  <div class="col-xs-8">
+                    <div style="text-transform:capitalize; font-size:2em;">
+                       <%= comment.user.username %>
+                    </div>
+                    Il y a: <%= time_ago_in_words comment.created_at %>
+                    </br>
+                    Dans:
+                    <% if ( comment.project ) %>
+                      <%= link_to "#{truncate(comment.project.name, length: 2, separator: ' ')}", projectShow_url(comment.project.id) %>
+                    <% else %>
+                      <%= link_to "#{truncate(comment.blog_article.title, length: 2, separator: ' ')}", blogShow_url(comment.blog_article.id) %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="block-footer">
+                <%=  truncate(comment.content, length: 200, separator: ' ') %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
