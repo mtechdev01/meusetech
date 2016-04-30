@@ -14,7 +14,7 @@
             <li class="list-group-item"><i class="fa fa-envelope-o margin-r-5"></i> <%= mail_to(@user.email) %></li>
             <li class="list-group-item"><b>Créé le</b> <%= time_tag(@user.created_at) %></li>
             <li class="list-group-item"><b><%= @user.can_comment ? "Est autorisé(e)" : "N'est pas autorisé(e)" %></b> à commenter</li>
-            <li class="list-group-item"><b>Dernière connexion</b> <%= time_tag(@user.last_sign_in_at) %></li>
+            <li class="list-group-item"><b>Dernière connexion</b> <%= @user.created_at != nil ? time_tag(@user.created_at) : "" %></li>
           </ul>
         </div>
       </div>

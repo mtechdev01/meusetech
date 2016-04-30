@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/', to: "pages#home", as: 'adminDashboard'
+    delete '/delete/:id', to: 'comments#destroy', as: 'commentsAdminDestroy'
+    post '/update/:id', to: 'comments#update', as: 'commentsAdminUpdate'
       scope '/blogs' do
         get '/', to: 'blogs/articles#index', as: 'blogsAdminIndex'
         get '/voir/:id', to: 'blogs/articles#show', as: 'blogAdminShow'
