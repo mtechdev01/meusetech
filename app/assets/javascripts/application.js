@@ -17,3 +17,4 @@
 //= require tinymce-jquery
 //= require app
 //= require app2
+//= require facebook

@@ -1,0 +1,36 @@
+footer {
+  padding-top: 35px;
+  h4 {
+    font-size: 2em;
+    text-align: center;
+    padding-top: 20px;
+  }
+  ul {
+    list-style-type: none;
+    padding:0;
+  }
+  #twt-block {
+    min-height: 500px;
+  }
+  #footer-articles {
+    .footer-article_one {
+      padding: 10px;
+      h5 {
+        margin: 0;margin-bottom: 10px;
+      }
+    }
+  }
+
+  #footer-about {
+    text-align:center;
+    #footer-logo {
+      @media (min-width: 768px) {
+        width:150px
+      }
+      @media (min-width: 992px) {
+        width:250px
+      }
+    }
+  }
+
+}

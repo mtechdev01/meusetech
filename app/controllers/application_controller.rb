@@ -8,8 +8,14 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   before_filter :getnotifs
+  before_filter :setFooterArticles
 
   protected
+
+  def setFooterArticles
+    @footerArticles = BlogArticle.order(created_at: :desc).limit(3)    
+  end
+
 
   def layout_by_resource
     if devise_controller?

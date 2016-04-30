@@ -1,0 +1,63 @@
+<div id="fb-root"></div>
+
+<footer>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-6 col-md-3">
+        <h4>Actualitées Facebook</h4>
+        <div id="fb-block">
+          <div class="fb-page" style="padding-left:60px;" data-href="https://www.facebook.com/meusetech/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/meusetech/"><a href="https://www.facebook.com/meusetech/">MeuseTech</a></blockquote></div></div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <h4>Actualitées Twitter</h4>
+        <div id="twt-block">
+          <a class="twitter-timeline" href="https://twitter.com/meusetech" data-widget-id="321360849161814016">Tweets de @meusetech</a>
+          <script src="//platform.twitter.com/widgets.js"></script>
+        </div>
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <h4>Derniers articles</h4>
+        <div id="footer-articles">
+          <% @footerArticles.each do | article | %>
+          <article class="footer-article_one">
+            <div class="row">
+            <div class="col-xs-4">
+              <div class="footer-article_one--thumb;">
+                <%= image_tag article.thumb, size:"120x100", class:""%>
+              </div>
+            </div>
+            <div class="col-xs-8" style="padding-left:25px">
+              <h5><%= link_to article.title, class: "footer-article_one--title" %></h5>
+              <div>
+                <ul>
+                  <li><i class="fa fa-pencil"></i> <%= time_tag article.created_at %></li>
+                  <li><i class="fa fa-comments-o"></i> <%= article.comments.count %> commentaires </li>
+                  <li><i class="fa fa-thumbs-o-up"></i> <%= article.likes_count %> ont aimés ce contenus</li>
+                </ul>
+              </div>
+            </div>
+            </div>
+          </article>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <h4>A propos</h4>
+        <div id="footer-about">
+          <div class="footer-about_logo">
+            <%= image_tag "logo.png", size: "250x250", id:"footer-logo"%>
+          </div>
+          <div class="footer-about_infos">
+            <ul>
+              <li><i class="fa fa-map-signs" aria-hidden="true"></i> Adresse: x, rue de verdun</li>
+              <li><i class="fa fa-location-arrow" aria-hidden="true"></i> 55100 Charny</li>
+              <li><i class="fa fa-phone"  aria-hidden="true"></i> 03.83.xx.xx.xx</li>
+              <li><i class="fa fa-clock-o" aria-hidden="true"></i> 8H-17H Lundi-Vendredi</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
