@@ -1,1 +1,97 @@
-<h1>Je suis la home</h1>
+<section id="home-projects">
+  <div class="container" id="home-projects-container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <h2>Derniers projets</h2>
+          <% @projects.each_with_index do | project , index| %>
+          <div class="col-md-4" class="home-projects_single animate <%= (index == 0) ? 'fadeInLeft' : '' %> <%= (index == 1) ? 'fadeInUp' : '' %> <%= (index == 2) ? 'fadeInRight' : '' %>">
+            <div class="block">
+              <%= image_tag project.thumb, class:"img-responsive" %>
+              <div class="block-content home-projects_single--content">
+                <div class="content">
+                  <h2><%= project.name %></h2>
+                  <h3><%= project.category.name%></h3>
+                  <p><%= project.location %></p>
+                  <p><%= time_tag(project.created_at) %></p>
+                  <%= link_to "lire la suite", projectShow_url(project.id), class:"btn btn-warning" %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="home-links">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <%= link_to "Je propose un projet", projectsIndex_url, class: "btn btn-block btn-warning" %>
+      </div>
+      <div class="col-xs-6">
+        <%= link_to "Je participe aux sondages", pollIndex_url, class: "btn btn-block btn-danger" %>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="home-comments">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="row">
+          <h2>Derniers commentaires</h2>
+          <% @comments.each do | comment |  %>
+          <div class="col-xs-12 col-md-4">
+            <div class="block">
+              <div class="block-content">
+                <div class="row">
+                  <div class="col-md-4 col-xs-2" >
+                    <%= image_tag comment.user.avatar, class: 'img-circle avatar', size: "82x82" %>
+                  </div>
+                  <div class="col-md-8 col-xs-10" >
+                    <div class="comment-username">
+                       <%= comment.user.username %>
+                    </div>
+                    Il y a: <%= time_ago_in_words comment.created_at %>
+                    </br>
+                    Dans:
+                    <% if ( comment.project ) %>
+                      <%= link_to "#{truncate(comment.project.name, length: 2, separator: ' ')}", projectShow_url(comment.project.id) %>
+                    <% else %>
+                      <%= link_to "#{truncate(comment.blog_article.title, length: 2, separator: ' ')}", blogShow_url(comment.blog_article.id) %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="block-footer">
+                <%=  truncate(comment.content, length: 200, separator: ' ') %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="home-partenaires">
+  <div class="mask"></div>
+  <div class="partenaires-block">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-4">
+          <%= image_tag "logos/logo1.jpg", size: "100x100" ,  class:"partenaire" %>
+        </div>
+        <div class="col-xs-4">
+          <%= image_tag "logos/logo2.png", size: "100x100" ,  class:"partenaire" %>
+        </div>
+        <div class="col-xs-4">
+          <%= image_tag "logos/logo3.jpg", size: "100x100" ,  class:"partenaire" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

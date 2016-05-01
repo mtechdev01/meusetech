@@ -39,14 +39,12 @@
       </li>
       <li class="treeview <%= (params[:controller] ===  'admin/projects/projects') ? 'active' : '' %>">
         <a href="#">
-          <i class="fa fa-coffee" aria-hidden="true"></i>
-          <span>Projets</span>
-          <i class="fa fa-angle-left pull-right"></i>
+          <i class="fa fa-coffee" aria-hidden="true"></i> <span>Projets</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li class="<%= (params[:controller] === 'admin/projects/projects' && params[:action] === 'index' ) ? 'active' : ''  %> "><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i>Liste</a></li>
-          <li class="<%= (params[:controller] === 'admin/projects/projects' && params[:action] === 'labelled' ) ? 'active' : ''  %> "><a href="../../index.html"><i class="fa fa-circle-o"></i>Projets labelisés</a></li>
-          <li class="<%= (params[:controller] === 'admin/projects/projects' && params[:action] === 'index' ) ? 'active' : ''  %> "><a href="../../index.html"><i class="fa fa-circle-o"></i>Commentaires</a></li>
+          <li class="<%= (params[:controller] === 'admin/projects/projects' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i> Liste ".html_safe, admin_projectsAdminIndexGet_url %></li>
+          <li class="<%= (params[:controller] === 'admin/projects/projects' && params[:action] === 'labelled' ) ? 'active' : ''  %>"><a href="../../index.html"><i class="fa fa-circle-o"></i>Projets labelisés</a></li>
+          <li class="<%= (params[:controller] === 'admin/projects/projects' && params[:action] === 'index' ) ? 'active' : ''  %>"><a href="../../index.html"><i class="fa fa-circle-o"></i>Commentaires</a></li>
         </ul>
       </li>
       <li class="treeview <%= (params[:controller] ===  'admin/polls/polls') ? 'active' : '' %>">
@@ -58,6 +56,14 @@
         <ul class="treeview-menu">
           <li class="<%= (params[:controller] === 'admin/polls/polls' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Liste".html_safe, admin_pollsAdminIndex_url %></li>
           <li class="<%= (params[:controller] === 'admin/polls/polls' && params[:action] === 'create' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Nouveau".html_safe, admin_pollsAdminCreate_url %></li>
+        </ul>
+      </li>
+      <li class="treeview <%= (params[:controller] === 'admin/users/users') ? 'active' : ''  %>">
+        <a href="#">
+          <i class="fa fa-users" aria-hidden="true"></i> <span>Utilisateurs</span> <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= (params[:controller] === 'admin/users/users' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Liste".html_safe, admin_usersAdminIndex_url %></li>
         </ul>
       </li>
       <li><a href="../../documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>

@@ -27,6 +27,11 @@
     text-align: left;
  }
  .alert {
+   position: absolute;
+   top: 0;
+   right: 10px;
+   background-color: #4aa3df;
+   color: #ecf0f1;
     li {
       list-style-type: none;
     }

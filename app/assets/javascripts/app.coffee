@@ -26,7 +26,15 @@ ready = ->
     ul = $(this).find('ul')
     ul.addClass('treeview-menu-open').addClass('menu-open').attr 'display', 'block'
   return
-  
 
+
+closeAlert = ->
+  setTimeout (->
+    $('.alert').fadeOut()
+    return
+  ), 3000
+  
 $(document).ready ready
 $(document).on 'page:load', ready
+$(document).ready closeAlert
+$(document).on 'page:load', closeAlert

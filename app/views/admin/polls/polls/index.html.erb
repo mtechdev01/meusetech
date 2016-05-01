@@ -16,7 +16,7 @@
           <h3 class="box-title">Liste de mes sondages</h3>
         </div><!-- /.box-header -->
         <div class="box-body">
-          <table id="articlesListe" class="table table-bordered table-hover">
+          <table id="pollsListe" class="table table-bordered table-hover">
             <thead>
               <tr>
                 <th>#</th>
@@ -32,13 +32,13 @@
               <tr>
                 <td><%= poll.id %></td>
                 <td><%= poll.title%></td>
-                <td><%= poll.description%></td>
+                <td><%= truncate(poll.description.html_safe, length: 50, separator: ' ') %></td>
                 <td><%= time_tag(poll.start_at)%></td>
                 <td><%= time_tag(poll.end_at)%></td>
                 <td>
                   <%= link_to "<i class='fa fa-eye'></i>".html_safe, admin_pollsAdminShow_url(poll.id), class: "btn btn-success" %>
-                  <a href="#" class="btn btn-info"><i class="fa fa-pencil"></i></a>
-                  <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+                  <%= link_to "<i class='fa fa-pencil'></i>".html_safe, admin_pollsAdminEdit_url(poll.id), class: "btn btn-warning" %>
+                  <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_pollsAdminDelete_url(poll.id), class: "btn btn-danger", method: "post" %>
                 </td>
               </tr>
               <% end %>

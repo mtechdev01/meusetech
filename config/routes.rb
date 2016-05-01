@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/', to: "pages#home", as: 'adminDashboard'
+    delete '/delete/:id', to: 'comments#destroy', as: 'commentsAdminDestroy'
+    post '/update/:id', to: 'comments#update', as: 'commentsAdminUpdate'
       scope '/blogs' do
         get '/', to: 'blogs/articles#index', as: 'blogsAdminIndex'
         get '/voir/:id', to: 'blogs/articles#show', as: 'blogAdminShow'
@@ -35,6 +37,16 @@ Rails.application.routes.draw do
         get '/', to: 'polls/polls#index', as: 'pollsAdminIndex'
         get '/voir/:id', to: 'polls/polls#show', as: 'pollsAdminShow'
         get '/nouveau', to: 'polls/polls#create', as: 'pollsAdminCreate'
+        post '/nouveau', to: 'polls/polls#create', as: 'pollsAdminCreatePost'
+        get '/editer/:id', to: 'polls/polls#edit', as: 'pollsAdminEdit'
+        post '/editer/:id', to: 'polls/polls#update', as: 'pollsAdminEditPost'
+        get '/ajout/question/:id', to: 'polls/polls#addquestion', as: 'pollsAdminAddQuestion'
+        post '/ajout/question/:id', to: 'polls/polls#addquestion', as: 'pollsAdminAddQuestionPost'
+        get '/editer/question/:id', to: 'polls/polls#editquestion', as: 'pollsAdminEditQuestion'
+        post '/editer/question/:id', to: 'polls/polls#updatequestion', as: 'pollsAdminEditQuestionPost'
+        post '/suppression/question/:id', to: 'polls/polls#deletequestion', as: 'pollsAdminDeleteQuestion'
+        post '/suppression/:id', to: 'polls/polls#delete', as: 'pollsAdminDelete'
+
       end
       scope '/categories' do
         get '/', to: 'category#index', as: 'categoryAdminIndex'
@@ -44,10 +56,27 @@ Rails.application.routes.draw do
         post '/editer/:id', to: 'category#update', as: 'categoryAdminEditPost'
         post '/delete/:id', to: 'category#delete', as: 'categoryAdminDelete'
       end
+      scope '/users' do
+        get '/', to: 'users/users#index', as: 'usersAdminIndex'
+        get '/voir/:id', to: 'users/users#show', as: 'usersAdminShow'
+        delete '/delete/:id', to: 'users/users#destroy', as: 'usersAdminDestroy'
+        get '/editer/:id', to: 'users/users#edit', as: 'usersAdminEdit'
+        post '/update/:id', to: 'users/users#update', as: 'usersAdminUpdate'
+      end
+      scope '/projets' do
+        get '/', to: 'projects/projects#index', as: 'projectsAdminIndexGet'
+        post '/', to: 'projects/projects#index', as: 'projectsAdminIndexPost'
+        get '/creer', to: 'projects/projects#create', as: 'projectsAdminCreateGet'
+        post '/creer', to: 'projects/projects#create', as: 'projectsAdminCreatePost'
+        get '/editer/:id', to: 'projects/projects#editproject', as: 'projectEditGet'
+        post '/editer/:id', to: 'projects/projects#updateproject', as: 'projectUpdate'
+        post '/supprimer-projet/:id', to: 'projects/projects#projectdelete', as: 'projectDelete'
+       end
   end
+
   scope '/projets' do
     get '/', to: 'projects/projects#index', as: 'projectsIndex'
-    get '/voir/:id', to: 'projects/projects#show', as: 'projectsShow'
+    get '/voir/:id', to: 'projects/projects#show', as: 'projectShow'
     get '/creer', to: 'projects/projects#create', as: 'projectsCreateGet'
     post '/creer', to: 'projects/projects#create', as: 'projectsCreatePost'
   end

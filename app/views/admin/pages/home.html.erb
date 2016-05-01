@@ -21,9 +21,7 @@
         <div class="icon">
           <i class="fa fa-briefcase" aria-hidden="true"></i>
         </div>
-        <a href="#" class="small-box-footer">
-          Gérer les projets <i class="fa fa-arrow-circle-right"></i>
-        </a>
+      <%= link_to "Gérer les projets <i class='fa fa-arrow-circle-right'></i>".html_safe, admin_projectsAdminIndexGet_url, class:'small-box-footer', style:""%>
       </div>
     </div>
     <div class="col-lg-3 col-xs-6">
@@ -36,23 +34,21 @@
         <div class="icon">
           <i class="fa fa-newspaper-o" aria-hidden="true"></i>
         </div>
-        <a href="#" class="small-box-footer">
-          Gérer les articles <i class="fa fa-arrow-circle-right"></i>
-        </a>
+        <%= link_to "Gérer les articles <i class='fa fa-arrow-circle-right'></i>".html_safe, admin_blogsAdminIndex_url, class:'small-box-footer', style:""%>
       </div>
     </div>
     <div class="col-lg-3 col-xs-6">
       <!-- small box -->
       <div class="small-box bg-green">
         <div class="inner">
-          <h3><%= @commentsCount %></h3>
-          <p>Commentaires publiés</p>
+          <h3><%= @pollsCount %></h3>
+          <p>Sondage publiés</p>
         </div>
         <div class="icon">
           <i class="fa fa-comments-o"></i>
         </div>
-        <a href="#" class="small-box-footer">
-          Gérer les commentaires <i class="fa fa-arrow-circle-right"></i>
+        <a href="<%= admin_pollsAdminIndex_url%>" class="small-box-footer">
+          Gérer les sondages <i class="fa fa-arrow-circle-right"></i>
         </a>
       </div>
     </div>
@@ -66,9 +62,7 @@
         <div class="icon">
           <i class="ion ion-person-add"></i>
         </div>
-        <a href="#" class="small-box-footer">
-          Gérer les membres <i class="fa fa-arrow-circle-right"></i>
-        </a>
+        <%= link_to "Gérer les membres <i class='fa fa-arrow-circle-right'></i>".html_safe, admin_usersAdminIndex_url, class:'small-box-footer', style:""%>
       </div>
     </div>
   </div>
@@ -172,7 +166,7 @@
         </div><!-- /.box-header -->
         <div class="box-body">
           <% @commentsLast10.each do | comment | %>
-          <div class="direct-chat-messages">
+          <div class="direct-chat-messages" style="height:auto;">
             <!-- Message. Default to the left -->
             <div class="direct-chat-msg">
               <div class="direct-chat-info clearfix">
@@ -184,7 +178,7 @@
                 <% if comment.blog_article_id %>
                   Posté dans l'article: <%= link_to comment.blog_article.title , blogShow_url( comment.blog_article_id)%> <hr>
                 <% else %>
-                  Posté dans le projet: <%= link_to comment.project.name , projectsShow_url( comment.project_id)%> <hr>
+                  Posté dans le projet: <%= link_to comment.project.name , projectShow_url( comment.project_id)%> <hr>
                 <% end %>
                 <%= truncate(comment.content, length: 25, separator: ' ') %>
               </div><!-- /.direct-chat-text -->

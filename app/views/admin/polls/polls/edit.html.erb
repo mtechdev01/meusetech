@@ -1,0 +1,87 @@
+<%= tinymce_assets %>
+<%= tinymce :language => "fr_FR" %>
+<section class="content-header">
+  <h1>
+    Sondages
+    <small>nouveau</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="<%= admin_adminDashboard_url %>"><i class="fa fa-dashboard"></i> Accueil</a></li>
+    <li><a href="<%= admin_pollsAdminIndex_url %>">Sondage</a></li>
+    <li class="active">nouveau</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="col-xs-12">
+    <div class="box">
+      <div class="box-title">
+        <h2>Créer un nouveau sondage</h2>
+      </div>
+      <div class="box-content">
+        <%= form_for :poll, url: admin_pollsAdminEditPost_url(@poll.id) , method: 'post' do | f | %>
+          <div class="form-group">
+            <%= label_tag 'title', "Titre du sondage" %>
+            <%= f.text_field :title, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= label_tag 'description', "Description du sondage" %>
+            <%= f.text_area :description, :class => "tinymce", :rows => 25, :cols => 120 %>
+          </div>
+          <div class="form-group">
+            <%= label_tag 'start_at', "Début du sondage" %>
+            <%= f.date_field :start_at  %>
+          </div>
+          <div class="form-group">
+            <%= label_tag 'end_at', "Fin du sondage" %>
+            <%= f.date_field :end_at %>
+          </div>
+          <%= f.submit :valider, class: "btn btn-primary" %>
+        <% end %>
+
+        <div class="form-errors">
+          <% if @poll.errors.any? %>
+            <ul class="Signup_Errors">
+              <% @poll.errors.messages.each do | key, value | %>
+                <li class="text-danger"> <%= value.last.html_safe %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-title">
+        <h2>Quesions enregistrées</h2>
+      </div>
+      <div class="box-content">
+        <div class="">
+          <% @poll.fields.each do | field |  %>
+            <div class="">
+               <h4><%= field.label %></h4>
+               <div class="">
+                 Obligatoire: <%= (field.is_required) ? "<span class='text-success'>Oui</span>".html_safe : "<span class='text-danger'>Non</span>".html_safe %>
+               </div>
+               <div class="">
+                 Donnée attendue: <%= field.input_type %>
+                 <% if (field.input_type == 'select')%>
+                  <div class="">
+                    Réponse proposées: <%= (field.options) ? "<span class='text-success'>#{field.options}</span>".html_safe : "<span class='text-danger'>Attention aucune proposition n'a été donnée</span>".html_safe  %>
+                  </div>
+                 <% end %>
+               </div>
+               <div class="">
+                 Conditions: <%= (!field.rules.to_s.empty?) ? "<span class='text-success'>#{field.rules}</span>".html_safe : '<span class="text-danger">Aucune</span>'.html_safe %>
+               </div>
+               <div class="">
+                 <% if field.responses.size < 1 %>
+                  <%= link_to "editer", admin_pollsAdminEditQuestion_url(field.id), class:"btn btn-warning" %>
+                  <%= link_to "supprimer", admin_pollsAdminDeleteQuestion_url(field.id), class:"btn btn-danger", method: "post" %>
+                 <% end %>
+               </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

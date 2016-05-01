@@ -59,3 +59,4 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap'
 gem "koala", "~> 2.2"
 gem 'jquery-minicolors-rails'
+gem "animate-rails"

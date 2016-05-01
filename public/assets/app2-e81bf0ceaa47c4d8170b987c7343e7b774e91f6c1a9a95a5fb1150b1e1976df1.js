@@ -1,0 +1,1 @@
+(function(){$(document).ready(function(){$("#likeBtn").on("click",function(n){var t;n.preventDefault(),t=$(this),$.post({url:$(this).data("url"),dataType:"json",success:function(n){var a;return a=parseInt(t.find("span").html()),JSON.parse(n)===!0?a++:a--,t.find("span").html(a)}})})})}).call(this);

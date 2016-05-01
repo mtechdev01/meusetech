@@ -1,56 +1,73 @@
 <div class="container">
   <div class="row">
     <div class="col-md-9">
-
-      <div class="projects_depot_text">
+      <div class="projects_depot--">
         <h1>Bienvenue sur la plateforme participative et collaborative de MeuseTech.</h1>
-          <div class="projects_depot_infos">
-            <p>L’esprit MeuseTech, c’est quoi ?
+        <div class="projects_depot--infos">
+          <p>
+            L’esprit MeuseTech, c’est quoi ?
             Il s’agit de rassembler sous ce chapeau l’ensemble des initiatives intelligentes et novatrices du territoire
             pour dynamiser la vie économique et sociale, ouvrir de nouvelles perspectives. Celles-ci pouvant prendre plusieurs formes :
-            </p>
-              <ul>
-                <li>projet innovant : projet exemplaire,inédit sur le territoire, expérimental</li>
-                <li>recours aux nouvelles technologies, offre numérique qualitative</li>
-                <li>initiative interdisciplinaire, mise en réseau des acteurs, économie du partage, innovation sociale</li>
-                <li>prise en compte de l’environnement, actions de développement durable, réduction des dépenses énergétiques</li>
-              </ul>
-            <p>Vous avez des idées, un projet ? Vous souhaitez recueillir des avis sur son intérêt, développer le concept,
-              trouver des associés, rechercher des aides… ?</p>
+          </p>
+          <ul>
+            <li>projet innovant : projet exemplaire,inédit sur le territoire, expérimental</li>
+            <li>recours aux nouvelles technologies, offre numérique qualitative</li>
+            <li>initiative interdisciplinaire, mise en réseau des acteurs, économie du partage, innovation sociale</li>
+            <li>prise en compte de l’environnement, actions de développement durable, réduction des dépenses énergétiques</li>
+          </ul>
+          <p>Vous avez des idées, un projet ? Vous souhaitez recueillir des avis sur son intérêt, développer le concept,
+          trouver des associés, rechercher des aides… ?</p>
 
-            <div class="projects_depot">
-              Tout le monde peut déposer un projet ! Devenez acteur de votre territoire en quelques clics :
-              <%= link_to "JE DEPOSE UN PROJET  <i class='fa fa-arrow-right' aria-hidden='true'></i>".html_safe , projectsCreatePost_url, class: "btn btn-danger pull-right" %>
-            </div>
+          <div class="projects_depot--lien">
+            Tout le monde peut déposer un projet ! Devenez acteur de votre territoire en quelques clics :
+            <%= link_to "JE DEPOSE UN PROJET  <i class='fa fa-arrow-right' aria-hidden='true'></i>".html_safe , projectsCreatePost_url, class: "btn btn-danger pull-right" %>
+          </div>
           </div>
 
-          <div class="number_total_projects">
+          <div class="projects_depot--number">
             <h2>Actuellement <%= @projects.size %> projets sont déposés sur MeuseTech<h2>
           </div>
 
-          <div class="comment_projects">
-            Participez aux projets déposés en donnant votre avis, en vous associant, en apportant un coup de main,
+          <div class="projects_comment">Participez aux projets déposés en donnant votre avis, en vous associant, en apportant un coup de main,
             une information nécessaire à sa réalisation… Commentez, aimez, partagez !
           </div>
       </div>
       <% @projects.each do | project | %>
         <div class="project_list_card">
+            <div class="triangle">
+              <span class="label-meuhsteak">
+                Meuhsteak
+              </span>
+            </div>
+
           <div class="project_list_card--title">
             <h2><%= project.name %></h2>
           </div>
+          <div class="thumb">
+            <%#<%= image_tag(project.thumb, size: "25x25", alt: "Avatar") %>
+            <img class="img-responsive img-bordered" src="https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg" alt="">
+          </div>
           <div class="project_list_card--description">
             <p>
-              <%= project.content %>
+              <%= truncate(project.content) %>
             </p>
           </div>
           <div class="project_list_card--infos">
             <div class="project_list_card--infos_created">
-              Projet créé le: <%= time_ago_in_words project.created_at %> par <%= project.user.username %>
+              Projet créé le: <%= time_ago_in_words project.created_at %> par <%= project.user.username %> à
             </div>
             <div class="project_list_card--infos_link">
-              <%= link_to "En savoir plus", projectsShow_url(project.id)  %>
+              <%= link_to "En savoir plus", projectShow_url(project.id)  %>
             </div>
           </div>
+            <div class="project_reseaux_sociaux">
+              <p>
+                <img class="logo_fb" src="http://www.freelargeimages.com/wp-content/uploads/2014/11/Facebook_logo-7.png" alt=""/>
+                <%= project.nb_fb_shared %>
+                <img class="logo_likes" src="https://www.seeklogo.net/wp-content/uploads/2012/04/facebook-like-logo-vector-400x400.png" alt=""/>
+                <%= project.likes_count %>
+              </p>
+            </div>
         </div>
       <% end %>
       <%= will_paginate @projects, renderer: BootstrapPagination::Rails, :previous_label => "Précédents", :next_label => "Suivants" %>

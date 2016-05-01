@@ -4,7 +4,7 @@
       Mes derniers Projets
       <span class="block-title_link pull-right">
         <%= link_to "<i class='fa fa-plus'></i> Proposer un nouveau projet".html_safe, projectsCreateGet_url %>
-        <%= link_to "<i class='fa fa-search'></i> Tout mes projets proposés".html_safe, userProjects_url %>
+        <%= link_to "<i class='fa fa-search'></i> Tous mes projets proposés".html_safe, userProjects_url %>
       </span>
     </h4>
   </div>
@@ -31,10 +31,10 @@
         <% @lastProjects.each do | project |  %>
           <tr>
             <td>
-              <%= link_to project.name, projectsShow_url(project.id) %>
+              <%= link_to project.name, projectShow_url(project.id) %>
             </td>
             <td>
-              <%= project.category.name %>
+              <%= project.category_id %>
             </td>
             <td>
               <%= time_tag(project.created_at) %>

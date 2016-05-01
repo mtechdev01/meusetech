@@ -73,7 +73,14 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-  
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+
+  # Config Fb publisher
+  config.fb_id      = "708003905969064"
+  config.fb_secret  = "d61dd96269b177d63b2c12a61ac2b342"
+  config.fb_page_id = "1162349303777261"
+  config.fb_perms   = "publish_actions,manage_pages,publish_pages"
 end

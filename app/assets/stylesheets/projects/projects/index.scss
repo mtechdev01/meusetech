@@ -4,8 +4,61 @@ $padding: 15px;
 $box-shadow: 1px 1px 12px #555;
 $bg-color: #fcfcfc;
 
-.projects_depot_text {
+.projects_depot-- {
     box-shadow: $box-shadow;
     background-color: $bg-color;
     padding: $padding;
+}
+
+.project_list_card{
+  box-shadow: $box-shadow;
+  background-color: $bg-color;
+  padding: $padding;
+  display: inline-block;
+  margin-left : 25px;
+  margin-top: 30px;
+  width: 45%;
+  position:relative;
+
+        .triangle {
+        float:right;
+        width: 0;
+        height: 0;
+        border-left: 120px solid transparent;
+        border-right: 0px solid transparent;
+        border-top: 80px solid #26C4EC;
+        opacity: 0.5;
+          .label-meuhsteak {
+          position: absolute;
+          top: 25px;
+          right : 50px;
+          width: 60px;
+          height: 60px;
+          font-size: 18px;
+          font-weight: bold;
+          transform: rotate(35deg);
+          }
+        }
+
+
+    .project_list_card--description {
+      margin-top: 10px;
+      text-align: justify;
+    }
+    .project_list_card--infos_created {
+      text-align: justify;
+    }
+    .project_reseaux_sociaux {
+      margin-top: 10px;
+      display: inline-block;
+      text-align: center;
+      .logo_fb {
+        width: 25px;
+        height: 25px;
+      }
+      .logo_likes {
+        width: 25px;
+        height: 25px;
+      }
+  }
 }

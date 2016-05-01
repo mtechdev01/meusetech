@@ -1,54 +1,87 @@
-<%= link_to "Voir tout les projets" , projectsIndex_url %>
-<div class="project_show_card">
-  <div class="project_show_card--title">
-    <h1><%= @project.name %></h1>
-  </div>
-  <div class="project_show_card--description">
-    <%= image_tag(@project.thumb, alt: "Avatar")%>
-    <p>
-      <%= @project.content%>
-    </p>
-  </div>
-  <div class="project_show_card--infos">
-    <div class="project_show_card--infos_created">
-      Projet créé le: <%= time_ago_in_words @project.created_at %> par <%= @project.user.username%>
-    </div>
-  </div>
-</div>
-<br>
-  <% if user_signed_in? %>
-    <a class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'project', id: @project.id}) %>"><span id="compteur"><%= @project.likes_count %></span> Like</a>
-  <% else %>
-    <a href="/utilisateurs/connection" class="btn btn-primary"><%= @project.likes_count %> Like</a>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class "tous_les_projets">
+        <%= link_to "Voir tout les projets" , projectsIndex_url %>
+      </div>
 
-<h3>Commentaires</h3>
-<% if user_signed_in? %>
-  <%= form_for :comment, :url => comment_url do |f| %>
-    <input id="notif[model]" name="notif[model]" type="hidden" value="BlogArticle" />
-    <input id="notif[receiver]" name="notif[receiver]" type="hidden" value="<%= @project.user_id %>" />
-    <input id="notif[key]" name="notif[key]" type="hidden" value="<%= @project.id %>" />
-    <input id="comment[project_id]" name="comment[project_id]" type="hidden" value="<%= @project.id %>" />
-    <input id="comment[user_id]" name="comment[user_id]" type="hidden" value="<%= current_user.id %>" />
-    <%= f.text_area :content %>
-    <%= f.submit :valider %>
-  <% end %>
-<% end %>
+      <div class="project_global_infos">
+        <div class="image-logo">
+        <img class="image_infos img-responsive img-bordered" src="http://img11.hostingpics.net/pics/779200ordiprojet.jpg" alt="" width="380px"/>
 
-<div class="project_comments">
-  <% @comments.each do | comment | %>
-  <div class="project_comments_card">
-    <div class="project_comments_card--user">
-      <%= comment.user.username %>
+
+
+        <div class="rectangle_projet">
+        <ul>
+            <li class="category_name"><%= @project.category.name%></li>
+            <li class="username"> créé par <%= @project.user.username%></li>
+            <li class="date_project"> le 27 avril 2016<%#<%=  @project.created_at %></li>
+            <li class="localite"> à Verdun </li>
+        </ul>
+        <div class="trapezoid">
+        </div>
+      </div>
+      </div>
     </div>
-    <div class="project_comments_card--message">
-      <%= comment.content %>
+  </div>
+  <div class="col-md-8">
+    <div class="project_show_card">
+      <div class="project_show_card--title">
+        <h1><%= @project.name %></h1>
+
+      </div>
+      <div class="thumb">
+
+        <%#<%= image_tag(project.thumb, size: "25x25", alt: "Avatar") %>
+        <img class="img-responsive img-bordered" src="https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg" alt="">
+      </div>
+      <div class="triangle">
+      </div>
+      <span class="label-meusetech">
+        MeuseTech
+      </span>
+      <div class="project_show_card--description">
+        <p>
+          <%= @project.content%>
+        </p>
+      </div>
+      <div class="project_show_card--infos">
+        <div class="project_show_card--infos_created">
+          Projet créé le: <%= time_ago_in_words @project.created_at %> par <%= @project.user.username%>
+        </div>
+      </div>
     </div>
-    <% if current_user %>
-      <% if current_user.is_admin && !comment.is_valid %>
-      <%= link_to "valider", validComment_url( comment ) %>
+    <br>
+    <div class="fb-like" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+    <% if user_signed_in? %>
+      <a class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'project', id: @project.id}) %>"><span id="compteur"><%= @project.likes_count %></span> Like</a>
+    <% else %>
+      <a href="/utilisateurs/connection" class="btn btn-primary"><%= @project.likes_count %> Like</a>
+    <% end %>
+    <h2>Commentaires</h2>
+    <% if user_signed_in? %>
+      <%= form_for :comment, :url => comment_url do |f| %>
+        <input id="notif[model]" name="notif[model]" type="hidden" value="BlogArticle" />
+        <input id="notif[receiver]" name="notif[receiver]" type="hidden" value="<%= @project.user_id %>" />
+        <input id="notif[key]" name="notif[key]" type="hidden" value="<%= @project.id %>" />
+        <input id="comment[project_id]" name="comment[project_id]" type="hidden" value="<%= @project.id %>" />
+        <input id="comment[user_id]" name="comment[user_id]" type="hidden" value="<%= current_user.id %>" />
+        <%= f.text_area :content, class: "form-control" %>
+        <%= f.submit :valider, class:"btn btn-primary", style:"margin-top:15px;" %>
       <% end %>
     <% end %>
+    <div class="comments-block" style="margin-top:25px">
+      <% @comments.each do | comment | %>
+      <div class="media" style="padding-bottom:15px;">
+        <div class="media-left">
+          <%= image_tag comment.user.avatar, size: "64x64", class: "media-object", alt: "avatar" %>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading"><%= comment.user.username %></h4>
+            <%= comment.content %>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
-  <% end %>
 </div>

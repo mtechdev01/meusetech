@@ -9,6 +9,8 @@ class Admin::PagesController < Admin::AdminController
     @commentsLast10 = Comment.recent.limit(10)
     @commentsCount  = Comment.count(:all)
 
+    @pollsCount     = Poll.count(:all)
+
     @articlesCount  = BlogArticle.count(:all)
     @articlesLast   = BlogArticle.order(created_at: :desc).limit(6)
 
