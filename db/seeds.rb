@@ -336,7 +336,7 @@ fields1 = PollsField.new(
   name: "tv",
   options: nil,
   rules: nil,
-  label: "Quel est la marque de votre téléviseur ?"
+  label: "Quelle est la marque de votre téléviseur ?"
 )
 fields1.save!
 
@@ -347,7 +347,7 @@ fields2 = PollsField.new(
   name: "heure",
   options: nil,
   rules: "min=0, max=24",
-  label: "Combien d'heure regardez vous la télévision par jour ?"
+  label: "Combien d'heure(s) regardez vous la télévision par jour ?"
 )
 fields2.save!
 
@@ -358,7 +358,7 @@ fields3 = PollsField.new(
   name: "chaines",
   options: "tf1, france2, France3, M6",
   rules: nil,
-  label: "Quelle chaine regardez vous le plus ?"
+  label: "Quelle chaîne regardez vous le plus ?"
 )
 fields3.save!
 

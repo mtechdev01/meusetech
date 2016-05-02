@@ -1,0 +1,79 @@
+.about_body {
+  margin-top:75px;
+  .about_pourquoi {
+    margin-top: 20px;
+    .thumb {
+      float:left;
+      margin-top: 120px;
+    }
+    .about-first {
+      h1 {
+        text-align: center;
+        font-weight: bold;
+        color: green;
+      }
+      .about_content {
+        margin-top: 20px;
+        text-align: justify;
+      }
+    }
+  }
+
+  .about_demarche {
+    margin-top: 70px;
+    h2 {
+      text-align: center;
+      color: #6B3E0C;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+    .about_demarche_content {
+      padding-right: 40px;
+      .about_demarche_inscription {
+        list-style-type: none;
+        background-color:#A7E5FA;
+        box-shadow: 1px 1px 12px #555;
+        padding: 15px;
+        margin-top: 15px;
+        border-radius: 10px;
+        p {
+          color: blue;
+          font-size: 20px;
+          margin-left: 10px;
+        }
+      }
+      .about_demarche_participation {
+        list-style-type: none;
+        background-color:#FAE7A7;
+        box-shadow: 1px 1px 12px #555;
+        padding: 15px;
+        margin-top: 15px;
+        border-radius: 10px;
+        p {
+          color: orange;
+          font-size: 20px;
+          margin-left: 10px;
+        }
+      }
+      .about_demarche_suivi {
+        list-style-type: none;
+        background-color:#99F2A5;
+        box-shadow: 1px 1px 12px #555;
+        padding: 15px;
+        margin-top: 15px;
+        border-radius: 10px;
+        p {
+          color: green;
+          font-size: 20px;
+          margin-left: 10px;
+        }
+      }
+    }
+    .about_demarche_content-end {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}
