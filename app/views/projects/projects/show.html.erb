@@ -58,19 +58,18 @@
       <% else %>
         <a href="/utilisateurs/connection" class="btn btn-primary"><%= @project.likes_count %> Like</a>
       <% end %>
-
-      <h2>Commentaires</h2>
-      <% if user_signed_in? %>
-        <%= form_for :comment, :url => comment_url do |f| %>
-          <input id="notif[model]" name="notif[model]" type="hidden" value="Project" />
-          <input id="notif[receiver]" name="notif[receiver]" type="hidden" value="<%= @project.user_id %>" />
-          <input id="notif[key]" name="notif[key]" type="hidden" value="<%= @project.id %>" />
-          <input id="comment[project_id]" name="comment[project_id]" type="hidden" value="<%= @project.id %>" />
-          <input id="comment[user_id]" name="comment[user_id]" type="hidden" value="<%= current_user.id %>" />
-          <%= f.text_area :content, class: "form-control" %>
-          <%= f.submit :valider, class:"btn btn-primary", style:"margin-top:15px;" %>
-        <% end %>
+    <h2>Commentaires</h2>
+    <% if user_signed_in? %>
+      <%= form_for :comment, :url => comment_url do |f| %>
+        <input id="notif[model]" name="notif[model]" type="hidden" value="Project" />
+        <input id="notif[receiver]" name="notif[receiver]" type="hidden" value="<%= @project.user_id %>" />
+        <input id="notif[key]" name="notif[key]" type="hidden" value="<%= @project.id %>" />
+        <input id="comment[project_id]" name="comment[project_id]" type="hidden" value="<%= @project.id %>" />
+        <input id="comment[user_id]" name="comment[user_id]" type="hidden" value="<%= current_user.id %>" />
+        <%= f.text_area :content, class: "form-control" %>
+        <%= f.submit :valider, class:"btn btn-primary", style:"margin-top:15px;" %>
       <% end %>
+    <% end %>
       <div class="comments-block" style="margin-top:25px">
         <% @comments.each do | comment | %>
         <div class="media" style="padding-bottom:15px;">

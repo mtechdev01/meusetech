@@ -9,7 +9,7 @@ class Projects < ActiveRecord::Migration
       t.text        :content, null: false, default: ""
       t.integer     :nb_fb_shared
       t.string      :state, default: "Proposé"
-      t.integer     :nb_likes
+      t.integer     :nb_likes, default: "0"
     end
 
     create_table :projects_followers do |t|

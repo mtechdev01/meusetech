@@ -11,4 +11,5 @@ class Comment < ActiveRecord::Base
   def self.lastComments user
     where( user_id: user.id ).order( created_at: :desc)
   end
+  
 end
