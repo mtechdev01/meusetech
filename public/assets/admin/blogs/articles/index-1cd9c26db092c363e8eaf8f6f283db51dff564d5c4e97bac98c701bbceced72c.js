@@ -1,1 +1,0 @@
-(function(){$(function(){return $("#articlesListe").DataTable({paging:!0,searching:!0,ordering:!0})})}).call(this);

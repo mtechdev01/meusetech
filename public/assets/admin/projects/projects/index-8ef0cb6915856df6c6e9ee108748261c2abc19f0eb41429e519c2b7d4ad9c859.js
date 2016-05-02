@@ -1,0 +1,1 @@
+(function(){$(function(){return $("#projectsTable").DataTable({paging:!0,searching:!0,ordering:!0,language:{lengthMenu:"Afficher _MENU_ projets par page",zeroRecords:"aucun projet trouv\xe9",info:"Page _PAGE_ \xe0 _PAGES_",infoEmpty:"aucun enregistrement",search:"Rechercher:"}})})}).call(this);
