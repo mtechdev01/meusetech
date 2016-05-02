@@ -84,15 +84,19 @@ $bg-color: #fcfcfc;
         bottom: -12px;
         transform: skew(0deg, -10deg);
         opacity: 1;
+    }
   }
 }
+
+.link_projects {
+  margin-top: 75px;
 }
 
 .project_show_card{
   box-shadow: $box-shadow;
   background-color: $bg-color;
   padding: $padding;
-  margin-top: 20px;
+  margin-top: 75px;
   position: relative;
 
   .triangle{

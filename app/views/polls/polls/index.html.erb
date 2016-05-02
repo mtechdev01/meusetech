@@ -20,7 +20,7 @@ meta title: "Meusetech - Sondages",
             <div class="block-footer">
               <div class="polls-list_link" style="line-height:35px">
                 <i class="fa fa-users"></i> <%= poll.nbUsersResponded.size %> utilisateur<%= (poll.nbUsersResponded.size > 1 ) ? "s": "" %> <%= (poll.nbUsersResponded.size > 1 ) ? "ont": "a" %> répondu<%= (poll.nbUsersResponded.size > 1 ) ? "s": "" %></li>
-                <% if !current_user %>
+                <% if user_signed_in? %>
                   <%= link_to "Participer au sondage" , pollShow_url( poll.id ), class: "pull-right btn btn-default" %>
                 <% else %>
                   <%= link_to "Participer au sondage" , new_session_path(:user), class:'pull-right btn btn-default' %>
