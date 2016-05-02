@@ -1,11 +1,12 @@
-<div class="container">
+<div class="container" style="margin-top: 75px;">
   <div class="row">
     <div class="col-md-9">
 
       <div class="article_show">
         <div class="title">
           <h1>
-            <%= @article.title %><span class="pull-left">
+            <%= @article.title %>
+            <span class="pull-right">
               <%= image_tag @article.category.icon, class: "logo_size", alt: "logo categorie" %>
             </span>
           </h1>
@@ -13,25 +14,18 @@
         <div class= "thumb">
           <%= image_tag @article.thumb, class: "img-responsive img-bordered", alt: "article thumbnail" %>
         </div>
-
+        <div class="article_infos" style="margin-bottom:15px; font-size: 1.2em;">
+          <i class="fa fa-user" aria-hidden="true"></i> <%= @article.user.username %> - <i class="fa fa-tag" aria-hidden="true"></i> <%= @article.category.name %>
+        </div>
         <p>
           <%= @article.content %>
-          <div class="">auteur :
-            <%= @article.user.username %>
-            <p>
-              catégorie : <%= @article.category.name %>
-            </p>
-          </div>
-        </p>
-
-        <p>
-          <%= link_to "Retourner à l'index" , blogIndex_url %>
         </p>
       </div>
 
       <div class="article_comment_blok">
+        <div class="fb-like" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
         <% if user_signed_in? %>
-          <a class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'article', id: @article.id}) %>"><span id="compteur"><%=@article.likes_count%></span> Like</a>
+          <a class="btn btn-primary pull-right" id="likeBtn" data-url="<%= likePost_url({model: 'article', id: @article.id}) %>"><span id="compteur"><%=@article.likes_count%></span> Like</a>
         <% else %>
         <a href="/utilisateurs/connection" class="btn btn-primary"><%= @article.likes_count %> Like</a>
         <% end %>
@@ -44,17 +38,18 @@
             <input id="comment[blog_article_id]" name="comment[blog_article_id]" type="hidden" value="<%= @article.id %>" />
             <input id="comment[user_id]" name="comment[user_id]" type="hidden" value="<%= current_user.id %>" />
             <%= f.text_area :content, class: "form-control" %>
-            <%= f.submit :valider %>
+            <%= f.submit :valider, class:"btn btn-primary", style:"margin-top:15px;" %>
           <% end %>
         <% end %>
-        <div class="article_comments">
+        <div class="comments-block" style="margin-top:25px">
           <% @comments.each do | comment | %>
-          <div class="article_comments_card">
-            <div class="article_comments_card--user">
-              <%= comment.user.username %>
+          <div class="media" style="padding-bottom:15px;">
+            <div class="media-left">
+              <%= image_tag comment.user.avatar, size: "64x64", class: "media-object", alt: "avatar" %>
             </div>
-            <div class="article_comments_card--message">
-              <%= comment.content %>
+            <div class="media-body">
+              <h4 class="media-heading"><%= comment.user.username %></h4>
+                <%= comment.content %>
             </div>
           </div>
           <% end %>
@@ -62,6 +57,11 @@
       </div>
     </div>
     <div class="col-md-3">
+      <%= cell("blogs/sidebar").(:articleCategory) %>
+      <%= cell("blogs/sidebar").(:mostCommented) %>
+      <a class="twitter-timeline" href="https://twitter.com/meusetech" data-widget-id="321360849161814016">Tweets de @meusetech</a>
+      <div class="fb-page" data-href="https://www.facebook.com/meusetech/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/meusetech/"><a href="https://www.facebook.com/meusetech/">MeuseTech</a></blockquote></div></div>
+
     </div>
   </div>
 </div>

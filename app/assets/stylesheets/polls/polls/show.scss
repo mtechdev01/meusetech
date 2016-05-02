@@ -6,9 +6,6 @@
  width:100px;
  margin-left:5px;
  }
- h1 {
-   margin-top: 65px;
- }
  .form-group {
      background: image-url("question.png") no-repeat;
      background-size: 79px 79px;
@@ -24,3 +21,26 @@
      -webkit-box-shadow: 3px 3px 6px #A9A9A9;
      box-shadow: 3px 3px 6px 0 #A9A9A9;
  }
+#poll-description-container{
+  background: image-url("sondage-image2.jpg") no-repeat;
+  background-size:cover;
+  #poll-description {
+    padding:100px;
+    color:white;
+    text-align:center;
+  }
+}
+#poll-list {
+  margin-top: 50px;
+  .block {
+    .block-title {
+      h2 {
+        margin:0;
+        span{
+          font-size: 0.5em;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+}
