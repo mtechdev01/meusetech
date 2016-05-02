@@ -5,12 +5,12 @@ class Polls::PollsController < ApplicationController
   end
 
   def show
-    if Poll.hasResponded current_user
+    @poll = Poll.find(params[:id])
+    @usersResponded = PollsFieldsResponse.hasResponsedTo current_user, @poll
+    if @usersResponded
       flash[:notice] = "Vous avez déjà répondus au sondage"
       flash[:class]= "danger"
       redirect_to pollStats_url
-    else
-      @poll = Poll.find(params[:id])
     end
   end
 

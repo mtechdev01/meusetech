@@ -7,7 +7,4 @@ class Poll < ActiveRecord::Base
     responses.group(:user_id).count
   end
 
-  def self.hasResponded user
-    where(user: user)
-  end
 end
