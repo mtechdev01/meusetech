@@ -1,4 +1,5 @@
 class Blogs::SidebarCell < Cell::ViewModel
+  include ActionView::Helpers::DateHelper
   def show
     render
   end

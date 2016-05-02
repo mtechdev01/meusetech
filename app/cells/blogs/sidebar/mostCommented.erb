@@ -1,14 +1,16 @@
 
-<div class="last_articles-list">
+<div class="last_articles-list" style="padding-bottom:25px;">
   <h2>Les plus actifs</h2>
   <% @articles.each do | article | %>
   <div class="row">
-    <div class="last_articles--one">
-      <div class="col-xs-2">
-        <%= image_tag article.thumb , class:"img-responsive" %>
+    <div class="last_articles--one" style="padding-top: 20px;">
+      <div class="col-xs-4">
+        <%= image_tag article.thumb , class:"img-responsive img-thumbnail" %>
       </div>
-      <div class="col-xs-10">
+      <div class="col-xs-8">
         <%= link_to article.title , blogShow_url(article.id) %>
+        </br>
+        <b><%= article.category.name %></b>
       </div>
     </div>
   </div>
