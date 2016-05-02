@@ -1,68 +1,63 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4">
-      <div class "tous_les_projets">
-        <%= link_to "Voir tout les projets" , projectsIndex_url %>
+      <div class="link_projects">
+        <%= link_to "Voir tous les projets" , projectsIndex_url %>
       </div>
 
       <div class="project_global_infos">
         <div class="image-logo">
-        <img class="image_infos img-responsive img-bordered" src="http://img11.hostingpics.net/pics/779200ordiprojet.jpg" alt="" width="380px"/>
-
-
-
-        <div class="rectangle_projet">
-        <ul>
-            <li class="category_name"><%= @project.category.name%></li>
-            <li class="username"> créé par <%= @project.user.username%></li>
-            <li class="date_project"> le 27 avril 2016<%#<%=  @project.created_at %></li>
-            <li class="localite"> à Verdun </li>
-        </ul>
-        <div class="trapezoid">
-        </div>
-      </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-8">
-    <div class="project_show_card">
-      <div class="project_show_card--title">
-        <h1><%= @project.name %></h1>
-
-      </div>
-      <div class="thumb">
-
-        <%#<%= image_tag(project.thumb, size: "25x25", alt: "Avatar") %>
-        <img class="img-responsive img-bordered" src="https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg" alt="">
-      </div>
-      <div class="triangle">
-      </div>
-      <span class="label-meusetech">
-        MeuseTech
-      </span>
-      <div class="project_show_card--description">
-        <p>
-          <%= @project.content%>
-        </p>
-      </div>
-      <div class="project_show_card--infos">
-        <div class="project_show_card--infos_created">
-          Projet créé le: <%= time_ago_in_words @project.created_at %> par <%= @project.user.username%>
+          <img class="image_infos img-responsive img-bordered" src="http://img11.hostingpics.net/pics/779200ordiprojet.jpg" alt="" width="380px"/>
+          <div class="rectangle_projet">
+            <ul>
+              <li class="category_name"><%= @project.category.name%></li>
+              <li class="username"> créé par <%= @project.user.username%></li>
+              <li class="date_project"> le 27 avril 2016<%#<%=  @project.created_at %></li>
+              <li class="localite"> à Verdun </li>
+            </ul>
+            <div class="trapezoid">
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <br>
-    <div class="fb-like" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
-    <% if user_signed_in? %>
-      <a class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'project', id: @project.id}) %>"><span id="compteur"><%= @project.likes_count %></span> Like</a>
-      <% if !@follow %>
-        <%= link_to "Suivre ce projet", projectFollow_url, class: "btn btn-primary", method: "post" %>
+    <div class="col-md-8">
+      <div class="project_show_card">
+        <div class="project_show_card--title">
+          <h1><%= @project.name %></h1>
+        </div>
+        <div class="thumb">
+          <%#<%= image_tag(project.thumb, size: "25x25", alt: "Avatar") %>
+          <img class="img-responsive img-bordered" src="https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg" alt="">
+        </div>
+        <div class="triangle">
+        </div>
+        <span class="label-meusetech">
+          MeuseTech
+        </span>
+        <div class="project_show_card--description">
+          <p>
+            <%= @project.content%>
+          </p>
+        </div>
+        <div class="project_show_card--infos">
+          <div class="project_show_card--infos_created">
+            Projet créé il y a : <%= time_ago_in_words @project.created_at %> par <%= @project.user.username%>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="fb-like" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+      <% if user_signed_in? %>
+        <a class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'project', id: @project.id}) %>"><span id="compteur"><%= @project.likes_count %></span> Like</a>
+        <% if !@follow %>
+          <%= link_to "Suivre ce projet", projectFollow_url, class: "btn btn-primary", method: "post" %>
+        <% else %>
+          <%= link_to "Ne plus suivre ce projet", projectFollow_url, class: "btn btn-danger", method: "post" %>
+        <% end %>
       <% else %>
-        <%= link_to "Ne plus suivre ce projet", projectFollow_url, class: "btn btn-danger", method: "post" %>
+        <a href="/utilisateurs/connection" class="btn btn-primary"><%= @project.likes_count %> Like</a>
       <% end %>
-    <% else %>
-      <a href="/utilisateurs/connection" class="btn btn-primary"><%= @project.likes_count %> Like</a>
-    <% end %>
     <h2>Commentaires</h2>
     <% if user_signed_in? %>
       <%= form_for :comment, :url => comment_url do |f| %>
@@ -75,18 +70,19 @@
         <%= f.submit :valider, class:"btn btn-primary", style:"margin-top:15px;" %>
       <% end %>
     <% end %>
-    <div class="comments-block" style="margin-top:25px">
-      <% @comments.each do | comment | %>
-      <div class="media" style="padding-bottom:15px;">
-        <div class="media-left">
-          <%= image_tag comment.user.avatar, size: "64x64", class: "media-object", alt: "avatar" %>
+      <div class="comments-block" style="margin-top:25px">
+        <% @comments.each do | comment | %>
+        <div class="media" style="padding-bottom:15px;">
+          <div class="media-left">
+            <%= image_tag comment.user.avatar, size: "64x64", class: "media-object", alt: "avatar" %>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading"><%= comment.user.username %></h4>
+              <%= comment.content %>
+          </div>
         </div>
-        <div class="media-body">
-          <h4 class="media-heading"><%= comment.user.username %></h4>
-            <%= comment.content %>
-        </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
   </div>
 </div>
