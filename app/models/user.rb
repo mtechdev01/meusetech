@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :comments
 
   def self.to_csv
-    attributes = %w{id name city email}
+    attributes = %w{id username name city email}
 
     CSV.generate(headers: true) do |csv|
       csv << attributes

@@ -1,0 +1,1 @@
+(function(){$(function(){return $("#usersCommentsTable").DataTable({paging:!0,searching:!0,ordering:!0,language:{lengthMenu:"Afficher _MENU_ commentaires par page",zeroRecords:"aucun commentaire trouv\xe9",info:"Page _PAGE_ \xe0 _PAGES_",infoEmpty:"aucun enregistrement",search:"Rechercher:"}})})}).call(this);
