@@ -1,9 +1,7 @@
 <div class="container">
-  <h1>Polls::Polls#show</h1>
-  <p>Find me in app/views/polls/polls/show.html.erb</p>
   <h1><%= @poll.title %></h1>
   <%= form_for :fields, :url => pollReponse_url do |f| %>
-  <input type="hidden" name="fields[poll_id]" value="<%= @poll.id %>" >
+  <input type="hidden" name="fields[poll_id]" value="<%= @poll.id %>">
     <% @poll.fields.each do |question| %>
       <div class="form-group">
         <label for="fields[<%= question.id %>]"><%= question.label %></label>
