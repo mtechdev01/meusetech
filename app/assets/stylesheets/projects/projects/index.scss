@@ -5,9 +5,7 @@ $box-shadow: 1px 1px 12px #555;
 $bg-color: #fcfcfc;
 
 .projects_depot-- {
-    box-shadow: $box-shadow;
-    background-color: $bg-color;
-    padding: $padding;
+  margin-top: 75px;
 }
 
 .project_list_card{
@@ -35,11 +33,10 @@ $bg-color: #fcfcfc;
           width: 60px;
           height: 60px;
           font-size: 18px;
-          font-weight: bold;
+
           transform: rotate(35deg);
           }
         }
-
 
     .project_list_card--description {
       margin-top: 10px;
@@ -61,4 +58,14 @@ $bg-color: #fcfcfc;
         height: 25px;
       }
   }
+}
+
+.paginate {
+  margin-top: 10px;
+  margin-bottom: 55px;
+  text-align: center;
+}
+
+.sidebar {
+  margin-top: 75px;
 }
