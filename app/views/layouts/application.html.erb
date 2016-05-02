@@ -15,7 +15,7 @@
   }(document, 'script', 'facebook-jssdk'));</script>
 <body style="background-color: #F2F5F7;">
   <%= stylesheet_link_tag  "#{params[:controller]}/#{params[:action]}"  %>
-
+  <%= javascript_include_tag "#{params[:controller]}/#{params[:action]}" %>
   <% if params[:controller] === "polls/polls" %>
     <%= render "partials/sondagesHeader" %>
   <% else %>

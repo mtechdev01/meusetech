@@ -38,11 +38,18 @@
                 </a>
                 <ul class="dropdown-menu notifs-menu">
                   <% @notifsAll.each do | notif | %>
-                    <a href="#" class="notifs-unreaded" data-url="<%= notifMarkAsReaded_url notif.id %>.json">
-                      <%= notif.msg %> de <%= notif.sender.username %> </br> dans <%= notif.getRelationData %> </br> il y a: <%= time_ago_in_words notif.created_at %>
-                      <%= (!notif.readed) ? "<span class='label label-danger'>new</span>".html_safe : "" %>
-                    </a>
-
+                  <div class="notifs-unreaded" data-url="<%= notifMarkAsReaded_url notif.id %>.json" style="height:125px; position:relative;padding:15px; border-bottom: 1px solid #ccc;">
+                    <div class="avatar">
+                      <%= image_tag notif.sender.avatar, size: "25x25", alt:"avatar", style:"margin-right: 10px;"%>
+                      <%= notif.sender.username %>
+                    </div>
+                    <div class="msg">
+                      <a href="#" class="notifs-unreaded" data-url="<%= notifMarkAsReaded_url notif.id %>.json">
+                        <%= notif.msg %> de  </br> dans <span class="notif-related"><%= notif.getRelationData %></span></br> il y a: <%= time_ago_in_words notif.created_at %>
+                        <%= (!notif.readed) ? "<span class='new-notif label label-danger'>new</span>".html_safe : "" %>
+                      </a>
+                    </div>
+                  </div>
                   <% end %>
                 </ul>
               </li>

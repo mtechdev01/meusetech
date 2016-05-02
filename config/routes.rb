@@ -79,6 +79,8 @@ Rails.application.routes.draw do
     get '/voir/:id', to: 'projects/projects#show', as: 'projectShow'
     get '/creer', to: 'projects/projects#create', as: 'projectsCreateGet'
     post '/creer', to: 'projects/projects#create', as: 'projectsCreatePost'
+    post '/follow/:id', to: 'projects/projects#follow', as: 'projectFollow'
+
   end
 
   scope '/blog' do
@@ -91,6 +93,7 @@ Rails.application.routes.draw do
     get '/', to: 'polls/polls#index', as: 'pollIndex'
     get '/voir/:id', to: 'polls/polls#show', as: 'pollShow'
     post '/reponse', to: 'polls/polls#reponse', as: 'pollReponse'
+    get '/stats/:id', to: 'polls/polls#stats', as: 'pollStats'
   end
 
   scope 'utilisateurs' do

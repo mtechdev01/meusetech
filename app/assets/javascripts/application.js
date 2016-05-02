@@ -18,3 +18,4 @@
 //= require app
 //= require app2
 //= require facebook
+//= require admin/AdminLTE/plugins//chartjs/Chart.min.js
