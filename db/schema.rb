@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20160427124628) do
     t.integer  "nb_fb_shared"
     t.integer  "likes_count"
     t.string   "thumb"
-    t.integer  "comments_count"
+    t.integer  "comments_count", default: 0
     t.boolean  "published",      default: false
     t.datetime "published_at"
     t.integer  "category_id"
@@ -139,8 +139,8 @@ ActiveRecord::Schema.define(version: 20160427124628) do
     t.text     "content",        default: "",        null: false
     t.integer  "nb_fb_shared"
     t.string   "state",          default: "Proposé"
-    t.integer  "likes_count"
-    t.integer  "comments_count"
+    t.integer  "likes_count",    default: 0
+    t.integer  "comments_count", default: 0
     t.integer  "thumb"
     t.integer  "category_id"
     t.string   "location",       default: "verdun"
@@ -150,11 +150,10 @@ ActiveRecord::Schema.define(version: 20160427124628) do
   add_index "projects", ["user_id"], name: "index_projects_on_user_id"
 
   create_table "projects_followers", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "project_id"
-    t.boolean  "is_followed"
   end
 
   add_index "projects_followers", ["project_id"], name: "index_projects_followers_on_project_id"

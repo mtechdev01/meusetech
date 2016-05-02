@@ -1,5 +1,5 @@
 class Projects::ProjectsController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!, only: [:create, :follow]
 
   def index
     @projects = Project.page(params[:page]).order('created_at DESC')
@@ -8,6 +8,10 @@ class Projects::ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @comments = @project.comments
+    if current_user
+      @follow = ProjectsFollower.where( user: current_user, project: @project ).first
+    end
+
   end
 
   def create
@@ -39,8 +43,23 @@ class Projects::ProjectsController < ApplicationController
     end
   end
 
+  def follow
+    @follow = ProjectsFollower.where({ user: current_user, project_id: params[:id] }).first
+    if @follow
+      @follow.delete
+      flash[:notice] ="Vous ne suivez plus ce projet !"
+      flash[:class] ="success"
+      redirect_to :back
+    else
+      ProjectsFollower.create({ user: current_user, project_id: params[:id] })
+      flash[:notice] ="Vous suivez désormais ce projet !"
+      flash[:class] ="success"
+      redirect_to :back
+    end
+  end
+
   def project_params
-    params.require(:project).permit(:name, :content, :category_id, :thumb)
+    params.require(:project).permit(:name, :content, :category_id, :thumb, :location, :state)
   end
 
 end

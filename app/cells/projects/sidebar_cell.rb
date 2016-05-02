@@ -5,7 +5,7 @@ class Projects::SidebarCell < Cell::ViewModel
 
 
   def mostCommentedProjects
-    @projects = Project.order(comments_count: :desc)
+    @projects = Project.mostActive
     render
   end
 

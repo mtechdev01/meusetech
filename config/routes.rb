@@ -29,6 +29,9 @@ Rails.application.routes.draw do
         get '/voir/:id', to: 'blogs/articles#show', as: 'blogAdminShow'
         get '/creer', to: 'blogs/articles#create', as: 'articleCreateGet'
         post '/creer', to: 'blogs/articles#create', as: 'articleCreatePost'
+        get '/editer/:id', to: 'blogs/articles#edit', as: 'articleEditGet'
+        post '/editer/:id', to: 'blogs/articles#update', as: 'articleUpdate'
+        post '/supprimer-article/:id', to: 'blogs/articles#delete', as: 'articleDelete'
         post '/comment', to: 'blogs/articles#comment', as: 'blogAdminComment'
         post '/redirecttoFacebook/:id', to: 'blogs/articles#redirecttofacebook', as: 'blogredirectToFacebook'
         get '/publishtoFacebook/:id', to: 'blogs/articles#publishtofacebook', as: 'blogPublishtoFacebook'
@@ -79,6 +82,8 @@ Rails.application.routes.draw do
     get '/voir/:id', to: 'projects/projects#show', as: 'projectShow'
     get '/creer', to: 'projects/projects#create', as: 'projectsCreateGet'
     post '/creer', to: 'projects/projects#create', as: 'projectsCreatePost'
+    post '/follow/:id', to: 'projects/projects#follow', as: 'projectFollow'
+
   end
 
   scope '/blog' do
@@ -91,6 +96,7 @@ Rails.application.routes.draw do
     get '/', to: 'polls/polls#index', as: 'pollIndex'
     get '/voir/:id', to: 'polls/polls#show', as: 'pollShow'
     post '/reponse', to: 'polls/polls#reponse', as: 'pollReponse'
+    get '/stats/:id', to: 'polls/polls#stats', as: 'pollStats'
   end
 
   scope 'utilisateurs' do

@@ -23,7 +23,7 @@
             <% @responses.each do | response |  %>
               <tr>
                 <td>
-                  <%= link_to response.poll.name, pollShow_url(response.poll.id) %>
+                  <%= link_to response.poll.title, pollShow_url(response.poll.id) %>
                 </td>
                 <td>
                   <%= time_tag(response.poll.created_at) %>

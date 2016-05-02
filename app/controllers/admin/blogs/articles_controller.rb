@@ -1,5 +1,9 @@
 class Admin::Blogs::ArticlesController < Admin::AdminController
 
+  def categories
+    @categories = Category.all
+  end
+
   def index
     @articles = BlogArticle.all
   end
@@ -34,6 +38,38 @@ class Admin::Blogs::ArticlesController < Admin::AdminController
     end
   end
 
+  def edit
+    @article = BlogArticle.find(params[:id])
+    @categories = Category.all
+  end
+
+  def update
+    @article = BlogArticle.find(params[:id])
+    if @article.update_attributes(article_params)
+      flash[:notice] = "La mise à jour à été effectuée"
+      flash[:class]= "success"
+      redirect_to admin_blogsAdminIndex_url
+    else
+      flash[:notice] = "Erreur lors de la mise à jour"
+      flash[:class]= "danger"
+      redirect_to :back
+    end
+  end
+
+  def delete
+    @article = BlogArticle.find(params[:id])
+    if @article != nil
+      @article.destroy
+      flash[:notice] ="Cet article à été supprimé"
+      flash[:class] = "success"
+      redirect_to :back
+    else
+      flash[:notice] ="Cet article est inexistant"
+      flash[:class] = "danger"
+      redirect_to :back
+    end
+  end
+
   def redirecttofacebook
     @oauth = Koala::Facebook::OAuth.new(Rails.configuration.fb_id,Rails.configuration.fb_secret, callback_url)
     redirect_to @oauth.url_for_oauth_code(:permissions => Rails.configuration.fb_perms, :state => params[:id])
@@ -56,7 +92,7 @@ class Admin::Blogs::ArticlesController < Admin::AdminController
       flash[:class]= "success"
       redirect_to :back
   end
-  
+
   private
 
   def article_params

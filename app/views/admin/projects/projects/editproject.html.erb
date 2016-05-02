@@ -5,7 +5,7 @@
     </div>
     <div class="project_show_card--infos">
       <div class="project_show_card--infos_created">
-        Projet créé le: <%= @project.created_at %> par <%= @project.user.username%>
+        Projet créé le: <%= @project.created_at %> par <%= @project.user.username %>
       </div>
     </div>
   </div>
@@ -17,13 +17,20 @@
       </div>
       <div class="form-group">
         <%= label_tag 'name', 'Nom du projet' %>
-        <%= f.text_field :name, class: "form-control" %>
+        <%= f.text_field(:name, size: 10, class: "form-control") %>
       </div>
       <div class="form-group">
         <%= label_tag 'content', 'Description de votre projet' %>
         <%= f.text_area :content, class: "form-control" %>
       </div>
-
+      <div class="form-group">
+        <%= label_tag 'content', 'Localisation' %>
+        <%= f.text_area :location, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag 'content', 'Etat d\'avancement' %>
+        <%= f.text_area :state, class: "form-control" %>
+      </div>
       <div class="form-group">
         <%= f.label :thumb, 'Image'%>
         <%= image_tag(@project.thumb, size: "200x200", class:'img-responsive')%>
@@ -31,7 +38,6 @@
           <%= f.file_field :thumb %>
         </div>
       </div>
-
       <%= f.submit :valider, class: "btn btn-primary" %>
     <% end %>
     <div class="form_errors">

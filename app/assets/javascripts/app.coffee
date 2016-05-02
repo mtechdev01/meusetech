@@ -14,7 +14,7 @@ ready = ->
           notifCount = $('.notifCount').html()
           result = notifCount - 1
           $('.notifCount').html result
-          $this.find('span').fadeOut()
+          $this.find('.new-notif').fadeOut()
           if result == 0
             return $('.notifCount').fadeOut()
         return
@@ -33,7 +33,7 @@ closeAlert = ->
     $('.alert').fadeOut()
     return
   ), 3000
-  
+
 $(document).ready ready
 $(document).on 'page:load', ready
 $(document).ready closeAlert
