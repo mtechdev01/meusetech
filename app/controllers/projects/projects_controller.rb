@@ -14,6 +14,10 @@ class Projects::ProjectsController < ApplicationController
 
   end
 
+  def category
+    @category = Category.find(params[:id])
+  end
+
   def create
     if user_signed_in?
       @project = Project.new
@@ -25,11 +29,11 @@ class Projects::ProjectsController < ApplicationController
           if @project.save
             flash[:notice] ="Votre projet a été ajouté."
             flash[:class] ="success"
-            redirect_to :back
+            redirect_to projectsIndex_url
           else
             flash[:notice] = "Une erreur est survenue lors de l'ajout de votre projet"
             flash[:class] = "danger"
-            redirect_to :back
+            redirect_to projectsIndex_url
           end
         else
           flash[:notice] = "Formulaire invalide"

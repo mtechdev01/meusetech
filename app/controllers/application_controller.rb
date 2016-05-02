@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def setFooterArticles
-    @footerArticles = BlogArticle.order(created_at: :desc).limit(3)    
+    @footerArticles = BlogArticle.order(created_at: :desc).limit(3)
   end
 
 

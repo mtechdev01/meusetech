@@ -1,3 +1,17 @@
+<%
+meta title: "Meusetech - #{@article.title}",
+     description: truncate(@article.content.html_safe, length: 200, separator: ' '),
+     keywords: ["article", "meusetech", @article.category.name, @article.title]
+%>
+<%
+meta og: {
+  image: image_url(@article.thumb),
+  title: "Meusetech - #{@article.title}",
+  url: blogShow_url(@article.id),
+  site_name:"MeuseTech",
+  description:truncate(@article.content.html_safe, length: 200, separator: ' '),
+}
+%>
 <div class="container" style="margin-top: 75px;">
   <div class="row">
     <div class="col-md-9">

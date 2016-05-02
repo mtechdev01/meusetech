@@ -83,6 +83,7 @@ Rails.application.routes.draw do
     get '/creer', to: 'projects/projects#create', as: 'projectsCreateGet'
     post '/creer', to: 'projects/projects#create', as: 'projectsCreatePost'
     post '/follow/:id', to: 'projects/projects#follow', as: 'projectFollow'
+    get '/categorie/:id', to: 'projects/projects#category', as: 'projectCategory'
 
   end
 

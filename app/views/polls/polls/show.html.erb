@@ -1,3 +1,8 @@
+<%
+meta title: "Meusetech - #{@poll.title}",
+     description: @poll.description,
+     keywords: ["Meusetech", "sondages",  @poll.title]
+%>
 <div class="container" id="poll-list">
   <h1><%= @poll.title %></h1>
   <%= form_for :fields, :url => pollReponse_url do |f| %>

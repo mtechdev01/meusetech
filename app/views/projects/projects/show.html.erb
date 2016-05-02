@@ -1,3 +1,17 @@
+<%
+meta title: "Meusetech - Projets - #{@project.name}",
+     description: @project.content,
+     keywords: ["Meusetech", "projets", @project.name]
+%>
+<%
+meta og: {
+  image: image_url(@project.thumb),
+  title: "Meusetech - Projets - #{@project.name}",
+  url: projectShow_url(@project.id),
+  site_name:"MeuseTech",
+  description:truncate(@project.content.html_safe, length: 200, separator: ' '),
+}
+%>
 <div class="container">
   <div class="row">
     <div class="col-md-4">
@@ -42,7 +56,7 @@
       </span>
       <div class="project_show_card--description">
         <p>
-          <%= @project.content%>
+          <%= @project.content.html_safe %>
         </p>
       </div>
       <div class="project_show_card--infos">

@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 20160427124628) do
     t.string   "state",          default: "Proposé"
     t.integer  "likes_count",    default: 0
     t.integer  "comments_count", default: 0
-    t.integer  "thumb"
+    t.string   "thumb"
     t.integer  "category_id"
     t.string   "location",       default: "verdun"
   end

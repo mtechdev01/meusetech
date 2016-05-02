@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  mount_uploader :thumb, ThumbUploader
+  mount_uploader :thumb, ProjectUploader
   has_many :comments
   has_many :likes
   has_many :followers, class_name: "ProjectsFollower",
@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
 
-  self.per_page = 2
+  self.per_page = 4
 
   validates_presence_of :name, :message => "Le nom de votre projet est obligatoire"
   validates_presence_of :content, :message => "Le contenu de votre projet est obligatoire"

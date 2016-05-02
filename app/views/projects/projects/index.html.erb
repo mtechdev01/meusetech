@@ -1,3 +1,8 @@
+<%
+meta title: "Meusetech - Projets mis en ligne",
+     description: "Bienvenue sur la plateforme participative et collaborative de MeuseTech. L’esprit MeuseTech, c’est quoi ? Il s’agit de rassembler sous ce chapeau l’ensemble des initiatives intelligentes et novatrices du territoire pour dynamiser la vie économique et sociale, ouvrir de nouvelles perspectives. Celles-ci pouvant prendre plusieurs formes",
+     keywords: ["Meusetech", "projets", 'programme leader']
+%>
 <div class="container">
   <div class="row">
     <div class="col-md-9">
@@ -44,8 +49,7 @@
             <h2><%= project.name %></h2>
           </div>
           <div class="thumb">
-            <%#<%= image_tag(project.thumb, size: "25x25", alt: "Avatar") %>
-            <img class="img-responsive img-bordered" src="https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg" alt="">
+            <%= image_tag(project.thumb, class:"img-responsive img-bordered", alt: "Avatar") %>
           </div>
           <div class="project_list_card--description">
             <p>
@@ -73,7 +77,8 @@
       <%= will_paginate @projects, renderer: BootstrapPagination::Rails, :previous_label => "Précédents", :next_label => "Suivants" %>
     </div>
     <div class="col-md-3">
-  
+      <%= cell("projects/sidebar").(:projectsCategory) %>
+      <%= cell("projects/sidebar").(:mostCommentedProjects) %>
     </div>
   </div>
 </div>
