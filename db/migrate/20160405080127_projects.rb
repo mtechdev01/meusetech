@@ -16,7 +16,6 @@ class Projects < ActiveRecord::Migration
       t.timestamps  null: false
       t.belongs_to  :user, index: true
       t.belongs_to  :project, index: true
-      t.boolean     :is_followed
     end
 
     create_table :projects_categories do |t|

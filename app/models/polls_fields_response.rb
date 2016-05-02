@@ -9,7 +9,7 @@ class PollsFieldsResponse < ActiveRecord::Base
                         foreign_key: "user_id"
 
   def self.responsed user
-    where(user_id: user.id ).group(:poll_id).order( created_at: :desc)
+    where(user: user ).group(:poll_id).order( created_at: :desc)
   end
 
   def self.statsResponse response
@@ -18,4 +18,10 @@ class PollsFieldsResponse < ActiveRecord::Base
   def self.groupedByResponse
     group(:response)
   end
+
+  def self.hasResponsedTo user, poll
+    where(user: user, poll: poll ).first
+  end
+
+
 end

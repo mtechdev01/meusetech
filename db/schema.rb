@@ -150,11 +150,10 @@ ActiveRecord::Schema.define(version: 20160427124628) do
   add_index "projects", ["user_id"], name: "index_projects_on_user_id"
 
   create_table "projects_followers", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "project_id"
-    t.boolean  "is_followed"
   end
 
   add_index "projects_followers", ["project_id"], name: "index_projects_followers_on_project_id"

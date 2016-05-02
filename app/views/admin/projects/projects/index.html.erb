@@ -8,7 +8,7 @@
     </h3>
   </div>
   <div class="box-body">
-    <table class="table table-hovered no-margin">
+    <table id="projectsTable" class="table table-hovered no-margin">
       <thead>
         <tr>
           <th>
@@ -17,13 +17,19 @@
           <th>
             Catégorie
           </th>
+          <th> <!--colonne icône-->
+          </th>
           <th>
+            Lieu
           </th>
           <th>
             Crée le
           </th>
           <th>
             Par
+          </th>
+          <th>
+            Avancement
           </th>
           <th>
             Actions
@@ -33,41 +39,32 @@
       <tbody>
         <% @projects.each do | project | %>
           <tr>
-            <div class="project_list_card">
-              <th>
-                <div class="project_list_card--title">
-                  <h3><%= project.name %></h3>
-                </div>
-              </th>
-              <th>
-                <div class="project_list_card--title">
-                  <%= project.category.name %>
-                </div>
-              </th>
-              <th>
-                <div class="project_list_card--title">
-                  <img class="logo_size" style=width:25px src="<%= project.category.icon %>" alt="category icon"/>
-                </div>
-              </th>
-              <th>
-                <div class="project_list_card--infos">
-                  <div class="project_list_card--infos_created">
-                    <%= project.created_at %>
-                  </div>
-                </div>
-              </th>
-              <th>
-                <div class="project_list_card--infos">
-                  <div class="project_list_card--infos_created">
-                    <%= project.user.username %>
-                  </div>
-                </div>
-              </th>
-              <td>
-                <%= link_to "<i class='fa fa-pencil'></i>".html_safe, admin_projectEditGet_url(project.id), class:'btn btn-warning'%>
-                <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_projectDelete_url(project.id), method: "post", class:'btn btn-danger'%>
-              </td>
-            </div>
+            <td>
+              <h4><%= truncate(project.name.html_safe) %></h4>
+            </td>
+            <td>
+              <%= project.category.name %>
+            </td>
+            <td>
+              <img class="logo_size" style=width:25px src="<%= project.category.icon %>" alt="category icon"/>
+            </td>
+            <td>
+              <%= project.location %>
+            </td>
+            <td>
+              <%= project.created_at %>
+
+            </td>
+            <td>
+              <%= project.user.username %>
+            </td>
+            <td>
+              <%= project.state %>
+            </td>
+            <td>
+              <%= link_to "<i class='fa fa-pencil'></i>".html_safe, admin_projectEditGet_url(project.id), class:'btn btn-warning'%>
+              <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_projectDelete_url(project.id), method: "post", class:'btn btn-danger'%>
+            </td>
           </tr>
         <% end %>
       </tbody>

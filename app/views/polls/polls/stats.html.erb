@@ -1,0 +1,58 @@
+<div class="container" id="poll-list">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="block">
+        <div class="block-title">
+          <h2>Statistiques: <%= @poll.title %></h2>
+        </div>
+        <div class="block-content">
+          <div class="row">
+            <div class="col-xs-offset-3 col-xs-6">
+              <h4>Suivis des utilisateurs</h4>
+              <canvas id="pollUserChart" data-responded="<%= @usersResponded.size %>" data-total = "<%= @userTotal %>" ></canvas>
+            </div>
+            <div class="col-xs-12">
+              <% @a = 0 %>
+              <% @statsResponse.each do | response | %>
+                <div class="col-xs-4">
+                <h4><%= response[:label] %></h4>
+                <canvas id="pollCharts<%= @a %>" ></canvas>
+                 <script>
+                 var Chart<%= @a %>, ChartCanvas<%= @a %>, Data<%= @a %>, Options<%= @a %>;
+                 ChartCanvas<%= @a %> = $("#pollCharts<%= @a %>")[0].getContext("2d");
+                 Chart<%= @a %> = new Chart(ChartCanvas<%= @a %>);
+                 Data<%= @a %> = [
+                   <% response[:rsp].each do | rsp | %>
+                   <% color = rand(111111..999999) %>
+                   {
+                     value: <%= rsp[:responded].to_i  %>,
+                     color: "#<%= color %>",
+                     highlight: "#<%= color %>",
+                     label: "<%= rsp[:response] %>"
+                   },
+                   <% end %>
+                 ]
+                 Options<%= @a %> = {
+                   segmentShowStroke: true,
+                   segmentStrokeColor: "#fff",
+                   segmentStrokeWidth: 2,
+                   percentageInnerCutout: 50,
+                   animationSteps: 100,
+                   animationEasing: "easeOutBounce",
+                   animateRotate: true,
+                   animateScale: false,
+                   responsive: true,
+                   maintainAspectRatio: true,
+                 };
+                 Chart<%= @a %>.Doughnut(Data<%= @a %>, Options<%= @a %>);
+                 </script>
+                 <% @a += 1 %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

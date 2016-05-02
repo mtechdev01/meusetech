@@ -55,13 +55,19 @@
     <div class="fb-like" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
     <% if user_signed_in? %>
       <a class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'project', id: @project.id}) %>"><span id="compteur"><%= @project.likes_count %></span> Like</a>
+      <% if !@follow %>
+        <%= link_to "Suivre ce projet", projectFollow_url, class: "btn btn-primary", method: "post" %>
+      <% else %>
+        <%= link_to "Ne plus suivre ce projet", projectFollow_url, class: "btn btn-danger", method: "post" %>
+      <% end %>
     <% else %>
       <a href="/utilisateurs/connection" class="btn btn-primary"><%= @project.likes_count %> Like</a>
     <% end %>
+
     <h2>Commentaires</h2>
     <% if user_signed_in? %>
       <%= form_for :comment, :url => comment_url do |f| %>
-        <input id="notif[model]" name="notif[model]" type="hidden" value="BlogArticle" />
+        <input id="notif[model]" name="notif[model]" type="hidden" value="Project" />
         <input id="notif[receiver]" name="notif[receiver]" type="hidden" value="<%= @project.user_id %>" />
         <input id="notif[key]" name="notif[key]" type="hidden" value="<%= @project.id %>" />
         <input id="comment[project_id]" name="comment[project_id]" type="hidden" value="<%= @project.id %>" />
