@@ -51,7 +51,7 @@
     </div>
     <div class="box">
       <div class="box-title">
-        <h2>Quesions enregistrées</h2>
+        <h2>Questions enregistrées</h2>
       </div>
       <div class="box-content">
         <div class="">
@@ -65,7 +65,7 @@
                  Donnée attendue: <%= field.input_type %>
                  <% if (field.input_type == 'select')%>
                   <div class="">
-                    Réponse proposées: <%= (field.options) ? "<span class='text-success'>#{field.options}</span>".html_safe : "<span class='text-danger'>Attention aucune proposition n'a été donnée</span>".html_safe  %>
+                    Réponses proposées: <%= (field.options) ? "<span class='text-success'>#{field.options}</span>".html_safe : "<span class='text-danger'>Attention aucune proposition n'a été donnée</span>".html_safe  %>
                   </div>
                  <% end %>
                </div>

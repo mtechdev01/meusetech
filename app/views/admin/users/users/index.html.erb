@@ -36,7 +36,7 @@
                   <td><%= user.comments.size %></td>
                   <td>
                     <%= link_to "<i class='fa fa-eye'></i>".html_safe, admin_usersAdminShow_url(user.id), class: "btn btn-success" %>
-                    <%= link_to "<i class='fa fa-pencil'></i>".html_safe, admin_usersAdminEdit_url(user.id), class: "btn btn-info" %>
+                    <%= link_to "<i class='fa fa-pencil'></i>".html_safe, admin_usersAdminEdit_url(user.id), class: "btn btn-warning" %>
                     <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_usersAdminDestroy_url(user.id), :method=> :delete, class: "btn btn-danger"%>
                   </td>
                 </tr>
