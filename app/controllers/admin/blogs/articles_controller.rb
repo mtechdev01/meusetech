@@ -39,13 +39,13 @@ class Admin::Blogs::ArticlesController < Admin::AdminController
   end
 
   def edit
-    @article = BlogArticle.find(params[:id])
+    @articles = BlogArticle.find(params[:id])
     @categories = Category.all
   end
 
   def update
     @article = BlogArticle.find(params[:id])
-    if @article.update_attributes(article_params)
+    if @article.update_attributes( article_params )
       flash[:notice] = "La mise à jour à été effectuée"
       flash[:class]= "success"
       redirect_to admin_blogsAdminIndex_url
