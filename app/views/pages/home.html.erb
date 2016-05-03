@@ -34,7 +34,7 @@ meta title: "Meusetech - Accueil",
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-6">
-        <%= link_to "Je propose un projet", projectsIndex_url, class: "btn btn-block btn-warning" %>
+        <%= link_to "Je propose un projet", projectsCreateGet_url, class: "btn btn-block btn-warning" %>
       </div>
       <div class="col-xs-12 col-md-6">
         <%= link_to "Je participe aux sondages", pollIndex_url, class: "btn btn-block btn-danger" %>
@@ -64,9 +64,9 @@ meta title: "Meusetech - Accueil",
                     </br>
                     Dans:
                     <% if ( comment.project ) %>
-                      <%= link_to "#{truncate(comment.project.name, length: 2, separator: ' ')}", projectShow_url(comment.project.id) %>
+                      <%= link_to "#{truncate(comment.project.name, length: 2, separator: ' ')}", projectShow_url(comment.project.friendly_id) %>
                     <% else %>
-                      <%= link_to "#{truncate(comment.blog_article.title, length: 2, separator: ' ')}", blogShow_url(comment.blog_article.id) %>
+                      <%= link_to "#{truncate(comment.blog_article.title, length: 2, separator: ' ')}", blogShow_url(comment.blog_article.friendly_id) %>
                     <% end %>
                   </div>
                 </div>

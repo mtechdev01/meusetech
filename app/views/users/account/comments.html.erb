@@ -27,9 +27,9 @@
               <tr>
                 <td>
                   <% if ( comment.blog_article ) %>
-                    <%= link_to comment.blog_article.title, blogShow_url(comment.blog_article.id) %>
+                    <%= link_to comment.blog_article.title, blogShow_url(comment.blog_article.friendly_id) %>
                   <% else %>
-                    <%= link_to comment.project.name, projectsShow_url(comment.project.id) %>
+                    <%= link_to comment.project.name, projectShow_url(comment.project.friendly_id) %>
                   <% end %>
                 </td>
                 <td>

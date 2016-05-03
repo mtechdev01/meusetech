@@ -26,7 +26,7 @@
             <% @projects.each do | project |  %>
               <tr>
                 <td>
-                  <%= link_to project.name, projectsShow_url(project.id) %>
+                  <%= link_to project.name, projectsShow_url(project.friendly_id) %>
                 </td>
                 <td>
                   <%= project.category.name %>

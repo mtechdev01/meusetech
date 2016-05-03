@@ -12,11 +12,11 @@ meta og: {
   description:truncate(@project.content.html_safe, length: 200, separator: ' '),
 }
 %>
-<div class="container">
+<div class="container" style="margin-bottom:75px">
   <div class="row">
     <div class="col-md-4">
-      <div class="link_projects">
-        <%= link_to "Voir tous les projets" , projectsIndex_url %>
+      <div class="link_projects" style="padding:20px;">
+        <%= link_to "<i class='fa fa-arrow-left' aria-hidden='true'></i> Voir tous les projets".html_safe , projectsIndex_url, class:"btn btn-primary btn-block" %>
       </div>
 
       <div class="project_global_infos">
@@ -61,16 +61,19 @@ meta og: {
       </div>
       <br>
       <div class="fb-like" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
-      <% if user_signed_in? %>
-        <a class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'project', id: @project.id}) %>"><span id="compteur"><%= @project.likes_count %></span> Like</a>
-        <% if !@follow %>
-          <%= link_to "Suivre ce projet", projectFollow_url(@project.id), class: "btn btn-primary", method: "post" %>
+      <div class="pull-right">
+        <% if user_signed_in? %>
+          <a class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'project', id: @project.id}) %>"><span id="compteur"><%= @project.likes_count %></span> Like</a>
+          <% if !@follow %>
+            <%= link_to "Suivre ce projet", projectFollow_url(@project.id), class: "btn btn-primary", method: "post" %>
+          <% else %>
+            <%= link_to "Ne plus suivre ce projet", projectFollow_url(@project.id), class: "btn btn-danger", method: "post" %>
+          <% end %>
         <% else %>
-          <%= link_to "Ne plus suivre ce projet", projectFollow_url(@project.id), class: "btn btn-danger", method: "post" %>
+          <a href="/utilisateurs/connection" class="btn btn-primary"><%= @project.likes_count %> Like</a>
         <% end %>
-      <% else %>
-        <a href="/utilisateurs/connection" class="btn btn-primary"><%= @project.likes_count %> Like</a>
-      <% end %>
+      </div>
+
     <h2>Commentaires</h2>
     <% if user_signed_in? %>
       <%= form_for :comment, :url => comment_url do |f| %>
