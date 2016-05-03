@@ -61,3 +61,4 @@ gem "koala", "~> 2.2"
 gem 'jquery-minicolors-rails'
 gem "animate-rails"
 gem 'metamagic'
+gem 'friendly_id', '~> 5.1.0'

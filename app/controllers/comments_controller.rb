@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     if @comment
       flash[:notice]  = "Commentaire enregistré"
       flash[:class]   = "success"
-      notifUsers( params )
+      notifUsers( params , 'Nouveau commentaire')
       redirect_to :back
     else
       flash[:notice]  = "Une erreur est survenue lors de l'ajout de votre commentaire"
@@ -28,6 +28,23 @@ class CommentsController < ApplicationController
     end
   end
 
+  def delete
+    @comment = Comment.find(params[:id])
+    if request.post?
+      if   @comment.destroy
+        flash[:notice]  = "Commentaire supprimé"
+        flash[:class]   = "success"
+        redirect_to :back
+      else
+        flash[:notice]  = "Commentaire non supprimé"
+        flash[:class]   = "danger"
+        redirect_to :back
+      end
+
+    end
+
+  end
+
   private
 
   def comment_params
@@ -35,9 +52,9 @@ class CommentsController < ApplicationController
       .permit(:content, :blog_article_id, :project_id, :user_id )
   end
 
-  def notifUsers params
+  def notifUsers params, msg
     @notifParams = {
-      msg: 'Nouveau commentaire',
+      msg:      msg,
       record:   params[:comment],
       model:    params[:notif][:model],
       sender:   params[:comment][:user_id],

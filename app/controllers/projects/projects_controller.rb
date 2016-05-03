@@ -6,7 +6,7 @@ class Projects::ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
+    @project = Project.friendly.find(params[:slug])
     @comments = @project.comments
     if current_user
       @follow = ProjectsFollower.where( user: current_user, project: @project ).first
@@ -15,7 +15,7 @@ class Projects::ProjectsController < ApplicationController
   end
 
   def category
-    @category = Category.find(params[:id])
+    @category = Category.friendly.find(params[:slug])
   end
 
   def create

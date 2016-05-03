@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   get '/a-propos', to: 'pages#about', as: 'about'
   post '/like/:model/:id', to: 'likes#like', as: 'likePost'
   post '/comment', to: 'comments#comment', as: 'comment'
-  get '/valid/comment/:id', to: 'comments#setValid', as: 'validComment'
+  post '/valid/comment/:id', to: 'comments#setValid', as: 'validComment'
+  post '/delete/comment/:id', to: 'comments#delete', as: 'deleteComment'
   post '/notif/read/:id', to: 'notifications#markAsRead', as: 'notifMarkAsReaded'
   post '/notif/delete/:id', to: 'notifications#delete', as: 'notifDelete'
 
@@ -26,12 +27,12 @@ Rails.application.routes.draw do
     post '/update/:id', to: 'comments#update', as: 'commentsAdminUpdate'
       scope '/blogs' do
         get '/', to: 'blogs/articles#index', as: 'blogsAdminIndex'
-        get '/voir/:id', to: 'blogs/articles#show', as: 'blogAdminShow'
+        get '/voir/:slug', to: 'blogs/articles#show', as: 'blogAdminShow'
         get '/creer', to: 'blogs/articles#create', as: 'articleCreateGet'
         post '/creer', to: 'blogs/articles#create', as: 'articleCreatePost'
-        get '/editer/:id', to: 'blogs/articles#edit', as: 'articleEditGet'
-        post '/editer/:id', to: 'blogs/articles#update', as: 'articleUpdate'
-        post '/supprimer-article/:id', to: 'blogs/articles#delete', as: 'articleDelete'
+        get '/editer/:slug', to: 'blogs/articles#edit', as: 'articleEditGet'
+        post '/editer/:slug', to: 'blogs/articles#update', as: 'articleUpdate'
+        post '/supprimer-article/:slug', to: 'blogs/articles#delete', as: 'articleDelete'
         post '/comment', to: 'blogs/articles#comment', as: 'blogAdminComment'
         post '/redirecttoFacebook/:id', to: 'blogs/articles#redirecttofacebook', as: 'blogredirectToFacebook'
         get '/publishtoFacebook/:id', to: 'blogs/articles#publishtofacebook', as: 'blogPublishtoFacebook'
@@ -55,9 +56,9 @@ Rails.application.routes.draw do
         get '/', to: 'category#index', as: 'categoryAdminIndex'
         get '/nouveau', to: 'category#create', as: 'categoryAdminCreate'
         post '/nouveau', to: 'category#create', as: 'categoryAdminCreatePost'
-        get '/editer/:id', to: 'category#edit', as: 'categoryAdminEdit'
-        post '/editer/:id', to: 'category#update', as: 'categoryAdminEditPost'
-        post '/delete/:id', to: 'category#delete', as: 'categoryAdminDelete'
+        get '/editer/:slug', to: 'category#edit', as: 'categoryAdminEdit'
+        post '/editer/:slug', to: 'category#update', as: 'categoryAdminEditPost'
+        post '/delete/:slug', to: 'category#delete', as: 'categoryAdminDelete'
       end
       scope '/users' do
         get '/', to: 'users/users#index', as: 'usersAdminIndex'
@@ -71,26 +72,26 @@ Rails.application.routes.draw do
         post '/', to: 'projects/projects#index', as: 'projectsAdminIndexPost'
         get '/creer', to: 'projects/projects#create', as: 'projectsAdminCreateGet'
         post '/creer', to: 'projects/projects#create', as: 'projectsAdminCreatePost'
-        get '/editer/:id', to: 'projects/projects#editproject', as: 'projectEditGet'
-        post '/editer/:id', to: 'projects/projects#updateproject', as: 'projectUpdate'
-        post '/supprimer-projet/:id', to: 'projects/projects#projectdelete', as: 'projectDelete'
+        get '/editer/:slug', to: 'projects/projects#editproject', as: 'projectEditGet'
+        post '/editer/:slug', to: 'projects/projects#updateproject', as: 'projectUpdate'
+        post '/supprimer-projet/:slug', to: 'projects/projects#projectdelete', as: 'projectDelete'
        end
   end
 
   scope '/projets' do
     get '/', to: 'projects/projects#index', as: 'projectsIndex'
-    get '/voir/:id', to: 'projects/projects#show', as: 'projectShow'
+    get '/voir/:slug', to: 'projects/projects#show', as: 'projectShow'
     get '/creer', to: 'projects/projects#create', as: 'projectsCreateGet'
     post '/creer', to: 'projects/projects#create', as: 'projectsCreatePost'
     post '/follow/:id', to: 'projects/projects#follow', as: 'projectFollow'
-    get '/categorie/:id', to: 'projects/projects#category', as: 'projectCategory'
+    get '/categorie/:slug', to: 'projects/projects#category', as: 'projectCategory'
 
   end
 
   scope '/blog' do
     get '/', to: 'blogs/articles#index', as: 'blogIndex'
-    get '/article/:id', to: 'blogs/articles#show', as: 'blogShow'
-    get '/category/:id' , to: 'blogs/articles#category', as: 'blogCategory'
+    get '/article/:slug', to: 'blogs/articles#show', as: 'blogShow'
+    get '/category/:slug' , to: 'blogs/articles#category', as: 'blogCategory'
   end
 
   scope '/sondages' do

@@ -62,8 +62,8 @@
               <%= project.state %>
             </td>
             <td>
-              <%= link_to "<i class='fa fa-pencil'></i>".html_safe, admin_projectEditGet_url(project.id), class:'btn btn-warning'%>
-              <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_projectDelete_url(project.id), method: "post", class:'btn btn-danger'%>
+              <%= link_to "<i class='fa fa-pencil'></i>".html_safe, admin_projectEditGet_url(project.friendly_id), class:'btn btn-warning'%>
+              <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_projectDelete_url(project.friendly_id), method: "post", class:'btn btn-danger'%>
             </td>
           </tr>
         <% end %>

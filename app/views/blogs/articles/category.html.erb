@@ -20,7 +20,7 @@ meta title: "Meusetech - blog - Catégorie",
             </div>
             <div class="article-body">
               <div class="title">
-                <h2><%= link_to article.title , blogShow_url( article.id ) %> <span class="pull-right"><img class="logo_size" src="<%= article.category.icon %>" alt="category icon"/></span></h2>
+                <h2><%= link_to article.title , blogShow_url( article.friendly_id ) %> <span class="pull-right"><img class="logo_size" src="<%= article.category.icon %>" alt="category icon"/></span></h2>
               </div>
               <div class="infos">
                 <ul>
@@ -32,7 +32,7 @@ meta title: "Meusetech - blog - Catégorie",
               <% if @category.articles.first.id === article.id %>
               <div class="content">
                 <p><%= truncate(article.content, length: 200, separator: ' ') %></p>
-                <%= link_to "Lire la suite  <i class='fa fa-arrow-right' aria-hidden='true'></i>".html_safe , blogShow_url( article.id), class: "btn btn-primary pull-right" %>
+                <%= link_to "Lire la suite  <i class='fa fa-arrow-right' aria-hidden='true'></i>".html_safe , blogShow_url( article.friendly_id), class: "btn btn-primary pull-right" %>
               </div>
               <% end %>
             </div>

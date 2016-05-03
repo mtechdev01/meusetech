@@ -4,6 +4,6 @@
 
 <ul>
   <% @categories.each do | category | %>
-  <li> <%= link_to category.name , projectCategory_url(category.id) %> </li>
+  <li> <%= link_to category.name , projectCategory_url(category.friendly_id) %> </li>
   <% end %>
 </ul>

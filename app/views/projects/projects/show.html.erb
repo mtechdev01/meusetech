@@ -41,7 +41,7 @@ meta og: {
           <h1><%= @project.name %></h1>
         </div>
         <div class="thumb">
-          <%= image_tag(project.thumb, class: "img-responsive img-bordered", alt: "Avatar") %>
+          <%= image_tag(@project.thumb, class: "img-responsive img-bordered", alt: "Avatar") %>
         </div>
         <div class="triangle">
         </div>
@@ -64,9 +64,9 @@ meta og: {
       <% if user_signed_in? %>
         <a class="btn btn-primary" id="likeBtn" data-url="<%= likePost_url({model: 'project', id: @project.id}) %>"><span id="compteur"><%= @project.likes_count %></span> Like</a>
         <% if !@follow %>
-          <%= link_to "Suivre ce projet", projectFollow_url, class: "btn btn-primary", method: "post" %>
+          <%= link_to "Suivre ce projet", projectFollow_url(@project.id), class: "btn btn-primary", method: "post" %>
         <% else %>
-          <%= link_to "Ne plus suivre ce projet", projectFollow_url, class: "btn btn-danger", method: "post" %>
+          <%= link_to "Ne plus suivre ce projet", projectFollow_url(@project.id), class: "btn btn-danger", method: "post" %>
         <% end %>
       <% else %>
         <a href="/utilisateurs/connection" class="btn btn-primary"><%= @project.likes_count %> Like</a>
@@ -91,7 +91,21 @@ meta og: {
           </div>
           <div class="media-body">
             <h4 class="media-heading"><%= comment.user.username %></h4>
-              <%= comment.content %>
+              <% if comment.is_valid %>
+                <%= comment.content %>
+              <% elsif current_user &&  current_user.is_admin%>
+                <%= comment.content  %>
+              <% else %>
+              <span class="text-danger"> Commentaire en attente de validation</span>
+              <% end %>
+              <% if current_user &&  current_user.is_admin %>
+              <div class="pull-right">
+                <% if !comment.is_valid %>
+                <%= link_to "<i class='fa fa-check' aria-hidden='true'></i>".html_safe, validComment_url(comment.id), method: 'post', class:"btn btn-warning" %>
+                <% end %>
+                <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, deleteComment_url(comment.id), method: 'post', class:"btn btn-danger" %>
+              </div>
+              <% end %>
           </div>
         </div>
         <% end %>

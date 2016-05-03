@@ -3,7 +3,7 @@ meta title: "Meusetech - #{@poll.title}",
      description: @poll.description,
      keywords: ["Meusetech", "sondages",  @poll.title]
 %>
-<div class="container" id="poll-list">
+<div class="container" id="poll-list" style="margin-bottom:75px;">
   <h1><%= @poll.title %></h1>
   <%= form_for :fields, :url => pollReponse_url do |f| %>
   <input type="hidden" name="fields[poll_id]" value="<%= @poll.id %>">

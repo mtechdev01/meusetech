@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427124628) do
+ActiveRecord::Schema.define(version: 20160503001712) do
 
   create_table "blog_articles", force: :cascade do |t|
     t.datetime "created_at",                     null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160427124628) do
     t.boolean  "published",      default: false
     t.datetime "published_at"
     t.integer  "category_id"
+    t.string   "slug"
   end
 
   add_index "blog_articles", ["category_id"], name: "index_blog_articles_on_category_id"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160427124628) do
     t.text   "description"
     t.string "icon"
     t.string "color"
+    t.string "slug"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -52,6 +54,19 @@ ActiveRecord::Schema.define(version: 20160427124628) do
   add_index "comments", ["blog_article_id"], name: "index_comments_on_blog_article_id"
   add_index "comments", ["project_id"], name: "index_comments_on_project_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "likes", force: :cascade do |t|
     t.integer "blog_article_id"
@@ -144,6 +159,7 @@ ActiveRecord::Schema.define(version: 20160427124628) do
     t.string   "thumb"
     t.integer  "category_id"
     t.string   "location",       default: "verdun"
+    t.string   "slug"
   end
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id"

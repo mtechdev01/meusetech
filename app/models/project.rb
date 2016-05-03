@@ -1,5 +1,9 @@
 class Project < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :finders]
+
   mount_uploader :thumb, ProjectUploader
+
   has_many :comments
   has_many :likes
   has_many :followers, class_name: "ProjectsFollower",
@@ -20,4 +24,5 @@ class Project < ActiveRecord::Base
     order("likes_count + comments_count*6 DESC")
     .limit(3)
   end
+
 end

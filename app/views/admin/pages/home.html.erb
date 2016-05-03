@@ -181,6 +181,12 @@
                   Posté dans le projet: <%= link_to comment.project.name , projectShow_url( comment.project_id)%> <hr>
                 <% end %>
                 <%= truncate(comment.content, length: 25, separator: ' ') %>
+                <div class="pull-right">
+                  <% if !comment.is_valid %>
+                  <%= link_to "<i class='fa fa-check' aria-hidden='true'></i>".html_safe, validComment_url(comment.id), method: 'post', class:"btn btn-warning" %>
+                  <% end %>
+                  <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, deleteComment_url(comment.id), method: 'post', class:"btn btn-danger" %>
+                </div>
               </div><!-- /.direct-chat-text -->
             </div><!-- /.direct-chat-msg -->
           </div><!-- /.direct-chat-msg -->

@@ -42,9 +42,9 @@
                 <td style="line-height:64px;"><%= (article.published_at) ? time_tag(article.published_at) : '' %></td>
                 <td style="line-height:64px;">
                   <%= link_to '<i class="fa fa-facebook" aria-hidden="true"></i>'.html_safe, admin_blogredirectToFacebook_url(article.id), class: 'btn btn-primary', method: 'post'%>
-                  <%= link_to "<i class='fa fa-eye'></i>".html_safe, admin_articleEditGet_url(article.id), class:'btn btn-success'%>
-                  <%= link_to "<i class='fa fa-pencil'></i>".html_safe, admin_articleEditGet_url(article.id), class:'btn btn-warning'%>
-                  <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_articleDelete_url(article.id), method: "post", class:'btn btn-danger'%>
+                  <%= link_to "<i class='fa fa-eye'></i>".html_safe, admin_articleEditGet_url(article.friendly_id), class:'btn btn-success'%>
+                  <%= link_to "<i class='fa fa-pencil'></i>".html_safe, admin_articleEditGet_url(article.friendly_id), class:'btn btn-warning'%>
+                  <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_articleDelete_url(article.friendly_id), method: "post", class:'btn btn-danger'%>
                 </td>
               </tr>
               <% end %>

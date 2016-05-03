@@ -5,12 +5,12 @@ class Blogs::ArticlesController < ApplicationController
   end
 
   def show
-    @article = BlogArticle.find(params[:id])
+    @article = BlogArticle.friendly.find(params[:slug])
     @comments = @article.comments
   end
 
   def category
-    @category = Category.find(params[:id])
+    @category = Category.friendly.find(params[:slug])
   end
 
 end

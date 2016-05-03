@@ -8,7 +8,7 @@
         <%= image_tag article.thumb , class:"img-responsive img-thumbnail" %>
       </div>
       <div class="col-xs-8">
-        <%= link_to article.title , blogShow_url(article.id) %>
+        <%= link_to article.title , blogShow_url(article.friendly_id) %>
         </br>
         <b><%= article.category.name %></b>
       </div>

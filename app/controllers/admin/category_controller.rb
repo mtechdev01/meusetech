@@ -5,15 +5,15 @@ class Admin::CategoryController < Admin::AdminController
   end
 
   def show
-    @category = Category.find(params[:id])
+    @category = Category.friendly.find(params[:id])
   end
 
   def edit
-    @category = Category.find(params[:id])
+    @category = Category.friendly.find(params[:slug])
   end
 
   def update
-    @category = Category.find(params[:id])
+    @category = Category.friendly.find(params[:slug])
     if @category.update_attributes(article_params)
       flash[:notice] = "La mise à jour à été effectuée"
       flash[:class]= "success"
@@ -54,7 +54,7 @@ class Admin::CategoryController < Admin::AdminController
   end
 
   def delete
-    @category = Category.find(params[:id])
+    @category = Category.friendly.find(params[:slug])
     @category.destroy
     flash[:notice] = "Suppression de la catégorie enregistré"
     flash[:class] = "success"

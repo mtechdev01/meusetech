@@ -39,12 +39,12 @@ class Admin::Blogs::ArticlesController < Admin::AdminController
   end
 
   def edit
-    @articles = BlogArticle.find(params[:id])
+    @articles = BlogArticle.friendly.find(params[:slug])
     @categories = Category.all
   end
 
   def update
-    @article = BlogArticle.find(params[:id])
+    @article = BlogArticle.friendly.find(params[:slug])
     if @article.update_attributes( article_params )
       flash[:notice] = "La mise à jour à été effectuée"
       flash[:class]= "success"
@@ -57,7 +57,7 @@ class Admin::Blogs::ArticlesController < Admin::AdminController
   end
 
   def delete
-    @article = BlogArticle.find(params[:id])
+    @article = BlogArticle.friendly.find(params[:slug])
     if @article != nil
       @article.destroy
       flash[:notice] ="Cet article à été supprimé"
@@ -81,7 +81,7 @@ class Admin::Blogs::ArticlesController < Admin::AdminController
       @page_id = Rails.configuration.fb_page_id
       @page_token = @user_graph.get_page_access_token(@page_id)
       @page_graph = Koala::Facebook::API.new(@page_token)
-      @article = BlogArticle.find(params[:id])
+      @article = BlogArticle.friendly.find(params[:id])
       @page_graph.put_connections( @page_id, 'feed',  :message => @article.messageSanitized,
                                                   :name => @article.title,
                                                   :description => @article.category.name,

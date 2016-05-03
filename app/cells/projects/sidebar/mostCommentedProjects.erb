@@ -4,6 +4,6 @@
 
 <ul>
   <% @projects.each do | project | %>
-  <li> <%= link_to project.name , projectShow_url(project.id) %> </li>
+  <li> <%= link_to project.name , projectShow_url(project.friendly_id) %> </li>
   <% end %>
 </ul>

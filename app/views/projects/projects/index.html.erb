@@ -3,7 +3,7 @@ meta title: "Meusetech - Projets mis en ligne",
      description: "Bienvenue sur la plateforme participative et collaborative de MeuseTech. L’esprit MeuseTech, c’est quoi ? Il s’agit de rassembler sous ce chapeau l’ensemble des initiatives intelligentes et novatrices du territoire pour dynamiser la vie économique et sociale, ouvrir de nouvelles perspectives. Celles-ci pouvant prendre plusieurs formes",
      keywords: ["Meusetech", "projets", 'programme leader']
 %>
-<div class="container">
+<div class="container" style="  margin-top: 75px;">
   <div class="row">
     <div class="col-md-9">
       <div class="projects_depot--">
@@ -60,7 +60,7 @@ meta title: "Meusetech - Projets mis en ligne",
               Projet créé il y a : <%= time_ago_in_words project.created_at %> par <%= project.user.username %> à
             </div>
             <div class="project_list_card--infos_link">
-              <%= link_to "En savoir plus", projectShow_url(project.id)  %>
+              <%= link_to "En savoir plus", projectShow_url(project.friendly_id)  %>
             </div>
           </div>
           <div class="project_reseaux_sociaux">

@@ -34,8 +34,8 @@
                 <td><%= image_tag category.icon, size: "36x36", class: "img-responsive"%></td>
                 <td style="background-color: <%= category.color %>; width: 80px;"></td>
                 <td>
-                  <%= link_to "<i class='fa fa-pencil'></i>".html_safe, admin_categoryAdminEdit_url(category.id), class: "btn btn-warning" %>
-                  <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_categoryAdminDelete_url(category.id), class: "btn btn-danger" , method: "post"%>
+                  <%= link_to "<i class='fa fa-pencil'></i>".html_safe, admin_categoryAdminEdit_url(category.friendly_id), class: "btn btn-warning" %>
+                  <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_categoryAdminDelete_url(category.friendly_id), class: "btn btn-danger" , method: "post"%>
                 </td>
               </tr>
               <% end %>

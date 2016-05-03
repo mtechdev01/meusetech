@@ -10,12 +10,12 @@ class Admin::Projects::ProjectsController < Admin::AdminController
   end
 
   def editproject
-    @project = Project.find(params[:id])
+    @project = Project.friendly.find(params[:slug])
     @categories = Category.all
   end
 
   def updateproject
-    @project = Project.find(params[:id])
+    @project = Project.friendly.find(params[:slug])
     if @project.update_attributes(project_params)
       flash[:notice] = "La mise à jour à été effectuée"
       flash[:class]= "success"
@@ -33,7 +33,7 @@ class Admin::Projects::ProjectsController < Admin::AdminController
   end
 
   def projectdelete
-    @project = Project.find(params[:id])
+    @project = Project.friendly.find(params[:slug])
     if @project != nil
       @project.destroy
       flash[:notice] ="Ce projet à été supprimé"

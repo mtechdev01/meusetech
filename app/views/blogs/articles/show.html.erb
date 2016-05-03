@@ -32,7 +32,7 @@ meta og: {
           <i class="fa fa-user" aria-hidden="true"></i> <%= @article.user.username %> - <i class="fa fa-tag" aria-hidden="true"></i> <%= @article.category.name %>
         </div>
         <p>
-          <%= @article.content %>
+          <%= @article.content.html_safe %>
         </p>
       </div>
 
@@ -63,7 +63,21 @@ meta og: {
             </div>
             <div class="media-body">
               <h4 class="media-heading"><%= comment.user.username %></h4>
-                <%= comment.content %>
+                <% if comment.is_valid %>
+                  <%= comment.content %>
+                <% elsif current_user &&  current_user.is_admin%>
+                  <%= comment.content  %>
+                <% else %>
+                <span class="text-danger"> Commentaire en attente de validation</span>
+                <% end %>
+                <% if current_user &&  current_user.is_admin %>
+                <div class="pull-right">
+                  <% if !comment.is_valid %>
+                  <%= link_to "<i class='fa fa-check' aria-hidden='true'></i>".html_safe, validComment_url(comment.id), method: 'post', class:"btn btn-warning" %>
+                  <% end %>
+                  <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, deleteComment_url(comment.id), method: 'post', class:"btn btn-danger" %>
+                </div>
+                <% end %>
             </div>
           </div>
           <% end %>
